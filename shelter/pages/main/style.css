@@ -1,3 +1,8 @@
+html{
+  box-sizing: border-box;
+}
+
+*,
 *::after,
 *::before{
   box-sizing: inherit;
@@ -42,3 +47,114 @@ textarea,
 select {
   font: inherit;
 }
+
+a{
+  text-decoration: none;
+}
+
+body{
+  min-height: 100vh;
+}
+
+@font-face {
+  font-family: Arial, sans-serif;
+  src: url("/shelter/assets/fonts/arial/arial\ regular.ttf");
+}
+
+@font-face {
+  font-family: Georgia, serif;
+  src: url("/shelter/assets/fonts/georgia/georgia\regular.ttf");
+}
+
+:root {
+  --georgia: Georgia, serif;
+  --arial: Arial, sans-serif;
+  --color-white: #FFFFFF;
+  --color-semi-white: #F6F6F6;
+  --color-dark-s: #CDCDCD;
+  --color-primary: #F1CDB3;
+  --color-dark-l: #545454;
+  --color-dark-xl: #4C4C4C;
+  --color-dark-m: #B2B2B2;
+}
+
+.wrapper {
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.container{
+  width: 100%;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+.header{
+  background: url('../../assets/images/Start\ screen.jpg');
+  background-repeat: no-repeat;
+  background-position: center 0px;
+}
+
+.header__content-inner{
+  padding-top: 59px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+ display: flex;
+ flex-direction: column;
+}
+
+.logo__title{
+  padding-top: 2px;
+  font-family: var(--georgia);
+  color: var(--color-primary);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 35px;
+  align-items: center;
+  letter-spacing: 0.06em;
+}
+
+.logo__subtitile{
+  padding-left: 4px;
+  padding-top: 8px;
+  font-family: var(--arial);
+  color: var(--color-white);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  align-items: center;
+  letter-spacing: 0.1em;
+}
+
+.nav__list{
+  display: flex;
+} 
+
+.nav__list-item + .nav__list-item{
+  margin-left: 36px;
+}
+
+.nav__list-link{
+ padding-bottom: 3px;
+ font-family: var(--arial);
+ font-style: normal;
+ font-weight: 400;
+ font-size: 15px;
+ line-height: 24px;
+ color: var(--color-dark-s);
+}
+
+.nav__list-link.active{
+  border-bottom: 3px solid var(--color-primary);
+}
+
+
