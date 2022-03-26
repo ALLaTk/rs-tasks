@@ -71,6 +71,7 @@ body{
   --arial: Arial, sans-serif;
   --color-white: #FFFFFF;
   --color-semi-white: #F6F6F6;
+  --color-light-s: #FAFAFA;
   --color-dark-s: #CDCDCD;
   --color-primary: #F1CDB3;
   --color-dark-l: #545454;
@@ -155,6 +156,11 @@ body{
 
 .nav__list-link.active{
   border-bottom: 3px solid var(--color-primary);
+  color: var(--color-light-s);
 }
 
+.nav__list-link:hover{
+  color: var(--color-light-s);
+  transition: 3s;
+}
 
