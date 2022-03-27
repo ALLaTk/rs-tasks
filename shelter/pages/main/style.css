@@ -58,25 +58,47 @@ body{
 
 @font-face {
   font-family: Arial, sans-serif;
-  src: url("/shelter/assets/fonts/arial/arial\ regular.ttf");
+  src: url("/shelter/assets/fonts/arial/arial-regular.woff");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Arial, sans-serif;
+  src: url("/shelter/assets/fonts/arial/arial-italic.woff");
+  font-display: swap;
+  font-weight: 400;
+  font-style: italic;
 }
 
 @font-face {
   font-family: Georgia, serif;
-  src: url("/shelter/assets/fonts/georgia/georgia\regular.ttf");
+  src: url("/shelter/assets/fonts/georgia/georgia-regular.woff");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Georgia, serif;
+  src: url("/shelter/assets/fonts/georgia/georgia-bold.woff");
+  font-display: swap;
+  font-weight: 700;
+  font-style: bold;
 }
 
 :root {
-  --georgia: Georgia, serif;
-  --arial: Arial, sans-serif;
   --color-white: #FFFFFF;
   --color-semi-white: #F6F6F6;
   --color-light-s: #FAFAFA;
   --color-dark-s: #CDCDCD;
   --color-primary: #F1CDB3;
+  --color-primary-light: #FDDCC4;
   --color-dark-l: #545454;
   --color-dark-xl: #4C4C4C;
   --color-dark-m: #B2B2B2;
+  --color-dark-3xl: #292929;
 }
 
 .wrapper {
@@ -93,27 +115,30 @@ body{
   margin: 0 auto;
 }
 
-.header{
+.header__container{
   background: url('../../assets/images/Start\ screen.jpg');
   background-repeat: no-repeat;
   background-position: center 0px;
 }
 
-.header__content-inner{
+.header__content{
   padding-top: 59px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-image: url('../../assets/images/Start\ screen.jpg');
+  background-repeat: no-repeat;
+  background-position: center 0px;
 }
 
 .logo {
- display: flex;
- flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .logo__title{
   padding-top: 2px;
-  font-family: var(--georgia);
+  font-family: Georgia, serif;
   color: var(--color-primary);
   font-style: normal;
   font-weight: 400;
@@ -123,10 +148,10 @@ body{
   letter-spacing: 0.06em;
 }
 
-.logo__subtitile{
+.logo__subtitle{
   padding-left: 4px;
   padding-top: 8px;
-  font-family: var(--arial);
+  font-family: Arial, sans-serif;
   color: var(--color-white);
   font-style: normal;
   font-weight: 400;
@@ -146,7 +171,7 @@ body{
 
 .nav__list-link{
  padding-bottom: 3px;
- font-family: var(--arial);
+ font-family: Arial, sans-serif;
  font-style: normal;
  font-weight: 400;
  font-size: 15px;
@@ -161,6 +186,77 @@ body{
 
 .nav__list-link:hover{
   color: var(--color-light-s);
-  transition: 3s;
+  transition: 0.4s;
+}
+
+.not-only__container{
+  background-image: url('../../assets/images/Start\ screen.jpg');
+  background-repeat: no-repeat;
+  background-position: center -60px;
+  min-height: 100vh;
+}
+
+.not-only__section{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 60px;
+}
+
+.not-only__inner{
+  display: flex;
+  flex-direction: column;
+  padding: 165px 42px 243px 0;
+}
+
+.not-only__title{
+  width: 310px;
+  padding-bottom: 42px;
+  font-family: Georgia, serif;
+  color: var(--color-white);
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 57px;
+}
+
+.not-only__subtitle{
+  max-width: 460px;
+  padding-bottom: 41px;
+  font-family: Arial, sans-serif;
+  color: var(--color-dark-s);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.not-only__button{
+  background-color: var(--color-primary);
+  color: var(--color-dark-3xl);
+  align-items: center;
+  width: 207px;
+  height: 52px;
+  padding: 15px 45px;
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 0.06em;
+  border-radius: 100px;
+  border: none;
+  bottom: 0px;
+}
+
+
+.not-only__button:hover{
+  background-color: var(--color-primary-light);
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+
+.not-only__image{
+  background-size: contain;
+  background-repeat: no-repeat;  
+  background-color: transparent;  
 }
 
