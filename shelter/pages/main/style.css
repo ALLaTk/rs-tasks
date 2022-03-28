@@ -116,7 +116,7 @@ body{
 }
 
 .header__container{
-  background: url('../../assets/images/Start\ screen.jpg');
+  background: url('../../assets/images/jpg/Start\ screen.jpg');
   background-repeat: no-repeat;
   background-position: center 0px;
 }
@@ -126,7 +126,7 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: url('../../assets/images/Start\ screen.jpg');
+  background-image: url('../../assets/images/jpg/Start\ screen.jpg');
   background-repeat: no-repeat;
   background-position: center 0px;
 }
@@ -188,7 +188,7 @@ body{
 }
 
 .not-only__container{
-  background-image: url('../../assets/images/Start\ screen.jpg');
+  background-image: url('../../assets/images/jpg/Start\ screen.jpg');
   background-repeat: no-repeat;
   background-position: center -60px;
   min-height: 100vh;
@@ -219,7 +219,7 @@ body{
 .not-only__subtitle{
   max-width: 460px;
   padding-bottom: 41px;
-  font-family: Arial, sans-serif;
+  font-family: Georgia, serif;
   color: var(--color-dark-s);
   font-style: normal;
   font-weight: 400;
@@ -234,7 +234,7 @@ body{
   width: 207px;
   height: 52px;
   padding: 15px 45px;
-  font-family: Arial, sans-serif;
+  font-family: Georgia, serif;
   font-weight: 400;
   font-size: 17px;
   line-height: 22px;
@@ -264,7 +264,7 @@ body{
 }
 
 .about__image{
-  background: url('../../assets/images/about-pets.png');
+  background: url('../../assets/images/png/about-pets.png');
   background-repeat: no-repeat;
   background-position: center 0px;
   width: 300px;
@@ -276,7 +276,7 @@ body{
   display: flex;
   flex-direction: column;
   width: 430px;
-  /* margin-left: -172px; */
+
 }
 
 .about__text-title{
@@ -301,3 +301,145 @@ body{
   color: var(--color-dark-xl);
 }
 
+.our-friends__container{
+  background: var(--color-semi-white);
+}
+
+.our-friends{
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
+.our-friends__inner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.our-friends__text{
+  width: 400px;
+  height: 90px;
+  margin-bottom: 60px;
+}
+
+.our-friends__title{
+  font-family: Georgia, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 130%;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: var(--color-dark-l);
+}
+
+.our-friends__pets{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 60px;
+}
+
+.our-friends__button{
+  background-color: var(--color-primary);
+  color: var(--color-dark-3xl);
+  align-items: center;
+  width: 261px;
+  height: 52px;
+  padding: 15px 44px;
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 0.06em;
+  border-radius: 100px;
+  border: none;
+  bottom: 0px;
+}
+
+.our-friends__button:hover{
+  background-color: var(--color-primary-light);
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.logo-btn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 6px;
+  width: 52px;
+  height: 52px;
+  border: 3px solid var(--color-primary);
+  box-sizing: border-box;
+  border-radius: 100px;
+  background-color: transparent;
+}
+
+.logo-btn:hover{
+  background-color: var(--color-primary-light);
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.our-frends__content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 270px;
+  height: 435px;
+  background: var(--color-light-s);
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+.our-frends__name{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-family: Georgia, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: var(--color-dark-l);
+}
+
+.our-frends__content + .our-frends__content{
+  margin-left: 90px;
+}
+
+.logo-btn.left{
+  margin-right: 53px;
+}
+
+.logo-btn.right{
+  margin-left: 53px;
+}
+
+.pets__button{
+  background-color: var(--color-light-s);
+  color: var(--color-dark-3xl);
+  align-items: center;
+  width: 187px;
+  height: 52px;
+  padding: 13px 42px;
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 0.06em;
+  border-radius: 100px;
+  border: 2px solid var(--color-primary);
+  box-sizing: border-box;
+  bottom: 0px;
+}
+
+.pets__button:hover{
+  background-color: var(--color-primary-light);
+  transition: 0.4s;
+  cursor: pointer;
+  border: none;
+}
