@@ -144,7 +144,6 @@ body{
   font-weight: 400;
   font-size: 32px;
   line-height: 35px;
-  align-items: center;
   letter-spacing: 0.06em;
 }
 
@@ -157,7 +156,6 @@ body{
   font-weight: 400;
   font-size: 13px;
   line-height: 15px;
-  align-items: center;
   letter-spacing: 0.1em;
 }
 
@@ -246,17 +244,60 @@ body{
   bottom: 0px;
 }
 
-
 .not-only__button:hover{
   background-color: var(--color-primary-light);
   transition: 0.4s;
   cursor: pointer;
 }
 
-
 .not-only__image{
   background-size: contain;
   background-repeat: no-repeat;  
   background-color: transparent;  
+}
+
+.about__inner {
+  display: flex;
+  justify-content: center;
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
+.about__image{
+  background: url('../../assets/images/about-pets.png');
+  background-repeat: no-repeat;
+  background-position: center 0px;
+  width: 300px;
+  height: 408px;
+  margin-right: 120px;
+}
+
+.about__text{
+  display: flex;
+  flex-direction: column;
+  width: 430px;
+  /* margin-left: -172px; */
+}
+
+.about__text-title{
+  padding-top: 14px;
+  font-family: Georgia, serif;
+  width: 370px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: var(--color-dark-l);
+}
+
+.about__text-subtitle{
+  font-family: Arial, sans-serif;
+  padding-top: 25px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 160%;
+  color: var(--color-dark-xl);
 }
 
