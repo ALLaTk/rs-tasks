@@ -1,5 +1,6 @@
 html{
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 *,
@@ -175,6 +176,7 @@ body{
  font-size: 15px;
  line-height: 24px;
  color: var(--color-dark-s);
+ transition: 0.5s;
 }
 
 .nav__list-link.active{
@@ -219,7 +221,7 @@ body{
 .not-only__subtitle{
   max-width: 460px;
   padding-bottom: 41px;
-  font-family: Georgia, serif;
+  font-family: Arial, sans-serif;
   color: var(--color-dark-s);
   font-style: normal;
   font-weight: 400;
@@ -233,7 +235,7 @@ body{
   align-items: center;
   width: 207px;
   height: 52px;
-  padding: 15px 45px;
+  padding: 15px 44px;
   font-family: Georgia, serif;
   font-weight: 400;
   font-size: 17px;
@@ -264,9 +266,9 @@ body{
 }
 
 .about__image{
-  background: url('../../assets/images/png/about-pets.png');
+  /* background: url('../../assets/images/png/about-pets.png');
   background-repeat: no-repeat;
-  background-position: center 0px;
+  background-position: center 0px; */
   width: 300px;
   height: 408px;
   margin-right: 120px;
@@ -276,7 +278,6 @@ body{
   display: flex;
   flex-direction: column;
   width: 430px;
-
 }
 
 .about__text-title{
@@ -381,6 +382,8 @@ body{
   background-color: var(--color-primary-light);
   transition: 0.4s;
   cursor: pointer;
+  border: none;
+  padding: 23px 6px;
 }
 
 .our-frends__content{
@@ -391,7 +394,13 @@ body{
   height: 435px;
   background: var(--color-light-s);
   border-radius: 9px;
+}
+
+.our-frends__content:hover{
+  background-color: var(--color-white);
   cursor: pointer;
+  transition: 0.4s;
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 }
 
 .our-frends__name{
@@ -443,3 +452,61 @@ body{
   cursor: pointer;
   border: none;
 }
+
+.help__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
+.help__text-content {
+  width: 308px;
+  height: 90px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.help__text-title {
+  font-family: Georgia, serif;
+  width: 370px;
+  font-style: normal;
+  text-align: center;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: var(--color-dark-l);
+}
+
+.help__items-inner {
+  display: flex;
+  flex-flow: row wrap;
+  column-gap: 119px;
+  row-gap: 55px;
+  margin-left: 88px;
+  margin-right: 87px;
+  justify-content: center;
+}
+
+.help__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.help__text {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: var(--color-dark-l);
+  padding-top: 30px;
+}
+
