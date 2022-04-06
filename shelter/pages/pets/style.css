@@ -1,6 +1,7 @@
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 *,
@@ -55,6 +56,7 @@ a {
 
 body {
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 @font-face {
@@ -107,6 +109,7 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .container {
@@ -184,7 +187,7 @@ header{
 
 .nav__list-link.active {
   border-bottom: 3px solid var(--color-primary);
-  color: var(--color-dark-l);
+  color: var(--color-dark-3xl);
 }
 
 .nav__list-link:hover {
@@ -233,28 +236,6 @@ header{
   padding-bottom: 29px;
 }
 
-.our-friends__navigation {
-  /* background-color: var(--color-primary);
-  color: var(--color-dark-3xl);
-  align-items: center;
-  width: 261px;
-  height: 52px;
-  padding: 15px 44px;
-  font-family: Georgia, serif;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 22px;
-  letter-spacing: 0.06em;
-  border-radius: 100px;
-  border: none;
-  bottom: 0px; */
-  width: 340px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-
 .our-frends__content {
   display: flex;
   flex-direction: column;
@@ -287,6 +268,7 @@ header{
 
 .our-frends__content {
   margin-bottom: 30px;
+  border-radius: 9px
 }
 
 .pets__button {
@@ -314,7 +296,7 @@ header{
   border: none;
 }  
 
-.logo-btn {
+.logo__btn {
   align-items: center;
   width: 52px;
   height: 52px;
@@ -329,6 +311,12 @@ header{
   line-height: 115%;
   text-align: center;
   color: var(--color-dark-3xl);
+}
+
+.our-friends__navigation{
+  width: 340px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .btn__left{
@@ -348,12 +336,12 @@ header{
   color: var(--color-dark-s);
 }
 
-.logo-btn.active{
+.logo__btn.active{
   border: none;
   background-color: var(--color-primary);
 }
 
-.logo-btn:hover {
+.logo__btn.right:hover {
   background-color: var(--color-primary-light);
   transition: 0.4s;
   cursor: pointer;
