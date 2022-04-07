@@ -289,7 +289,7 @@ body{
 .about__text-title{
   padding-top: 14px;
   font-family: Georgia, serif;
-  width: 370px;
+  max-width: 370px;
   font-style: normal;
   font-weight: 400;
   font-size: 35px;
@@ -690,6 +690,8 @@ body{
 
   .header__container {
     background: url('../../assets/images/jpg/main768.jpg');
+    background-repeat: no-repeat;
+    background-position: center 0px;
   }
 
   .nav__list-link.active {
@@ -702,6 +704,8 @@ body{
 
   .not-only__container {
     background-image: url('../../assets/images/jpg/main768.jpg');
+    background-repeat: no-repeat;
+    background-position: center -60px;
   }
 
   .not-only__section {
@@ -729,4 +733,20 @@ body{
   .not-only__image {
     margin-left: 139px;
   }  
+
+  .about__inner {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    row-gap: 79px;
+  }
+
+  .about__image {
+    margin: 0 auto;
+  }
+
+  .about__text-title {
+    padding-top: 0px;
+  }  
+
 }
