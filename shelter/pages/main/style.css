@@ -386,6 +386,7 @@ body{
   transition: 0.4s;
   cursor: pointer;
   border: none;
+  border: 2px solid var(--color-primary-light);
 }
 
 .friends-btn{
@@ -475,6 +476,7 @@ body{
   transition: 0.4s;
   cursor: pointer;
   border: none;
+  border: 2px solid var(--color-primary-light);
 }
 
 .help__inner {
@@ -760,5 +762,16 @@ body{
 
   .our-frends__content+.our-frends__content{
     margin-left: 0px;
+  }
+
+  .help__items-inner {
+    column-gap: 60px;
+    margin-left: 38px;
+    margin-right: 38px;
+    align-items: center;
+  }
+
+  .help__item {
+    width: 170px;
   }
 }
