@@ -167,7 +167,7 @@ body{
 }
 
 .nav__list-link{
- padding-bottom: 3px;
+ padding-bottom: 2px;
  font-family: Arial, sans-serif;
  font-style: normal;
  font-weight: 400;
@@ -197,14 +197,14 @@ body{
 .not-only__section{
   display: flex;
   justify-content: space-between;
-  padding-top: 61px;
+  padding-top: 60px;
   width: 100%;
 }
 
 .not-only__inner{
   display: flex;
   flex-direction: column;
-  padding: 165px 42px 0px 0; 
+  padding: 164px 42px 0px 0; 
 }
 
 .not-only__title{
@@ -733,7 +733,7 @@ body{
   .about__text-title {
     padding-top: 0px;
   }  
-  
+
   .our-frends__content.woody{
     display: none;
   }
