@@ -56,7 +56,6 @@ a {
 
 body {
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 @font-face {
@@ -105,15 +104,13 @@ body {
 }
 
 .wrapper {
-  max-width: 1280px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  overflow: hidden;
 }
 
 .container {
-  width: 100%;
+  max-width: 1280px;
   padding: 0 40px;
   margin: 0 auto;
 }
@@ -128,8 +125,6 @@ header{
 }
 
 .header__content {
-  position: sticky;
-  top: 0;
   padding-top: 29px;
   padding-bottom: 30px;
   display: flex;
@@ -243,6 +238,7 @@ header{
   width: 270px;
   height: 435px;
   background: var(--color-light-s);
+  margin-bottom: 30px;
   border-radius: 9px;
 }
 
@@ -264,11 +260,6 @@ header{
   text-align: center;
   letter-spacing: 0.06em;
   color: var(--color-dark-l);
-}
-
-.our-frends__content {
-  margin-bottom: 30px;
-  border-radius: 9px
 }
 
 .pets__button {
@@ -349,9 +340,10 @@ header{
 }
 
 .footer__container {
-  background: url('../../assets/images/jpg/Footer.jpg');
+  background: url('../../assets/images/jpg/main1280.jpg');
   background-repeat: no-repeat;
   background-position: center 0px;
+  background-size: cover;
 }
 
 .footer__content {
@@ -406,3 +398,68 @@ header{
   color: var(--color-primary);
   padding-left: 20px;
 }
+
+@media (max-width: 1200px) {
+  .container {
+    /* width: 100%; */
+    padding: 0 30px;
+    margin: 0 auto;
+  }
+
+  .header__content {
+    padding-top: 28px;
+    padding-bottom: 31px;
+  }
+
+  .logo__title{
+    padding-top: 3px;
+  }
+
+  .our-friends{
+    padding-bottom: 76px;
+  }
+
+  .our-friends__text{
+    margin-bottom: 0;
+  }
+
+  .our-frends__content.scarlett {
+    display: none;
+  }
+
+  .our-frends__content.freddie {
+    display: none;
+  }
+
+  .our-friends__pets {
+    justify-content: center;
+    width: 580px;
+    column-gap: 40px;
+    padding: 28px 0 10px 0;
+  }
+
+  .footer__container {
+    background: url('../../assets/images/jpg/footer768.jpg');
+    background-repeat: no-repeat;
+    background-position: center 0px;
+    background-size: cover;
+  }
+  
+  .footer__content {
+    flex-flow: row wrap;
+    column-gap: 60px;
+    row-gap: 65px;
+    justify-content: center;
+    padding-top: 31px;
+    max-width: 708px;
+    margin: 0 auto;
+  }
+  
+  .contacts__inner-questions {
+    padding-top: 0px;
+  }
+  
+  .contacts__inner-visit {
+    padding-top: 0px;
+  }
+}  
