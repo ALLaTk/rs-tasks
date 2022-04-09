@@ -1,0 +1,25 @@
+[33mc34725d[m[33m ([m[1;36mHEAD -> [m[1;32mshelter[m[33m, [m[1;31morigin/shelter[m[33m)[m feat: add media query 768 Contacts section
+[33mcf638c3[m feat: add media query 768 Contacts section
+[33m1ebe412[m feat: add media query 768 Donation section and Contacts section
+[33mcde861b[m feat: add media query 768 Donation section
+[33m53c8bf1[m fead: add media query 768 Help section
+[33mef6b7b7[m fead: add media query 768 Our friends section
+[33mb6ee053[m fead: add media query 768 About section
+[33mf189cd4[m fead: add media query 768 Not only section
+[33md8c33f0[m fix: fix bugs
+[33m98eb74d[m refactor: change structure of the project
+[33m341df6c[m feat: add footer container on the page Pets
+[33m4590523[m feat: add Our pets section on the page Pets
+[33m6af4c91[m feat: add header container on the page Pets
+[33me7d950f[m feat: add Footer container
+[33md6a7c75[m feat: add Donation section
+[33m7f1ebfe[m Revert "feat: add Donation section"
+[33m6e19ccf[m feat: add footer container
+[33mb279a41[m feat: add Help section
+[33m7c09789[m feat: add Our frends section
+[33mbf94fa6[m feat: add About section
+[33mbd32b0f[m feat: add "Not only" section
+[33m9c085f8[m feat: add hover property for links
+[33mcae7a70[m feat: add header container
+[33md7bfd3a[m init: start task
+[33mba0eb91[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m Initial commit
