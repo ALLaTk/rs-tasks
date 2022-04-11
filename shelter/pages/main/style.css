@@ -281,7 +281,7 @@ body{
 .about__image{
   width: 300px;
   height: 408px;
-  margin-right: 121px;
+  margin-right: 120px;
 }
 
 .about__text{
@@ -554,7 +554,7 @@ body{
   max-width: 505px;
   height: 261px;
   margin-right: 28px;
-  margin-top: 11px;
+  margin-top: 10px;
 }
 
 .donation__text {
@@ -641,7 +641,7 @@ body{
 .contacts__inner-questions{
   display: flex;
   flex-direction: column;
-  width: 279px;
+  width: 280px;
   padding-top: 17px;
 }
 
