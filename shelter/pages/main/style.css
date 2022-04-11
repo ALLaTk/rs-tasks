@@ -135,7 +135,7 @@ body{
 }
 
 .logo__title{
-  padding-top: 2px;
+  padding-top: 1px;
   font-family: Georgia, serif;
   color: var(--color-primary);
   font-style: normal;
@@ -147,7 +147,7 @@ body{
 
 .logo__subtitle{
   padding-left: 4px;
-  padding-top: 8px;
+  padding-top: 9px;
   font-family: Arial, sans-serif;
   color: var(--color-white);
   font-style: normal;
@@ -160,6 +160,10 @@ body{
 .nav__list{
   display: flex;
 } 
+
+.nav {
+  padding-bottom: 3px;
+}
 
 .nav__list-item + .nav__list-item{
   margin-left: 36px;
@@ -179,11 +183,16 @@ body{
 .nav__list-link.active{
   border-bottom: 3px solid var(--color-primary);
   color: var(--color-light-s);
+  padding-bottom: 3px;
 }
 
 .nav__list-link:hover{
   color: var(--color-light-s);
   transition: 0.4s;
+}
+
+.burger{
+  display: none;
 }
 
 .not-only__container{
@@ -272,7 +281,7 @@ body{
 .about__image{
   width: 300px;
   height: 408px;
-  margin-right: 120px;
+  margin-right: 121px;
 }
 
 .about__text{
@@ -295,7 +304,7 @@ body{
 
 .about__text-subtitle{
   font-family: Arial, sans-serif;
-  padding-top: 25px;
+  padding-top: 24px;
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -303,12 +312,16 @@ body{
   color: var(--color-dark-xl);
 }
 
+.about__text-subtitle.second {
+  padding-top: 25px;
+}
+
 .our-friends__container{
   background: var(--color-semi-white);
 }
 
 .our-friends{
-  padding-top: 80px;
+  padding-top: 81px;
   padding-bottom: 100px;
 }
 
@@ -322,7 +335,7 @@ body{
 .our-friends__text{
   width: 400px;
   height: 90px;
-  margin-bottom: 60px;
+  margin-bottom: 59px;
 }
 
 .our-friends__title{
@@ -348,7 +361,7 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 53px 0 53px;
+  padding: 0 52px 0 53px;
   overflow: hidden;
 }
 
@@ -358,7 +371,8 @@ body{
   align-items: center;
   width: 261px;
   height: 52px;
-  padding: 15px 44px;
+  justify-content: center;
+  display: flex;
   font-family: Georgia, serif;
   font-weight: 400;
   font-size: 17px;
@@ -444,8 +458,11 @@ body{
 .pets__button{
   background-color: var(--color-light-s);
   color: var(--color-dark-3xl);
+  display: flex;
+  width: 187px;
+  height: 52px;
   align-items: center;
-  padding: 13px 43px;
+  justify-content: center;
   font-family: Georgia, serif;
   font-weight: 400;
   font-size: 17px;
@@ -469,14 +486,14 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 80px;
+  padding-top: 81px;
   padding-bottom: 100px;
 }
 
 .help__text-content {
   width: 308px;
   height: 90px;
-  margin-bottom: 60px;
+  margin-bottom: 59px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -529,14 +546,14 @@ body{
 .donation__inner {
   display: flex;
   justify-content: center;
-  padding-top: 80px;
-  padding-bottom: 101px;
+  padding-top: 81px;
+  padding-bottom: 100px;
 }
 
 .donation__image {
   max-width: 505px;
   height: 261px;
-  margin-right: 30px;
+  margin-right: 28px;
   margin-top: 11px;
 }
 
@@ -544,6 +561,7 @@ body{
   display: flex;
   flex-direction: column;
   width: 380px;
+  padding-left: 2px;
 }
 
 .donation__text-title {
@@ -559,7 +577,7 @@ body{
 
 .donation__sub-heading {
   font-family: Georgia, serif;
-  padding-top: 20px;
+  padding-top: 19px;
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -582,7 +600,7 @@ body{
   width: 349px;
   height: 43px;
   background-color: var(--color-primary);
-  margin-top: 18px;
+  margin-top: 19px;
   display: flex;
   justify-content: center;
   padding: 10px 14px;
@@ -795,5 +813,5 @@ body{
   .contacts__inner-visit {
     padding-top: 0px;
   }
-  
 }
+
