@@ -190,6 +190,10 @@ header{
   transition: 0.4s;
 }
 
+.burger {
+  display: none;
+}
+
 .our-friends__container {
   background: var(--color-semi-white);
 }
@@ -463,3 +467,4 @@ header{
     padding-top: 0px;
   }
 }  
+
