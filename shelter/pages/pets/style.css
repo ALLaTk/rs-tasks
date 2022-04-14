@@ -403,3 +403,258 @@ header{
   padding-left: 20px;
 }
 
+@media (max-width: 1279px) {
+  .container {
+    /* width: 100%; */
+    padding: 0 30px;
+    margin: 0 auto;
+  }
+
+  .header__content {
+    padding-top: 28px;
+    padding-bottom: 31px;
+  }
+
+  .logo__title{
+    padding-top: 3px;
+  }
+
+  .our-friends{
+    padding-bottom: 76px;
+  }
+
+  .our-friends__text{
+    margin-bottom: 0;
+  }
+
+  .our-frends__content.scarlett {
+    display: none;
+  }
+
+  .our-frends__content.freddie {
+    display: none;
+  }
+
+  .our-friends__pets {
+    justify-content: center;
+    width: 580px;
+    column-gap: 40px;
+    padding: 28px 0 10px 0;
+  }
+
+  .footer__container {
+    background: url('../../assets/images/jpg/footer768.jpg');
+    background-repeat: no-repeat;
+    background-position: center 0px;
+    background-size: cover;
+  }
+  
+  .footer__content {
+    flex-flow: row wrap;
+    column-gap: 60px;
+    row-gap: 65px;
+    justify-content: center;
+    padding-top: 31px;
+    max-width: 708px;
+    margin: 0 auto;
+  }
+  
+  .contacts__inner-questions {
+    padding-top: 0px;
+  }
+  
+  .contacts__inner-visit {
+    padding-top: 0px;
+  }
+}  
+
+@media (max-width: 767px) {
+  .container {
+    padding: 0 10px;
+    margin: 0 auto;
+  }
+
+  .header__content {
+    padding-right: 43px;
+  }
+
+  .nav__list {
+    position: fixed;
+    flex-direction: column;
+    text-align: center;
+    height: 100%;
+    background-color: #FFFFFF;
+    top: 0;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .nav__list.open {
+    visibility: visible;
+    opacity: 1;
+    width: 85%;
+    right: 0px;
+    transition: 1s;
+    padding-top: 250px;
+    z-index: 2;
+  }
+
+  html.open {
+    overflow: hidden;
+  }
+
+  .logo.open {
+    z-index: 3;
+    margin-left: 18%;
+    transition: 1s;
+  }
+
+  .logo {
+    transition: 1s;
+  }
+
+  .nav__list-item+.nav__list-item {
+    margin-left: 0;
+    margin-top: 41px;
+  }
+
+  .nav__list-link {
+    font-size: 32px;
+    line-height: 51px;
+  }
+
+  .nav__list-link.active {
+    padding-bottom: 6px;
+  }
+
+  .burger {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    z-index: 2;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    transform: 1.5s;
+  }
+
+  .burger .line {
+    width: 30px;
+    height: 9.1%;
+    background-color: #000000;
+    display: block;
+  }
+
+  .burger.open {
+    position: relative;
+    transform: rotate(90deg);
+    transform: 1s;
+  }
+
+  .our-friends {
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+
+  .our-friends__title {
+    font-size: 25px;
+    line-height: 32px;
+  }
+
+  .our-friends__text {
+    width: 300px;
+    height: 64px;
+    margin-bottom: 42px;
+  }
+
+  .our-frends__content {
+    margin-bottom: 0;
+  }
+
+  .our-frends__content.sophia {
+    display: none;
+  }
+
+  .our-frends__content.timmy {
+    display: none;
+  }
+
+  .our-frends__content.charly {
+    display: none;
+  }
+
+  .our-friends__pets {
+    flex-direction: column;
+    padding: 0;
+    width: 100%;
+    row-gap: 30px;
+    padding-bottom: 42px;
+  }
+
+  .our-friends__navigation {
+    width: 300px;
+  }
+
+  .footer__container {
+    background: url('../../assets/images/jpg/footer320.jpg');
+    background-repeat: no-repeat;
+    background-position: center 0px;
+    background-size: cover;
+  }
+
+  .contact__title {
+    font-size: 25px;
+    text-align: center;
+  }
+
+  .contacts__inner-questions {
+    width: 300px;
+  }
+
+  .contact__subtitle-questions {
+    justify-content: center;
+  }
+
+  .footer__content {
+    row-gap: 40px;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+  }
+
+  .contacts__inner-visit {
+    align-items: center;
+  }
+
+  .contact__title.second {
+    width: 270px;
+  }
+
+  .contact__subtitle-visit {
+    padding-top: 40px;
+    width: 300px;
+    text-align: left;
+  }
+
+  .contact__image {
+    width: 260px;
+    height: 269px;
+  }
+
+  .contact__puppy {
+    width: 260px;
+    height: 269px;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav__list.open {
+    width: 100%;
+  }
+
+  .logo.open {
+    margin-left: 0;
+  }
+}
