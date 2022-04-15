@@ -501,7 +501,7 @@ header.open{
   .nav {
     position: fixed;
     flex-direction: column;
-    height: 100%;
+    height: 3000;
     top: 0;
     right: -325px;
     transition: 1.3s;
@@ -509,12 +509,6 @@ header.open{
 
   body.open {
     overflow-y: hidden;
-  }
-
-.logo.open {
-    z-index: 3;
-    transition: 0.5s;
-    opacity: 0;
   }
 
   .logo.open {
@@ -532,7 +526,7 @@ header.open{
   }
   
   .logo {
-    transition: 0.5s;
+    transition: 2.5s;
     opacity: 1;
   }
 
