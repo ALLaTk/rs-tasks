@@ -6,15 +6,15 @@ const menuLinks = [...document.querySelectorAll('.nav__list-link')];
 const div = document.createElement('div');
 const header = document.querySelector('header');
 
-document.body.append(div)
+document.body.append(div);
 
 function toggleMenu () {
   burger.classList.toggle('open');
   menu.classList.toggle('open');
   logo.classList.toggle('open');
   body.classList.toggle('open');
-  header.classList.toggle('open')
-  div.classList.toggle('overlay')
+  header.classList.toggle('open');
+  div.classList.toggle('overlay');
 }
 
 const burgerSubscribe = () => {
@@ -22,7 +22,7 @@ const burgerSubscribe = () => {
   div.addEventListener('click', toggleMenu);
   menuLinks.forEach((el, index) => {
     // if (index < 2) {
-    el.addEventListener('click', toggleMenu)
+    el.addEventListener('click', toggleMenu);
     // } else
     // el.href = "#!";
   });
