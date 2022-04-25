@@ -7,8 +7,14 @@ const btnRightInital = document.querySelector('.logo__btn.right.inital');
 const btnRightLast = document.querySelector('.logo__btn.right.last');
 const slider = document.querySelector('.slider');
 let block = document.querySelector('.pets__block.one');
-// let blockTwo = document.querySelector('.pets__block.two');
-// let blockThree = document.querySelector('.pets__block.three');
+
+const addquerySelectors = () => {
+
+  const pet = [...document.querySelectorAll('.our-frends__content')];
+  pet.forEach((el) => {el.addEventListener('click', getPet)});
+
+}
+
 let pageNumber = document.querySelector('.logo__btn.active');
 let count = 1;
 let index = 0;
