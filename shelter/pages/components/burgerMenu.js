@@ -9,12 +9,14 @@ const header = document.querySelector('header');
 document.body.append(div);
 
 function toggleMenu () {
+  if(window.innerWidth<768){
   burger.classList.toggle('open');
   menu.classList.toggle('open');
   logo.classList.toggle('open');
   body.classList.toggle('open');
   header.classList.toggle('open');
   div.classList.toggle('overlay');
+  }
 }
 
 const burgerSubscribe = () => {
