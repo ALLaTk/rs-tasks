@@ -1296,7 +1296,7 @@ body.active {
     }
   
     to {
-      left: 585px;
+      left: 270px;
     }
   }
   
@@ -1306,7 +1306,7 @@ body.active {
     }
   
     to {
-      left: -585px;
+      left: -270px;
     }
   }
   

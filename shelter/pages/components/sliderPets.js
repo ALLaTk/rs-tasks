@@ -69,7 +69,7 @@ createRandomBlocksPets();
 const moveLeft = () => {
   slider.classList.add('transition-left');
   btnLeft.addEventListener('click', moveLeft)
- 
+  createNewRandomArr()
     if (count > 1 && count < 6) {
      console.log(pageNumber.innerHTML = count - 1); 
       
@@ -83,6 +83,7 @@ const moveLeft = () => {
 }
 
 const moveRight = () => {
+  createNewRandomArr()
   slider.classList.add('transition-right');
  
    btnRight.addEventListener('click', moveRight)
@@ -98,15 +99,15 @@ const moveRight = () => {
 }
 
 slider.addEventListener('animationend', (event) => {
+ 
   if (event.animationName === 'move-left') {   
      slider.classList.remove('transition-left');
-     document.querySelector('.pets__block.two').innerHTML = blockOne.innerHTML;  
-     createNewRandomArr()
+ 
      createBlock(blockOne);
   } else {
     slider.classList.remove('transition-right')
     document.querySelector('.pets__block.two').innerHTML = blockThree.innerHTML
-    createNewRandomArr()
+    
     createBlock(blockThree);
   }   
 })
