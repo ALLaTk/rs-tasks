@@ -134,6 +134,10 @@ body.active {
   flex-direction: column;
 }
 
+.logo__link{
+  cursor: default;
+}
+
 .burger__logo{
   display: none;
 }
@@ -1143,11 +1147,10 @@ body.active {
     overflow-y: hidden;
   }
 
-  .logo.open .logo__link{
+  .logo.open {
     z-index: 3;
     transition: 1s;
     opacity: 0;
-    cursor: default;
   }
 
   .burger__logo {
@@ -1343,7 +1346,6 @@ body.active {
     column-gap: 80px;
     row-gap: 20px;
     padding-bottom: 42px;
-    width: 270px;
   }
 
   .friends-btn.left {
