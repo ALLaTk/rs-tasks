@@ -124,6 +124,10 @@ header.open{
   background: var(--color-white);
 }
 
+.header__container.open {
+  background: none;
+}
+
 .header__content {
   padding-top: 29px;
   padding-bottom: 30px;

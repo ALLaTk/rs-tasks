@@ -33,8 +33,6 @@ for (let i = 0; i < 16; i++) {
   arrPets.push(arr);
 };
 
-console.log(arrPets);
-
 const createBlock = (elem) => {
   elem.innerHTML = '';
   for (let i = 0; i < arrPets[index].length; i++) {
@@ -60,25 +58,24 @@ const createRandomomMainBlockPets = () => {
 createRandomomMainBlockPets();
 
 
-const moveLeft = () => {
+const moveLeft = () => { 
+    index--;
+    createBlock(block);
   
-   index--
-    createBlock(block)
-   
-    document.querySelector('.pets__block.one').innerHTML = block.innerHTML
+  document.querySelector('.pets__block.one').innerHTML = block.innerHTML;
   slider.classList.add('transition-left');
-  btnLeftInital.addEventListener('click', moveLeft)
+  btnLeftInital.addEventListener('click', moveLeft);
   if (slidesPage() === 16)
     if (count > 1 && count < 17) {
      pageNumber.innerHTML = count - 1; 
-     btnRightInital.disabled = false
-     btnRightLast.disabled = false
+     btnRightInital.disabled = false;
+     btnRightLast.disabled = false;
    } 
    if (slidesPage() === 8)
     if (count > 1 && count < 9) {
      pageNumber.innerHTML = count - 1; 
-     btnRightInital.disabled = false
-     btnRightLast.disabled = false
+     btnRightInital.disabled = false;
+     btnRightLast.disabled = false;
    } 
     if (slidesPage() === 6)
     if (count > 1 && count < 7) {
@@ -93,23 +90,20 @@ const moveLeft = () => {
    }
   
   count-- 
- 
 }
 
 const moveLeftLast = () => {
-  
+  index = 0
   pageNumber.innerHTML = 1;
   slider.classList.add('transition-left');
-  btnLeftLast.addEventListener('click', moveLeft)
+  btnLeftLast.addEventListener('click', moveLeftLast)
 
   btnLeftLast.disabled = true
   btnLeftInital.disabled = true
   btnRightInital.disabled = false
   btnRightLast.disabled = false
-  
+ 
   count = 1
-  
-  
 }
 
 const moveRightLast = () => {
