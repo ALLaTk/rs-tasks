@@ -543,6 +543,16 @@ body.active {
   transition: 5s;
 }
 
+@keyframes move {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .modal__window.active {
   display: flex;
   flex-direction: column;
@@ -555,6 +565,8 @@ body.active {
   left: 52px;
   right: 0;
   transform: 5s;
+  animation-name: move;
+  animation-duration: 1s;
 }
 
 .modal__btn {
@@ -1340,13 +1352,14 @@ body.active {
   }
 
 
-  .our-friends__pets-container {
-    flex-wrap: wrap;
-    justify-content: center;
-    column-gap: 80px;
-    row-gap: 20px;
-    padding-bottom: 42px;
-  }
+.our-friends__pets-container {
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 80px;
+  row-gap: 20px;
+  width: 270px;
+  padding-bottom: 42px;
+}
 
   .friends-btn.left {
     order: 1;

@@ -59,6 +59,7 @@ const createRandomomMainBlockPets = () => {
 }
 createRandomomMainBlockPets();
 
+
 const moveLeft = () => {
   
    index--
@@ -90,23 +91,30 @@ const moveLeft = () => {
      btnLeftInital.disabled = true
      btnLeftLast.disabled = true
    }
+  
   count-- 
  
 }
 
 const moveLeftLast = () => {
-  slider.classList.add('transition-left');
-  btnLeftLast.addEventListener('click', moveLeftLast)
+  
   pageNumber.innerHTML = 1;
+  slider.classList.add('transition-left');
+  btnLeftLast.addEventListener('click', moveLeft)
+
   btnLeftLast.disabled = true
+  btnLeftInital.disabled = true
   btnRightInital.disabled = false
   btnRightLast.disabled = false
-  count = 1;
+  
+  count = 1
+  
+  
 }
 
 const moveRightLast = () => {
   slider.classList.add('transition-right');
-  btnLeftLast.addEventListener('click', moveRightLast)
+  btnRightLast.addEventListener('click', moveRightLast)
   if (slidesPage() === 6) {
   index = 8;  
   pageNumber.innerHTML = 6;
@@ -115,7 +123,7 @@ const moveRightLast = () => {
   btnLeftInital.disabled = false;
   btnLeftLast.disabled = false;
   count = 6;
-  };
+  }
   if (slidesPage() === 8) {
   index = 8;
   pageNumber.innerHTML = 8;
