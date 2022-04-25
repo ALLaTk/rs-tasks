@@ -8,23 +8,6 @@ let blockOne = document.querySelector('.pets__block.one');
 let blockTwo = document.querySelector('.pets__block.two');
 let blockThree = document.querySelector('.pets__block.three');
 
-// const checkItemsPerPage = () => {
-//   if (
-//     document.querySelector("body").offsetWidth >= 768 &&
-//     document.querySelector("body").offsetWidth < 1280
-//   ) {
-//     return 2;
-//   }
-//   if (document.querySelector("body").offsetWidth < 768) {
-//     return 1;
-//   } else return 3;
-// };
-
-// const crateCard = () => {
-//   const card = document.createElement('div');
-
-// }
-
 let arrPets = []
 const createRandomArr = () => { 
    while (arrPets.length < 3){
@@ -44,7 +27,7 @@ const createNewRandomArr = () => {
 }
 
 const createBlock = (elem) => {
-   
+   createNewRandomArr();
   elem.innerHTML = ''
     for (let i = 0; i < arrPets.length; i++) {
       let petCard = document.createElement("div");
@@ -68,34 +51,21 @@ const createBlock = (elem) => {
   
 }
 
-const slidesPerPage = () => {
-    if(window.innerWidth>1279) return 3;
-    if(window.innerWidth<=1279 && window.innerWidth>767) return 2;
-    if(window.innerWidth<768) return 1;
-}
-
 const createRandomomMainBlockPets = () => {
   createRandomArr();
   createBlock(blockTwo);
 }
 createRandomomMainBlockPets();
 
-const createRandomBlocksPets = () => {
-  createNewRandomArr ();
-  createBlock(blockOne);
-  createBlock(blockThree);
-}
-createRandomBlocksPets();
-
-
 const moveLeft = () => {
+  createBlock(blockOne)
   slider.classList.add('transition-left');
   btnLeft.addEventListener('click', moveLeft)
   btnRight.addEventListener('click', moveRight)
- 
 }
 
 const moveRight = () => {
+  createBlock(blockThree)
   slider.classList.add('transition-right');
    btnLeft.addEventListener('click', moveLeft)
    btnRight.addEventListener('click', moveRight)
@@ -105,14 +75,11 @@ slider.addEventListener('animationend', (event) => {
   if (event.animationName === 'move-left') {   
      slider.classList.remove('transition-left');
      document.querySelector('.pets__block.two').innerHTML = blockOne.innerHTML;  
-     createNewRandomArr()
-       slidesPerPage() 
-     createBlock(blockOne);       
+       
   } else {
     slider.classList.remove('transition-right')
     document.querySelector('.pets__block.two').innerHTML = blockThree.innerHTML
-    createNewRandomArr()
-    createBlock(blockThree);
+   
   }   
 })
 
