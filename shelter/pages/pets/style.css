@@ -338,7 +338,7 @@ header.open{
   background-color: var(--color-primary);
 }
 
-.logo__btn.right:hover {
+.logo__btn.right:not([disabled]):hover {
   background-color: var(--color-primary-light);
   transition: 0.4s;
   cursor: pointer;
@@ -564,7 +564,6 @@ header.open{
 
 .slider {
   height: 100%;
-  left: -1240px;
   display: flex;
   position: relative;
   column-gap: 40px;
@@ -573,11 +572,11 @@ header.open{
 
 @keyframes move-left {
   from {
-    left: -1240px
+    left: 0px
   }
 
   to {
-    left: 0px;
+    left: -1240px;
   }
 }
 
