@@ -5,11 +5,13 @@ const body = document.querySelector('body');
 const menuLinks = [...document.querySelectorAll('.nav__list-link')];
 const div = document.createElement('div');
 const header = document.querySelector('header');
+const headerContainer = document.querySelector('.header__container');
 
 document.body.append(div);
 
 function toggleMenu () {
   if(window.innerWidth<768){
+  headerContainer.classList.toggle('open');
   burger.classList.toggle('open');
   menu.classList.toggle('open');
   logo.classList.toggle('open');

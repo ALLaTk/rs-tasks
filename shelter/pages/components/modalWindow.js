@@ -8,11 +8,11 @@ import pets from './pets.js';
  const modalBtn = document.querySelector('.modal__btn');
  const petContent = [...document.querySelectorAll('.modal__inner *')];
  const petName = [...document.querySelectorAll('.our-frends__name')];
+ const headerContainer = document.querySelector('.header__container');
 
  document.body.append(div);
  
  function toggleWindow() {
-
     modal.classList.toggle('active');
     body.classList.toggle('active');
     div.classList.toggle('overlay');
