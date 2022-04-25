@@ -109,6 +109,7 @@ body {
 header{
   position: sticky;
   top: 0;
+  z-index: 2;
 }
 
 header.open{
@@ -234,6 +235,7 @@ header.open{
   align-items: center;
   padding-bottom: 29px;
   overflow: hidden;
+  z-index: 1;
 }
 
 .our-frends__content {
@@ -572,32 +574,32 @@ header.open{
 
 @keyframes move-left {
   from {
-    left: 0px
+    opacity: 1;
   }
 
   to {
-    left: -1240px;
+    opacity: 0;
   }
 }
 
 .transition-left {
   animation-name: move-left;
-  animation-duration: 2s;
+  animation-duration: 0.3s;
 }
 
 @keyframes move-right {
   from {
-    left: -1240px
+    opacity: 0;
   }
 
   to {
-    left: -2480px;
+    opacity: 1;
   }
 }
 
 .transition-right {
   animation-name: move-right;
-  animation-duration: 2s;
+  animation-duration: 0.3s;
 }
 
 @media (max-width: 1279px) {
@@ -614,6 +616,10 @@ header.open{
   .logo__title{
     padding-top: 3px;
   }
+  
+  .slider {
+    width: 580px;
+  }
 
   .our-friends{
     padding-bottom: 76px;
@@ -623,11 +629,11 @@ header.open{
     margin-bottom: 0;
   }
 
-  .our-frends__content.scarlett {
+  .our-frends__content:nth-last-child(1) {
     display: none;
   }
 
-  .our-frends__content.freddie {
+  .our-frends__content:nth-last-child(2) {
     display: none;
   }
 
@@ -813,6 +819,18 @@ header.open{
     z-index: 1;
   }
 
+  .our-frends__content:nth-last-child(3) {
+    display: none;
+  }
+  
+  .our-frends__content:nth-last-child(4) {
+    display: none;
+  }
+  
+  .our-frends__content:nth-last-child(5) {
+    display: none;
+  }
+
   .our-friends {
     padding-top: 42px;
     padding-bottom: 42px;
@@ -833,24 +851,18 @@ header.open{
     margin-bottom: 0;
   }
 
-  .our-frends__content.sophia {
-    display: none;
-  }
-
-  .our-frends__content.timmy {
-    display: none;
-  }
-
-  .our-frends__content.charly {
-    display: none;
-  }
+ 
 
   .our-friends__pets {
     flex-direction: column;
     padding: 0;
-    width: 100%;
+    width: 270px;
     row-gap: 30px;
     padding-bottom: 42px;
+  }
+
+  .slider {
+    width: 270px;
   }
 
   .our-friends__navigation {
