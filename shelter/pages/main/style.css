@@ -1518,6 +1518,7 @@ body.active {
   .modal__window.active {
     width: 270px;
     height: 440px;
+    left: 30px;
   }
   
   .modal__inner {

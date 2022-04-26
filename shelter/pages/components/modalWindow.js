@@ -16,7 +16,7 @@ import pets from './pets.js';
     modal.classList.toggle('active');
     body.classList.toggle('active');
     div.classList.toggle('overlay');
-
+    if(window.innerWidth<768){ headerContainer.classList.toggle('open') };
     modal.addEventListener('click', (e) => {
     if (e.target.classList.contains('modal__window')) {
       modal.classList.add('active')

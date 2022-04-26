@@ -874,8 +874,10 @@ header.open{
   .our-frends__content {
     margin-bottom: 0;
   }
-
- 
+  
+  .pets__block {
+    row-gap: 30px;
+  }
 
   .our-friends__pets {
     flex-direction: column;
@@ -951,6 +953,7 @@ header.open{
   .modal__window.active {
     width: 270px;
     height: 440px;
+    left: 30px;
   }
 
   .modal__inner {
