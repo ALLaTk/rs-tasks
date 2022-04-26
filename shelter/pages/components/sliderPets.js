@@ -80,16 +80,16 @@ const moveLeft = () => {
     if (slidesPage() === 6)
     if (count > 1 && count < 7) {
      pageNumber.innerHTML = count - 1; 
-     btnRightInital.disabled = false
-     btnRightLast.disabled = false
+     btnRightInital.disabled = false;
+     btnRightLast.disabled = false;
    } 
 
    if (count === 2) {
-     btnLeftInital.disabled = true
-     btnLeftLast.disabled = true
+     btnLeftInital.disabled = true;
+     btnLeftLast.disabled = true;
    }
   
-  count-- 
+  count--;
 }
 
 const moveLeftLast = () => {
@@ -100,10 +100,10 @@ const moveLeftLast = () => {
   slider.classList.add('transition-left');
   btnLeftLast.addEventListener('click', moveLeftLast)
 
-  btnLeftLast.disabled = true
-  btnLeftInital.disabled = true
-  btnRightInital.disabled = false
-  btnRightLast.disabled = false
+  btnLeftLast.disabled = true;
+  btnLeftInital.disabled = true;
+  btnRightInital.disabled = false;
+  btnRightLast.disabled = false;
  
   count = 1
 }
