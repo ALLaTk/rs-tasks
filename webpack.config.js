@@ -9,13 +9,18 @@ const baseConfig = {
     module: {
         rules: [
             {
+              test: /\.[tj]s$/,
+              use: 'ts-loader',
+              exclude: /node_modules/,
+            },
+            {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
         ],
     },
     resolve: {
-        extensions: ['.js'],
+        extensions: ['.ts', '.js'],
     },
     output: {
         filename: 'index.js',
@@ -23,7 +28,7 @@ const baseConfig = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './migration-to-ts/index.html'),
+          template: path.resolve(__dirname, './migration-to-ts/index.html'),
             filename: 'index.html',
         }),
         new CleanWebpackPlugin(),
@@ -33,6 +38,5 @@ const baseConfig = {
 module.exports = ({ mode }) => {
     const isProductionMode = mode === 'prod';
     const envConfig = isProductionMode ? require('./webpack.prod.config') : require('./webpack.dev.config');
-
     return merge(baseConfig, envConfig);
 };
