@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const baseConfig = {
-    entry: path.resolve(__dirname, './migration-to-ts/index.js'),
+    entry: path.resolve(__dirname, './migration-to-ts/index.ts'),
     mode: 'development',
     module: {
         rules: [
