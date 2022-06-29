@@ -1,6 +1,6 @@
 import './news.css';
 
-type Data = {
+export type Article = {
   urlToImage: string;
   author: string;
   source: { name: string };
@@ -9,9 +9,9 @@ type Data = {
   publishedAt: string;
   description: string;
 };
-class News {
-  draw(data: Array<Data>): void {
-    const news: Array<Data> = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
+export class News {
+  draw(data: Array<Article>): void {
+    const news: Array<Article> = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
     const fragment = document.createDocumentFragment() as DocumentFragment;
     const newsItemTemp = document.querySelector('#newsItemTemp') as HTMLTemplateElement;
@@ -43,5 +43,3 @@ class News {
     (document.querySelector('.news') as HTMLElement).appendChild(fragment);
   }
 }
-
-export default News;
