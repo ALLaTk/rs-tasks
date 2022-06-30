@@ -1,7 +1,7 @@
 import { Sources, ISourses } from './sources/sources';
 import { News, Article } from './news/news';
 
-interface IData {
+export interface IData {
   articles: Array<Article>;
   sources: Array<ISourses>;
 }
