@@ -16,7 +16,7 @@ class Loader {
   }
 
   getResp(
-    { endpoint, options = {} }: { endpoint: string; options: { sourses?: string } },
+    { endpoint, options = {} }: { endpoint: string; options?: { sources?: string } },
     callback: { (data: IData): void } = () => {
       console.error('No callback for GET response');
     }
@@ -34,8 +34,8 @@ class Loader {
     return res;
   }
 
-  makeUrl(options: { sourses?: string }, endpoint: string) {
-    const urlOptions: { sourses?: string } = { ...this.options, ...options };
+  makeUrl(options: { sources?: string }, endpoint: string): string {
+    const urlOptions: { sources?: string } = { ...this.options, ...options };
     let url = `${this.baseLink}${endpoint}?`;
 
     (Object.keys(urlOptions) as (keyof typeof urlOptions)[]).forEach((key) => {
@@ -45,7 +45,7 @@ class Loader {
     return url.slice(0, -1);
   }
 
-  load(method: string, endpoint: string, callback: { (data: IData): void }, options: { sourses?: string }) {
+  load(method: string, endpoint: string, callback: { (data: IData): void }, options: { sources?: string }) {
     fetch(this.makeUrl(options, endpoint), { method })
       .then(this.errorHandler)
       .then((res: Response) => res.json())
