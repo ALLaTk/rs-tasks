@@ -9,7 +9,7 @@ export class Sources implements NewsAndSoursesInterface<SoursesData> {
     data.forEach((item: SoursesData): void => {
       const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLTemplateElement;
 
-      (sourceClone.querySelector('.source__item-name') as HTMLTextAreaElement).textContent = item.name;
+      (sourceClone.querySelector('.source__item-name') as HTMLElement).textContent = item.name;
       (sourceClone.querySelector('.source__item') as HTMLElement).setAttribute('data-source-id', item.id);
 
       fragment.append(sourceClone);

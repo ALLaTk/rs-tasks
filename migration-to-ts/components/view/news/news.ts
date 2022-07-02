@@ -15,7 +15,7 @@ export class News implements NewsAndSoursesInterface<ArticleData> {
       if (idx % 2) (newsClone.querySelector('.news__item') as HTMLElement).classList.add('alt');
 
       (newsClone.querySelector('.news__meta-photo') as HTMLElement).style.backgroundImage = `url(${
-        item.urlToImage || 'img/news_placeholder.jpg'
+        item.urlToImage || 'assets/news_placeholder.jpg'
       })`;
       (newsClone.querySelector('.news__meta-author') as HTMLTextAreaElement).textContent =
         item.author || item.source.name;
