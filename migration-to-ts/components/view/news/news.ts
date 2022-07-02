@@ -1,22 +1,15 @@
 import './news.css';
+import { ArticleData, NewsAndSoursesInterface } from '../../app/appTypes';
 
-export type Article = {
-  urlToImage: string;
-  author: string;
-  source: { name: string };
-  url: string;
-  title: string;
-  publishedAt: string;
-  description: string;
-};
-export class News {
-  draw(data: Array<Article>): void {
-    const news: Array<Article> = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
+export class News implements NewsAndSoursesInterface<ArticleData> {
+  public draw(data: ArticleData[]): void {
+    const news: ArticleData[] =
+      data.length >= 10 ? data.filter((_item: ArticleData, idx: number): boolean => idx < 10) : data;
 
-    const fragment = document.createDocumentFragment() as DocumentFragment;
+    const fragment: DocumentFragment = document.createDocumentFragment();
     const newsItemTemp = document.querySelector('#newsItemTemp') as HTMLTemplateElement;
 
-    news.forEach((item, idx) => {
+    news.forEach((item: ArticleData, idx: number): void => {
       const newsClone = newsItemTemp.content.cloneNode(true) as HTMLElement;
 
       if (idx % 2) (newsClone.querySelector('.news__item') as HTMLElement).classList.add('alt');
@@ -24,8 +17,9 @@ export class News {
       (newsClone.querySelector('.news__meta-photo') as HTMLElement).style.backgroundImage = `url(${
         item.urlToImage || 'img/news_placeholder.jpg'
       })`;
-      (newsClone.querySelector('.news__meta-author') as HTMLElement).textContent = item.author || item.source.name;
-      (newsClone.querySelector('.news__meta-date') as HTMLElement).textContent = item.publishedAt
+      (newsClone.querySelector('.news__meta-author') as HTMLTextAreaElement).textContent =
+        item.author || item.source.name;
+      (newsClone.querySelector('.news__meta-date') as HTMLTextAreaElement).textContent = item.publishedAt
         .slice(0, 10)
         .split('-')
         .reverse()
@@ -40,6 +34,6 @@ export class News {
     });
 
     (document.querySelector('.news') as InnerHTML).innerHTML = '';
-    (document.querySelector('.news') as HTMLElement).appendChild(fragment);
+    (document.querySelector('.news') as HTMLDivElement).appendChild(fragment);
   }
 }

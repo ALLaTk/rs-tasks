@@ -1,12 +1,8 @@
-import { Sources, ISourses } from './sources/sources';
-import { News, Article } from './news/news';
+import { Sources } from './sources/sources';
+import { News } from './news/news';
+import { ArticleData, SoursesData, TotalSoursesAndArticle, AppViewInterface } from '../app/appTypes';
 
-export interface IData {
-  articles: Array<Article>;
-  sources: Array<ISourses>;
-}
-
-export class AppView {
+export class AppView implements AppViewInterface<TotalSoursesAndArticle> {
   news: News;
 
   sources: Sources;
@@ -16,13 +12,13 @@ export class AppView {
     this.sources = new Sources();
   }
 
-  drawNews(data: IData): void {
-    const values: Article[] = data?.articles ? data?.articles : [];
+  drawNews(data: Partial<TotalSoursesAndArticle>): void {
+    const values: ArticleData[] = data?.articles ? data?.articles : [];
     this.news.draw(values);
   }
 
-  drawSources(data: IData): void {
-    const values: ISourses[] = data?.sources ? data?.sources : [];
+  drawSources(data: Partial<TotalSoursesAndArticle>): void {
+    const values: SoursesData[] = data?.sources ? data?.sources : [];
     this.sources.draw(values);
   }
 }

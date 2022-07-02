@@ -1,11 +1,5 @@
-import { IData } from '../view/appView';
-
-enum NumberStatus {
-  A = 401,
-  B = 404,
-}
-
-class Loader {
+import { Callback, TotalSoursesAndArticle, NumberStatus } from '../app/appTypes';
+export class Loader {
   baseLink: string;
 
   options: { [key: string]: string };
@@ -15,16 +9,16 @@ class Loader {
     this.options = options;
   }
 
-  getResp(
+  protected getResp(
     { endpoint, options = {} }: { endpoint: string; options?: { sources?: string } },
-    callback: { (data: IData): void } = () => {
+    callback: Callback<TotalSoursesAndArticle> = (): void => {
       console.error('No callback for GET response');
     }
-  ) {
+  ): void {
     this.load('GET', endpoint, callback, options);
   }
 
-  errorHandler(res: Response): Response {
+  private errorHandler(res: Response): Response {
     if (!res.ok) {
       if (res.status === NumberStatus.A || res.status === NumberStatus.B)
         console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -34,24 +28,27 @@ class Loader {
     return res;
   }
 
-  makeUrl(options: { sources?: string }, endpoint: string): string {
+  private makeUrl(options: { sources?: string }, endpoint: string): string {
     const urlOptions: { sources?: string } = { ...this.options, ...options };
     let url = `${this.baseLink}${endpoint}?`;
 
-    (Object.keys(urlOptions) as (keyof typeof urlOptions)[]).forEach((key) => {
+    (Object.keys(urlOptions) as (keyof typeof urlOptions)[]).forEach((key): void => {
       url += `${key}=${urlOptions[key]}&`;
     });
 
     return url.slice(0, -1);
   }
 
-  load(method: string, endpoint: string, callback: { (data: IData): void }, options: { sources?: string }) {
+  private load(
+    method: string,
+    endpoint: string,
+    callback: Callback<TotalSoursesAndArticle>,
+    options: { sources?: string }
+  ): void {
     fetch(this.makeUrl(options, endpoint), { method })
       .then(this.errorHandler)
       .then((res: Response) => res.json())
-      .then((data: IData) => callback(data))
+      .then((data: TotalSoursesAndArticle) => callback(data))
       .catch((err: Error) => console.error(err));
   }
 }
-
-export default Loader;
