@@ -1,7 +1,7 @@
 import AppLoader from './appLoader';
 import { AppArticleData, AppSoursesData, Callback } from '../app/appTypes';
 
-class AppController extends AppLoader {
+class AppController extends AppLoader{
   public getSources(callback: Callback<AppSoursesData>): void {
     super.getResp(
       {
