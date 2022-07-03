@@ -1,7 +1,7 @@
 import AppLoader from './appLoader';
 import { AppArticleData, AppSoursesData, Callback } from '../app/appTypes';
 
-class AppController extends AppLoader{
+class AppController extends AppLoader {
   public getSources(callback: Callback<AppSoursesData>): void {
     super.getResp(
       {
@@ -16,7 +16,7 @@ class AppController extends AppLoader{
     const newsContainer = e.currentTarget as HTMLElement;
 
     while (target !== newsContainer) {
-      if (target.classList.contains('source__item')) {
+      if ((target.classList as DOMTokenList).contains('source__item')) {
         const sourceId: string | null = target.getAttribute('data-source-id');
         if (sourceId) {
           if (newsContainer.getAttribute('data-source') !== sourceId) {

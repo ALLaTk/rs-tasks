@@ -2,19 +2,33 @@ body {
     color: #fff;
     background: #17181c;
     font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    margin: 0 auto;
 }
 
 header {
-    padding: 10px 30px;
+  display: flex;
+  justify-content: center;
+  padding: 10px 30px;
+  align-items: center;
 }
 
 header h1 {
     font-size: 40px;
     font-weight: 800;
+    text-align: center;
+}
+main {
+  display: flex;
+  flex-direction: column;
 }
 
 footer {
     height: 100px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
