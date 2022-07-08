@@ -12,33 +12,26 @@ class App {
     this.view = new AppView();
   }
 
-  public start(): void {
-    (document.querySelector('.sources') as HTMLElement).addEventListener('click', (e: MouseEvent) => {
-      this.controller.getNews(e, (data: Readonly<AppArticleData>): void => this.view.drawNews(data));
-    });
-    this.controller.getSources((data: Readonly<AppSoursesData>): void => this.view.drawSources(data));
-  }
-
   private activeSourseBtn(event: Event): void {
-    const target = event.target as HTMLElement;
-    if ((target.classList as DOMTokenList).contains('source__item'))
-      ([...document.querySelectorAll('.source__item')] as HTMLElement[]).forEach((el: HTMLElement): void => {
-        (el.classList as DOMTokenList).remove('active');
+    const target = <HTMLElement>event.target;
+    if (target.classList.contains('source__item'))
+      (<HTMLElement[]>[...document.querySelectorAll('.source__item')]).forEach((el: HTMLElement): void => {
+        el.classList.remove('active');
       });
-    (target.classList as DOMTokenList).add('active');
+    target.classList.add('active');
   }
 
   private activeAlphaBtn(event: Event): void {
-    const target = event.target as HTMLElement;
+    const target = <HTMLElement>event.target;
 
     if ((target.classList as DOMTokenList).contains('alpha__char'))
-      ([...document.querySelectorAll('.alpha__char')] as HTMLElement[]).forEach((el: HTMLElement): void => {
+      (<HTMLElement[]>[...document.querySelectorAll('.alpha__char')]).forEach((el: HTMLElement): void => {
         el.classList.remove('active');
       });
 
     target.classList.add('active');
-    const sourseItems = [...document.querySelectorAll('.source__item')] as HTMLElement[];
-    const alphItem = document.querySelector('.alpha__char.active') as HTMLElement;
+    const sourseItems = <HTMLElement[]>[...document.querySelectorAll('.source__item')];
+    const alphItem = <HTMLElement>document.querySelector('.alpha__char.active');
 
     sourseItems.forEach((el: HTMLElement): void => {
       if (el.innerHTML[0] === alphItem.innerHTML[0]) {
@@ -50,9 +43,13 @@ class App {
     });
   }
 
-  public active(): void {
-    (document.querySelector('.sources') as HTMLElement).addEventListener('click', this.activeSourseBtn);
-    (document.querySelector('.alphabet') as HTMLElement).addEventListener('click', this.activeAlphaBtn);
+  public start(): void {
+    (<HTMLElement>document.querySelector('.sources')).addEventListener('click', (e: MouseEvent) => {
+      this.controller.getNews(e, (data: Readonly<AppArticleData>): void => this.view.drawNews(data));
+    });
+    this.controller.getSources((data: Readonly<AppSoursesData>): void => this.view.drawSources(data));
+    (<HTMLElement>document.querySelector('.sources')).addEventListener('click', this.activeSourseBtn);
+    (<HTMLElement>document.querySelector('.alphabet')).addEventListener('click', this.activeAlphaBtn);
   }
 }
 

@@ -3,5 +3,3 @@ import './global.css';
 
 const app: App = new App();
 app.start();
-app.active();
-
