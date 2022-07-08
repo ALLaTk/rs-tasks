@@ -6,8 +6,8 @@ class Sort extends Control {
     super(parent, 'div', 'sort');
   }
 
-  render() {
-    const html = `
+  render(): void {
+    const html: string = `
     <form action="" method="post">
       <p><select class="select">
         <option selected value="Price(Lowest)">Price (Lowest)</option>
@@ -21,5 +21,5 @@ class Sort extends Control {
   }
 }
 
-const sort = new Sort(document.body);
+const sort: Sort = new Sort(document.body);
 export default sort;

@@ -7,7 +7,7 @@ class Header extends Control {
   }
 
   render(data: number): void {
-    const html = `
+    const html: string = `
                 <div class="header__top">
                   <img class="logo__img" src="./assets/png/logo.png">
                   <nav class="menu">
@@ -26,6 +26,6 @@ class Header extends Control {
   }
 }
 
-const header = new Header(document.body);
+const header: Header = new Header(document.body);
 
 export default header;
