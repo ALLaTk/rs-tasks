@@ -7,7 +7,7 @@ class Sort extends Control {
   }
 
   render(): void {
-    const html: string = `
+    const html = `
     <form action="" method="post">
       <p><select class="select">
         <option selected value="Price(Lowest)">Price (Lowest)</option>
