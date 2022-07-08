@@ -1,0 +1,233 @@
+[
+  {
+    "id": 1,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/1.jpg",
+    "company": "Arte Lamp",
+    "power": "150WT",
+    "color": "gold",
+    "quantity": 15,
+    "price": "280$",
+    "popular": "no"
+  },
+  {
+    "id": 2,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/2.jpg",
+    "company": "Divinare",
+    "power": "225WT",
+    "color": "white",
+    "quantity": 1,
+    "price": "360$",
+    "popular": "no"
+  },
+   {
+    "id": 3,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/3.jpg",
+    "company": "Maytoni",
+    "power": "150WT",
+    "color": "gold",
+    "quantity": 11,
+    "price": "430$",
+    "popular": "no"
+  },
+  {
+    "id": 4,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/4.jpg",
+    "company": "Arte Lamp",
+    "power": "150WT",
+    "color": "silver",
+    "quantity": 6,
+    "price": "140$",
+    "popular": "no"
+  },
+   {
+    "id": 5,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/5.jpg",
+    "company": "L'Arte Luce",
+    "power": "85WT",
+    "color": "white",
+    "quantity": 6,
+    "price": "120$",
+    "popular": "no"
+  },
+  {
+    "id": 6,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/6.jpg",
+    "company": "Divinare",
+    "power": "85WT",
+    "color": "gold",
+    "quantity": 10,
+    "price": "180$",
+    "popular": "yes"
+  },
+  {
+    "id": 7,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/7.jpg",
+    "company": "Arte Lamp",
+    "color": "silver",
+    "quantity": 1,
+    "power": "225WT",
+    "price": "460$",
+    "popular": "no"
+  },
+  {
+    "id": 8,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/8.jpg",
+    "company": "L'Arte Luce",
+    "power": "85WT",
+    "color": "white",
+    "quantity": 8,
+    "price": "160$",
+    "popular": "yes"
+  },
+   {
+    "id": 9,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/9.jpg",
+    "company": "Divinare",
+    "power": "85WT",
+    "color": "gold",
+    "quantity": 1,
+    "price": "220$",
+    "popular": "no"
+  },
+  {
+    "id": 10,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/10.jpg",
+    "company": "Arte Lamp",
+    "power": "150WT",
+    "color": "white",
+    "quantity": 15,
+    "price": "320$",
+    "popular": "no"
+  },
+   {
+    "id": 11,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/11.jpg",
+    "company": "Divinare",
+    "power": "85WT",
+    "color": "silver",
+    "quantity": 1,
+    "price": "200$",
+    "popular": "no"
+  },
+  {
+    "id": 12,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/12.jpg",
+    "company": "Maytoni",
+    "power": "225WT",
+    "color": "white",
+    "quantity": 8,
+    "price": "440$",
+    "popular": "no"
+  },
+  {
+    "id": 13,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/13.jpg",
+    "company": "Divinare",
+    "power": "225WT",
+    "color": "gold",
+    "quantity": 15,
+    "price": "400$",
+    "popular": "no"
+  },
+  {
+    "id": 14,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/14.jpg",
+    "company": "Arte Lamp",
+    "power": "85WT",
+    "color": "gold",
+    "quantity": 1,
+    "price": "120$",
+    "popular": "yes"
+  },
+   {
+    "id": 15,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/15.jpg",
+    "company": "Maytoni",
+    "power": "85WT",
+    "color": "silver",
+    "quantity": 15,
+    "price": "180$",
+    "popular": "no"
+  },
+  {
+    "id": 16,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/16.jpg",
+    "company": "L'Arte Luce",
+    "power": "225WT",
+    "color": "white",
+    "quantity": 1,
+    "price": "380$",
+    "popular": "yes"
+  },
+   {
+    "id": 17,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/17.jpg",
+    "company": "Maytoni",
+    "power": "85WT",
+    "color": "gold",
+    "quantity": 3,
+    "price": "100$",
+    "popular": "yes"
+  },
+  {
+    "id": 18,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/18.jpg",
+    "company": "L'Arte Luce",
+    "power": "150WT",
+    "color": "silver",
+    "quantity": 15,
+    "price": "200$",
+    "popular": "no"
+  },
+  {
+    "id": 19,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/19.jpg",
+    "company": "Maytoni",
+    "power": "150WT",
+    "color": "gold",
+    "quantity": 8,
+    "price": "160$",
+    "popular": "no"
+  },
+   {
+    "id": 20,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/20.jpg",
+    "company": "L'Arte Luce",
+    "power": "85WT",
+    "color": "white",
+    "quantity": 10,
+    "price": "120$",
+    "popular": "yes"
+  },
+  {
+    "id": 21,
+    "name": "ProfitLight",
+    "image": "./assets/jpg/21.jpg",
+    "power": "225WT",
+    "color": "white",
+    "quantity": 1,
+    "price": "440$",
+    "popular": "yes"
+  }
+]
+
