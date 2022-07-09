@@ -3,8 +3,11 @@ import Control from '../../Control';
 import products from '../../../../server/products.json';
 
 class Cards extends Control {
+  parent: HTMLElement;
+
   constructor(parent: HTMLElement) {
     super(parent, 'div', 'cards');
+    this.parent = parent;
   }
 
   render(): void {
@@ -30,6 +33,8 @@ class Cards extends Control {
       })
       .join('');
     this.element.appendChild(content);
+    (<HTMLElement>document.body.lastChild)?.appendChild(this.element);
+    this.parent.append(<HTMLElement>document.body.lastChild);
   }
 }
 

@@ -2,8 +2,11 @@ import './sort.scss';
 import Control from '../../Control';
 
 class Sort extends Control {
+  parent: HTMLElement;
+
   constructor(parent: HTMLElement) {
     super(parent, 'div', 'sort');
+    this.parent = parent;
   }
 
   render(): void {
@@ -18,6 +21,8 @@ class Sort extends Control {
   </form>`;
 
     this.element.innerHTML = html;
+    this.mainContent.appendChild(this.element);
+    this.parent.append(this.mainContent);
   }
 }
 
