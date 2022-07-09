@@ -3,7 +3,7 @@ import { ArticleData, NewsAndSoursesInterface } from '../../app/appTypes';
 
 export class News implements NewsAndSoursesInterface<ArticleData> {
   public draw(data: ArticleData[]): void {
-    if (data.length !== 0) {
+    if (data.length === 0) {
       console.log('no news in this section');
     } else {
       const news: ArticleData[] =
