@@ -5,31 +5,31 @@ export class Sources implements NewsAndSoursesInterface<SoursesData> {
   draw(data: SoursesData[]): void {
     const fragment: DocumentFragment = document.createDocumentFragment();
     const alphaChar: DocumentFragment = document.createDocumentFragment();
-    const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
-    const alpha = document.querySelector('#alphabetItemTemp') as HTMLTemplateElement;
+    const sourceItemTemp = <HTMLTemplateElement>document.querySelector('#sourceItemTemp');
+    const alpha = <HTMLTemplateElement>document.querySelector('#alphabetItemTemp');
     const uniqueChars: Set<string> = new Set();
 
     data.forEach((item: SoursesData): void => {
-      const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLTemplateElement;
-      (sourceClone.querySelector('.source__item') as HTMLElement).textContent = item.name;
+      const sourceClone = <HTMLTemplateElement>sourceItemTemp.content.cloneNode(true);
+      (<HTMLElement>sourceClone.querySelector('.source__item')).textContent = item.name;
 
-      (sourceClone.querySelector('.source__item') as HTMLElement).setAttribute('data-source-id', item.id);
+      (<HTMLElement>sourceClone.querySelector('.source__item')).setAttribute('data-source-id', item.id);
       uniqueChars.add(item.name[0]);
       fragment.append(sourceClone);
     });
 
     for (const char of uniqueChars) {
-      const alphaClone = alpha.content.cloneNode(true) as HTMLTemplateElement;
-      (alphaClone.querySelector('.alpha__char') as HTMLElement).textContent = char;
+      const alphaClone = <HTMLTemplateElement>alpha.content.cloneNode(true);
+      (<HTMLElement>alphaClone.querySelector('.alpha__char')).textContent = char;
       alphaChar.append(alphaClone);
     }
 
-    (document.querySelector('.alphabet') as HTMLElement).append(alphaChar);
-    (document.querySelector('.sources') as HTMLElement).append(fragment);
-    (document.querySelector('.alpha__char') as HTMLElement).className = 'alpha__char active';
+    (<HTMLElement>document.querySelector('.alphabet')).append(alphaChar);
+    (<HTMLElement>document.querySelector('.sources')).append(fragment);
+    (<HTMLElement>document.querySelector('.alpha__char')).className = 'alpha__char active';
 
-    const sourseItems = [...document.querySelectorAll('.source__item')] as HTMLElement[];
-    const alphItem = document.querySelector('.alpha__char.active') as HTMLElement;
+    const sourseItems = <HTMLElement[]>[...document.querySelectorAll('.source__item')];
+    const alphItem = <HTMLElement>document.querySelector('.alpha__char.active');
 
     sourseItems.forEach((el: HTMLElement): void => {
       if (el.innerHTML[0] === alphItem.innerHTML[0]) {

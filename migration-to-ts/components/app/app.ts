@@ -12,7 +12,7 @@ class App {
     this.view = new AppView();
   }
 
-  private activeSourseBtn(event: Event): void {
+  activeSourseBtn(event: Event): void {
     const target = <HTMLElement>event.target;
     if (target.classList.contains('source__item'))
       (<HTMLElement[]>[...document.querySelectorAll('.source__item')]).forEach((el: HTMLElement): void => {
@@ -24,7 +24,7 @@ class App {
   private activeAlphaBtn(event: Event): void {
     const target = <HTMLElement>event.target;
 
-    if ((target.classList as DOMTokenList).contains('alpha__char'))
+    if (target.classList.contains('alpha__char'))
       (<HTMLElement[]>[...document.querySelectorAll('.alpha__char')]).forEach((el: HTMLElement): void => {
         el.classList.remove('active');
       });
