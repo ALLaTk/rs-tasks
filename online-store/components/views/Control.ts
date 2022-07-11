@@ -14,7 +14,7 @@ class Control {
   }
 
   destroy(): void {
-    this.node.remove();
+    this.element.remove();
   }
 }
 
