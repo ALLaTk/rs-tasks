@@ -3,8 +3,6 @@ class Control {
 
   mainContent: HTMLElement;
 
-  node!: { remove: () => void };
-
   constructor(parent: HTMLElement, tag: string, name: string) {
     this.element = document.createElement(tag);
     this.element.className = name;

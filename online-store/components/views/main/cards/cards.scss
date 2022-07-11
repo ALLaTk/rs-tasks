@@ -28,19 +28,41 @@
         height: 400px;
         margin-top: 5px;
         background-color: #121212;
-          .image {
+          .cards-image {
               background-position: center center;
               background: transparent;
               height: 230px;
               margin-bottom: 10px;
             }
-          button {
+          .list {
+            display: flex;
+            flex-wrap: wrap;
+            width: 50%;
+            row-gap: 10px;
+            column-gap: 10px;
+            justify-content: center;
+          }
+          ul .list-item:first-child {
+            font-size: 16px;
+            color: #b0976d;
+          }
+           ul .list-item:last-child {
+            font-weight: 600;
+            color: #b0976d;
+          }
+          .button-card {
             width: 150px;
             height: 40px;
             margin-top: 10px;
             background-color: #000000;
             color: #b0976d;
-            font-size: 14px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+          }
+          .button-card.active {
+            color: #000000;
+            background-color: #b0976d;
           }
       }
   }

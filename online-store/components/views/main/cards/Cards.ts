@@ -18,20 +18,33 @@ class Cards extends Control {
         return `<div class="cards__inner">
                 <p class="name-item">${el.name}</p>
                 <div class="cards__content-item">
-                  <img class="image" src=${el.image} alt="lamp">
-                  <ul>
-                    <li>${el.company}</li>
-                    <li>${el.power}</li>
-                    <li>${el.color}</li>
-                    <li>${el.quantity}</li>
-                    <li>${el.price}</li>
-                    <li>${el.popular}</li>
+                  <img class="cards-image" src=${el.image} alt="lamp">
+                  <ul class="list">
+                    <li class="list-item">${el.company}</li>
+                    <li class="list-item">${el.power}</li>
+                    <li class="list-item">POPULAR: ${el.popular}</li>
+                    <li class="list-item">ITEM: ${el.quantity}</li>
+                    <li class="list-item">COLOR: ${el.color}</li>
+                    <li class="list-item">$ ${el.price}</li>
                   </ul>
-                  <button>Add to Cart</button>
                 </div>
               </div>`;
       })
       .join('');
+
+    const childNode: HTMLCollection = content.children;
+
+    for (const child of childNode) {
+      const button: HTMLButtonElement = document.createElement('button');
+      button.className = 'button-card';
+      button.innerHTML = 'PICK A LAMP';
+      button.onclick = () => {
+        button.classList.toggle('active');
+        console.log(child.id);
+      };
+      child.lastElementChild?.append(button);
+    }
+
     this.element.appendChild(content);
     (<HTMLElement>document.body.lastChild)?.appendChild(this.element);
     this.parent.append(<HTMLElement>document.body.lastChild);
