@@ -6,5 +6,20 @@
       background-color: #000000;
       color: #ffffff;
       border: 1px solid #ffffff; 
+      cursor: pointer;
+      margin-top: 5px;
+      margin-bottom: 30px;
     }
+}
+
+.search-input {
+  background: transparent;
+  border: 1px solid #ffffff;
+  width: 180px;
+  height: 30px;
+  padding: 5px;
+  font-size: 14px;
+  color: #ffffff;
+  margin-top: 5px;
+  cursor: pointer;
 }

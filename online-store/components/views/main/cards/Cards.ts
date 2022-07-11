@@ -45,9 +45,9 @@ class Cards extends Control {
       child.lastElementChild?.append(button);
     }
 
-    this.element.appendChild(content);
-    (<HTMLElement>document.body.lastChild)?.appendChild(this.element);
-    this.parent.append(<HTMLElement>document.body.lastChild);
+    this.element.append(content);
+    this.mainContent.append(this.element);
+    this.parent.append(this.mainContent);
   }
 }
 
