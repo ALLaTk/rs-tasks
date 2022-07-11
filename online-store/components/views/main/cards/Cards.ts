@@ -38,7 +38,7 @@ class Cards extends Control {
       const button: HTMLButtonElement = document.createElement('button');
       button.className = 'button-card';
       button.innerHTML = 'PICK A LAMP';
-      button.onclick = () => {
+      button.onclick = (): void => {
         button.classList.toggle('active');
         console.log(child.id);
       };

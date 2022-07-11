@@ -3,7 +3,9 @@ import Control from '../../Control';
 
 class Sort extends Control {
   parent: HTMLElement;
+
   sort: HTMLElement;
+
   search: HTMLElement;
 
   constructor(parent: HTMLElement) {
@@ -14,38 +16,35 @@ class Sort extends Control {
   }
 
   renderSort(): void {
-    this.sort.className = "sort"
+    this.sort.className = 'sort';
     const html = `
       <form action="" method="post">
-        <p>Sort by<select class="select">
+        <p>Sort by</p>
+        <select class="select">
           <option selected value="Price(Lowest)">Price (Lowest)</option>
           <option value="Price(Highest)">Price (Highest)</option>
           <option value="Name(A-Z)">Name (A-Z)</option>
           <option value="Name(Z-A)">Name (Z-A)</option>
-       </select></p>
+       </select>
       </form>`;
 
     this.sort.innerHTML = html;
-    this.element.append(this.sort)
-    this.mainContent.appendChild(this.element);
-     (<HTMLElement>document.body.lastChild)?.appendChild(this.element);
-    this.parent.append(<HTMLElement>document.body.lastChild);
-  }
-
-  renderSearch(): void {
-    this.search.className = "search"
-     const html = `<p>Search<input placeholder="Enter text" type="text" class="search-input" value=""></p>`;
-    this.search.innerHTML = html;
-    this.element.append(this.search)
+    this.element.append(this.sort);
     this.mainContent.appendChild(this.element);
     (<HTMLElement>document.body.lastChild)?.appendChild(this.element);
     this.parent.append(<HTMLElement>document.body.lastChild);
   }
-  // render() {
-  //   this.renderSort()
-  //   this.renderSearch()
-  //   this.mainContent.append(this.element);
-  // }
+
+  renderSearch(): void {
+    this.search.className = 'search';
+    const html = `<p>Search</p>
+      <input placeholder="Enter text" type="text" class="search-input" value="">`;
+    this.search.innerHTML = html;
+    this.element.append(this.search);
+    this.mainContent.appendChild(this.element);
+    (<HTMLElement>document.body.lastChild)?.appendChild(this.element);
+    this.parent.append(<HTMLElement>document.body.lastChild);
+  }
 }
 
 const sort: Sort = new Sort(document.body);

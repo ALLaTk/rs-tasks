@@ -1,0 +1,133 @@
+.company {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  margin-top: 10px;
+
+  .company-title {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 2px solid #ffffff;
+  }
+  
+  .company-button {
+    margin-bottom: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .company-button:hover {
+    color: #b0976d;
+    transition: 0.8s;
+  }
+
+  .company-button.active {
+    color: #b0976d;
+  }
+}
+
+.power {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+
+    .power-title{
+      font-size: 18px;
+      font-weight: 600;
+      border-bottom: 2px solid #ffffff;
+    }
+
+    .power-button {
+      margin-left: 10px;
+      background-color: #000000;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .power-button:hover {
+      color: #b0976d;
+      transition: 0.8s;
+    }
+    
+    .power-button.active {
+      color: #b0976d;
+    }
+}
+
+.color {
+  width: 170px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+
+    .color-title{
+      font-size: 18px;
+      font-weight: 600;
+      border-bottom: 2px solid #ffffff;
+    }
+
+    .color-button {
+      cursor: pointer;
+      font-size: 16px;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #000000;
+    }
+
+    .white {
+      background-color: rgb(235, 226, 215);
+    }
+
+    .silver {
+      background-color: #6c6969;
+    }
+    
+    .gold {
+      background-color: #eab04c;
+    }
+
+    .color-button:hover {
+      background-color: #b0976d;
+      transition: 0.8s;
+    }
+
+    .color-button.active {
+      border: 2px solid #1c1cdd;
+    }
+}
+
+.popular {
+  width: 200px;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 40px;
+
+  .popular-title {
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 2px solid #ffffff;
+    margin-right: 20px;
+  }
+
+  .popular-button {
+    cursor: pointer;
+    font-size: 16px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #000000;
+  }
+
+  .popular-button:hover {
+    background-color: #b0976d;
+    transition: 0.8s;
+  }
+
+  .popular-button.active {
+    border: 2px solid #dd1c1c;
+  }
+}
