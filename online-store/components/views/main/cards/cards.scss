@@ -46,7 +46,7 @@
             font-size: 16px;
             color: #b0976d;
           }
-           ul .list-item:last-child {
+          ul .list-item:last-child {
             font-weight: 600;
             color: #b0976d;
           }
@@ -55,10 +55,15 @@
             height: 40px;
             margin-top: 10px;
             background-color: #000000;
-            color: #b0976d;
+            color: #ffffff;
             font-size: 12px;
             font-weight: 600;
             letter-spacing: 1px;
+          }
+          .button-card:hover {
+            color: #000000;
+            background-color: #b0976d;
+            transition: 0.8s;
           }
           .button-card.active {
             color: #000000;
