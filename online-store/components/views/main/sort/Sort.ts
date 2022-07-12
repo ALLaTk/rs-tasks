@@ -1,6 +1,5 @@
 import './sort.scss';
 class Sort {
-
   sort: HTMLDivElement;
 
   search: HTMLDivElement;

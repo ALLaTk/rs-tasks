@@ -2,18 +2,20 @@ import './cards.scss';
 import ProductsInterfase from '../../../appTypes/Interfase';
 
 class Cards {
-  products: ProductsInterfase[]
-  content: HTMLDivElement
+  products: ProductsInterfase[];
+
+  content: HTMLDivElement;
+
   constructor() {
     this.content = document.createElement('div');
-    this.products = []
+    this.products = [];
   }
 
   render(data: ProductsInterfase[]): void {
-    const main = <HTMLElement>document.querySelector('main')
+    const main = <HTMLElement>document.querySelector('main');
     this.content.className = 'cards';
-    this.products = data
-   
+    this.products = data;
+
     this.content.innerHTML = this.products
       .map((el): string => {
         return `<div class="cards__inner">

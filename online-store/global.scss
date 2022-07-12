@@ -1,16 +1,15 @@
 @import "nullstyle.scss";
 
 body {
-  position: absolute;
   color: #ffffff;
   background: #000000;
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   min-height: 100vh;
   margin: 0 auto;
   overflow-x: hidden;
+  align-items: center;
 
   .header {
     display: flex;
@@ -24,13 +23,14 @@ body {
   main {
     display: flex;
     justify-content: space-between;
+    padding: 60px;
+    max-width: 1440px;
 
     .render {
       display: flex;
       flex-direction: column;
-      padding-right: 40px;
-      padding-left: 60px;
-      padding-top: 40px;
+      padding-right: 60px;
+      padding-top: 60px;
     }
   }
 }

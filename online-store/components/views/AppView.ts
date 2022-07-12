@@ -7,12 +7,15 @@ import Header from './header/Header';
 
 class AppView {
   header: Header;
+
   sort: Sort;
+
   filter: Filter;
+
   cards: Cards;
 
   constructor() {
-    this.header = new Header()
+    this.header = new Header();
     this.sort = new Sort();
     this.filter = new Filter();
     this.cards = new Cards();

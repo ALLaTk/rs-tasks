@@ -1,6 +1,5 @@
 import './filter.scss';
 class Filter {
-
   buttonCompany: HTMLDivElement;
 
   buttonPower: HTMLDivElement;
@@ -9,7 +8,7 @@ class Filter {
 
   buttonPopular: HTMLDivElement;
 
-  constructor() {;
+  constructor() {
     this.buttonCompany = document.createElement('div');
     this.buttonPower = document.createElement('div');
     this.buttonColor = document.createElement('div');
