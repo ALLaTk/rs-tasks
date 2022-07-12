@@ -10,7 +10,7 @@ class Sort {
     this.search = document.createElement('div');
   }
 
-  renderSort(): void {
+  addSort(): void {
     const render = <HTMLDivElement>document.querySelector('.render');
     this.sort.className = 'sort';
     const html = `
@@ -28,7 +28,7 @@ class Sort {
     render.append(this.sort);
   }
 
-  renderSearch(): void {
+  addSearch(): void {
     const render = <HTMLDivElement>document.querySelector('.render');
     this.search.className = 'search';
     const html = `<p>Search</p>

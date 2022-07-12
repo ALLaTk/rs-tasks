@@ -16,7 +16,7 @@ class Filter {
     this.buttonPopular = document.createElement('div');
   }
 
-  changeCompany(): void {
+  addCompany(): void {
     const render = <HTMLDivElement>document.querySelector('.render');
     this.buttonCompany.className = 'company';
     this.buttonCompany.innerHTML = `<p class="company-title">Company</p>`;
@@ -34,7 +34,7 @@ class Filter {
     render.append(this.buttonCompany);
   }
 
-  changePower(): void {
+  addPower(): void {
     const render = <HTMLDivElement>document.querySelector('.render');
     this.buttonPower.className = 'power';
     this.buttonPower.innerHTML = `<p class="power-title">Power</p>`;
@@ -52,7 +52,7 @@ class Filter {
     render.append(this.buttonPower);
   }
 
-  changeColor(): void {
+  addColor(): void {
     const render = <HTMLDivElement>document.querySelector('.render');
     this.buttonColor.className = 'color';
     this.buttonColor.innerHTML = `<p class="color-title">Color</p>`;
@@ -69,7 +69,7 @@ class Filter {
     render.append(this.buttonColor);
   }
 
-  changePopular(): void {
+  addPopular(): void {
     const render = <HTMLDivElement>document.querySelector('.render');
     this.buttonPower.className = 'popular';
     this.buttonPower.innerHTML = `<p class="popular-title">Popular</p>`;
