@@ -1,13 +1,8 @@
 import './header.scss';
-import Control from '../Control';
-
-class Header extends Control {
-  constructor(parent: HTMLElement) {
-    super(parent, 'header', 'header');
-  }
-
+class Header {
   render(data: number): void {
-    const html = `
+    const header = <HTMLElement>document.querySelector('header')
+    const html = `<div class="header__content">
                 <div class="header__top">
                   <img class="logo__img" src="./assets/png/logo.png">
                   <nav class="menu">
@@ -21,11 +16,10 @@ class Header extends Control {
                   </nav>
                   <div class ="cart">${data}</div>
                 </div>  
-                <img class="header__img" src="./assets/jpg/light.jpg">`;
-    this.element.innerHTML = html;
-  }
+                <img class="header__img" src="./assets/jpg/light.jpg">
+               </div>`
+    header.innerHTML = html;
+   }
 }
 
-const header: Header = new Header(document.body);
-
-export default header;
+export default Header;
