@@ -1,25 +1,26 @@
 import './cards.scss';
-import Control from '../../Control';
-import products from '../../../../server/products.json';
+import ProductsInterfase from '../../../appTypes/Interfase';
 
-class Cards extends Control {
-  parent: HTMLElement;
-
-  constructor(parent: HTMLElement) {
-    super(parent, 'div', 'cards');
-    this.parent = parent;
+class Cards {
+  products: ProductsInterfase[]
+  content: HTMLDivElement
+  constructor() {
+    this.content = document.createElement('div');
+    this.products = []
   }
 
-  render(): void {
-    const content: HTMLDivElement = document.createElement('div');
-    content.className = 'cards__content';
-    content.innerHTML = products
+  render(data: ProductsInterfase[]): void {
+    const main = <HTMLElement>document.querySelector('main')
+    this.content.className = 'cards';
+    this.products = data
+   
+    this.content.innerHTML = this.products
       .map((el): string => {
         return `<div class="cards__inner">
-                <p class="name-item">${el.name}</p>
-                <div class="cards__content-item">
-                  <img class="cards-image" src=${el.image} alt="lamp">
-                  <ul class="list">
+                  <p class="name-item">${el.name}</p>
+                  <div class="cards__content-item">
+                    <img class="cards-image" src=${el.image} alt="lamp">
+                    <ul class="list">
                     <li class="list-item">${el.company}</li>
                     <li class="list-item">${el.power}</li>
                     <li class="list-item">POPULAR: ${el.popular}</li>
@@ -32,7 +33,7 @@ class Cards extends Control {
       })
       .join('');
 
-    const childNode: HTMLCollection = content.children;
+    const childNode: HTMLCollection = this.content.children;
 
     for (const child of childNode) {
       const button: HTMLButtonElement = document.createElement('button');
@@ -44,13 +45,12 @@ class Cards extends Control {
       };
       child.lastElementChild?.append(button);
     }
+    main.append(this.content);
+  }
 
-    this.element.append(content);
-    this.mainContent.append(this.element);
-    this.parent.append(this.mainContent);
+  deleteCards(){
+   return this.content.remove();
   }
 }
 
-const cards: Cards = new Cards(document.body);
-
-export default cards;
+export default Cards;

@@ -1,4 +1,4 @@
-.cards__content {
+.cards {
   display: flex;
   position: relative;
   width: 90%;
@@ -6,68 +6,78 @@
   flex-wrap: wrap;
   justify-content: space-around;
   row-gap: 20px;
-  margin: 0 auto;
-    .cards__inner {
+  margin: 30px auto;
+
+  .cards__inner {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+
+    .name-item {
+      font-size: 30px;
+      font-style: oblique;
+      text-align: center;
+      font-family: "Playfair Display";
+      font-weight: 400;
+    }
+
+    .cards__content-item {
       display: flex;
+      width: 280px;
       flex-direction: column;
-      padding-bottom: 10px;
-      .name-item {
-        font-size: 30px;
-        font-style: oblique;
-        text-align: center;
-        font-family: "Playfair Display";
-        font-weight: 400;
-        }
-      .cards__content-item {
-        display: flex;
-        width: 280px;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 400px;
-        margin-top: 5px;
-        background-color: #121212;
-          .cards-image {
-              background-position: center center;
-              background: transparent;
-              height: 230px;
-              margin-bottom: 10px;
-            }
-          .list {
-            display: flex;
-            flex-wrap: wrap;
-            width: 50%;
-            row-gap: 10px;
-            column-gap: 10px;
-            justify-content: center;
-          }
-          ul .list-item:first-child {
-            font-size: 16px;
-            color: #b0976d;
-          }
-          ul .list-item:last-child {
-            font-weight: 600;
-            color: #b0976d;
-          }
-          .button-card {
-            width: 150px;
-            height: 40px;
-            margin-top: 10px;
-            background-color: #000000;
-            color: #ffffff;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1px;
-          }
-          .button-card:hover {
-            color: #000000;
-            background-color: #b0976d;
-            transition: 0.8s;
-          }
-          .button-card.active {
-            color: #000000;
-            background-color: #b0976d;
-          }
+      align-items: center;
+      justify-content: center;
+      height: 400px;
+      margin-top: 5px;
+      background-color: #121212;
+
+      .cards-image {
+        background-position: center center;
+        background: transparent;
+        height: 230px;
+        margin-bottom: 10px;
       }
+
+      .list {
+        display: flex;
+        flex-wrap: wrap;
+        width: 50%;
+        row-gap: 10px;
+        column-gap: 10px;
+        justify-content: center;
+      }
+
+      ul .list-item:first-child {
+        font-size: 16px;
+        color: #b0976d;
+      }
+
+      ul .list-item:last-child {
+        font-weight: 600;
+        color: #b0976d;
+      }
+
+      .button-card {
+        width: 150px;
+        height: 40px;
+        margin-top: 10px;
+        background-color: #000000;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+
+      .button-card:hover {
+        color: #000000;
+        background-color: #b0976d;
+        transition: 0.8s;
+      }
+
+      .button-card.active {
+        color: #000000;
+        background-color: #b0976d;
+      }
+    }
   }
 }
