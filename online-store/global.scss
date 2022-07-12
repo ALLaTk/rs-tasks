@@ -11,18 +11,28 @@ body {
   min-height: 100vh;
   margin: 0 auto;
   overflow-x: hidden;
-    .main {
+
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    width: 100%;
+    color: #b0976d;
+  }
+
+  main {
+    display: flex;
+    justify-content: space-between;
+
+    .render {
       display: flex;
-      justify-content: space-between;
-      flex-direction: row-reverse;
-        .render {
-          display: flex;
-          flex-direction: column;
-          padding-right: 40px;
-          padding-left: 60px;
-          padding-top: 40px;
-        }
+      flex-direction: column;
+      padding-right: 40px;
+      padding-left: 60px;
+      padding-top: 40px;
     }
+  }
 }
 
 
@@ -35,5 +45,3 @@ body {
 //     align-items: center;
 //     justify-content: space-around;
 // }
-
-
