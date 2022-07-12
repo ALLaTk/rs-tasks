@@ -1,20 +1,15 @@
 import './filter.scss';
-import Control from '../../Control';
+class Filter {
 
-class Filter extends Control {
-  parent: HTMLElement;
+  buttonCompany: HTMLDivElement;
 
-  buttonCompany: HTMLElement;
+  buttonPower: HTMLDivElement;
 
-  buttonPower: HTMLElement;
+  buttonColor: HTMLDivElement;
 
-  buttonColor: HTMLElement;
+  buttonPopular: HTMLDivElement;
 
-  buttonPopular: HTMLElement;
-
-  constructor(parent: HTMLElement) {
-    super(parent, 'div', 'filter');
-    this.parent = parent;
+  constructor() {;
     this.buttonCompany = document.createElement('div');
     this.buttonPower = document.createElement('div');
     this.buttonColor = document.createElement('div');
@@ -22,6 +17,7 @@ class Filter extends Control {
   }
 
   changeCompany(): void {
+    const render = <HTMLDivElement>document.querySelector('.render');
     this.buttonCompany.className = 'company';
     this.buttonCompany.innerHTML = `<p class="company-title">Company</p>`;
     const company: string[] = ['Arte Lamp', 'Arte Luce', 'Divinare', 'Maytoni'];
@@ -35,11 +31,11 @@ class Filter extends Control {
       this.buttonCompany.append(button);
     });
 
-    this.element.append(this.buttonCompany);
-    this.parent.lastElementChild?.lastElementChild?.append(this.element);
+    render.append(this.buttonCompany);
   }
 
   changePower(): void {
+    const render = <HTMLDivElement>document.querySelector('.render');
     this.buttonPower.className = 'power';
     this.buttonPower.innerHTML = `<p class="power-title">Power</p>`;
     const company: string[] = ['85WT', '150WT', '225WT'];
@@ -53,11 +49,11 @@ class Filter extends Control {
       this.buttonPower.append(button);
     });
 
-    this.element.append(this.buttonPower);
-    this.parent.lastElementChild?.lastElementChild?.append(this.element);
+    render.append(this.buttonPower);
   }
 
   changeColor(): void {
+    const render = <HTMLDivElement>document.querySelector('.render');
     this.buttonColor.className = 'color';
     this.buttonColor.innerHTML = `<p class="color-title">Color</p>`;
     const company: string[] = ['white', 'gold', 'silver'];
@@ -70,11 +66,11 @@ class Filter extends Control {
       this.buttonColor.append(button);
     });
 
-    this.element.append(this.buttonColor);
-    this.parent.lastElementChild?.lastElementChild?.append(this.element);
+    render.append(this.buttonColor);
   }
 
   changePopular(): void {
+    const render = <HTMLDivElement>document.querySelector('.render');
     this.buttonPower.className = 'popular';
     this.buttonPower.innerHTML = `<p class="popular-title">Popular</p>`;
     const button: HTMLButtonElement = document.createElement('button');
@@ -83,10 +79,8 @@ class Filter extends Control {
       button.classList.toggle('active');
     };
     this.buttonPower.append(button);
-    this.element.append(this.buttonPower);
-    this.parent.lastElementChild?.lastElementChild?.append(this.element);
+    render.append(this.buttonPower);
   }
 }
 
-const filter: Filter = new Filter(document.body);
-export default filter;
+export default Filter;
