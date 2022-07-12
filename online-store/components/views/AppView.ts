@@ -22,12 +22,12 @@ class AppView {
     this.header.render(8);
   }
 
-  renderSort(): void {
+  showSort(): void {
     this.sort.addSort();
     this.sort.addSearch();
   }
 
-  renderFilter(): void {
+  showFilter(): void {
     this.filter.addCompany();
     this.filter.addPower();
     this.filter.addColor();
@@ -37,10 +37,5 @@ class AppView {
   drawCards(data: ProductsInterfase[]): void {
     this.cards.render(data);
   }
-
-  deleteCards(){
-   return this.cards.deleteCards();
-  }
-
 }
 export default AppView;

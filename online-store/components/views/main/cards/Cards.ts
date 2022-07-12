@@ -47,10 +47,6 @@ class Cards {
     }
     main.append(this.content);
   }
-
-  deleteCards(){
-   return this.content.remove();
-  }
 }
 
 export default Cards;
