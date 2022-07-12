@@ -1,7 +1,7 @@
 import './header.scss';
 class Header {
   render(data: number): void {
-    const header = <HTMLElement>document.querySelector('header')
+    const header = <HTMLElement>document.querySelector('header');
     const html = `<div class="header__content">
                 <div class="header__top">
                   <img class="logo__img" src="./assets/png/logo.png">

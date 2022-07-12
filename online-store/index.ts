@@ -1,7 +1,7 @@
 import './global.scss';
 import App from './components/controller/App';
 
-const app = new App()
+const app: App = new App()
 app.start()
 
 
