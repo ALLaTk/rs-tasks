@@ -62,43 +62,31 @@
 .color {
   width: 170px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   margin-bottom: 40px;
 
     .color-title{
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 600;
-      border-bottom: 2px solid #ffffff;
+      color: #b0976d;
+      padding-bottom: 15px;
     }
 
-    .color-button {
-      cursor: pointer;
+    .color__content {
+      display: flex;
+      justify-content: flex-start;
+      padding-bottom: 10px;
       font-size: 16px;
-      width: 18px;
-      height: 18px;
-      border: 2px solid #000000;
-    }
 
-    .white {
-      background-color: rgb(235, 226, 215);
-    }
-
-    .silver {
-      background-color: #6c6969;
-    }
-    
-    .gold {
-      background-color: #eab04c;
-    }
-
-    .color-button:hover {
-      background-color: #b0976d;
-      transition: 0.8s;
-    }
-
-    .color-button.active {
-      border: 2px solid #1c1cdd;
-    }
+      .color-button {
+        cursor: pointer;
+        font-size: 16px;
+        width: 18px;
+        height: 18px;
+        border: 2px solid #000000;
+        margin-right: 20px;
+      }
+  }
 }
 
 .popular {

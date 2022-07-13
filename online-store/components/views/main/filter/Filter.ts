@@ -4,14 +4,14 @@ class Filter {
 
   buttonPower: HTMLDivElement;
 
-  buttonColor: HTMLDivElement;
+  InputColor: HTMLFormElement;
 
   buttonPopular: HTMLDivElement;
 
   constructor() {
     this.buttonCompany = document.createElement('div');
     this.buttonPower = document.createElement('div');
-    this.buttonColor = document.createElement('div');
+    this.InputColor = document.createElement('form');
     this.buttonPopular = document.createElement('div');
   }
 
@@ -53,19 +53,29 @@ class Filter {
 
   addColor(): void {
     const render = <HTMLDivElement>document.querySelector('.render');
-    this.buttonColor.className = 'color';
-    this.buttonColor.innerHTML = `<p class="color-title">Color</p>`;
+    this.InputColor.className = 'color';
+    this.InputColor.innerHTML = `<p class="color-title">Color</p>`;
     const company: string[] = ['white', 'gold', 'silver'];
     company.forEach((elem: string): void => {
-      const button: HTMLButtonElement = document.createElement('button');
-      button.className = `color-button ${elem}`;
-      button.onclick = (): void => {
-        button.classList.toggle('active');
+      const colorBlock: HTMLDivElement = document.createElement('div')
+      colorBlock.className = 'color__content'
+      const text: HTMLElement = document.createElement('p')
+      text.className = 'color-name'
+      text.innerHTML = elem
+      const input: HTMLInputElement = document.createElement('input');
+      input.className = `color-button ${elem}`;
+      input.type = 'checkbox'
+      input.name = elem
+      input.onchange = (): void => {
+        input.classList.toggle('active');
+        
       };
-      this.buttonColor.append(button);
+      colorBlock.append(input);
+      colorBlock.append(text);
+      this.InputColor.append(colorBlock);
     });
 
-    render.append(this.buttonColor);
+    render.append(this.InputColor);
   }
 
   addPopular(): void {

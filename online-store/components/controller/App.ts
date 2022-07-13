@@ -19,6 +19,7 @@ class App extends AppModel {
     this.view.showFilter();
     this.model.doSort('1');
     this.renderSort();
+    this.renderColor();
   }
 
   renderSort(): void {
@@ -26,6 +27,15 @@ class App extends AppModel {
     select.onchange = () => {
       this.model.doSort(select.value);
     };
+  }
+  
+  renderColor() {
+    const select = <HTMLInputElement[]>[...document.querySelectorAll('.color .color__content input')];
+    select.forEach((elem) => {        
+      elem.onchange= () => {
+        this.model.findColor(elem.name, elem.checked)
+      }          
+    })   
   }
 }
 

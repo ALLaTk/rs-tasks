@@ -31,7 +31,7 @@ class Sort {
     const render = <HTMLDivElement>document.querySelector('.render');
     this.search.className = 'search';
     const html = `<p>Search</p>
-      <input placeholder="Enter text" type="text" class="search-input" value="">`;
+      <input placeholder="Enter text" type="text" class="search-input" value="search">`;
     this.search.innerHTML = html;
     render.append(this.search);
   }
