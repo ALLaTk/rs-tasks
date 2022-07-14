@@ -11,5 +11,5 @@ export interface ProductsInterfase {
 }
 
 export interface FilterInterfase<T> {
-  [key: string]: T[]
+  [key: string]: T[];
 }

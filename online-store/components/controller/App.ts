@@ -1,11 +1,12 @@
 import products from '../../server/products.json';
 import AppModel from '../model/AppModel';
-import {ProductsInterfase} from '../appTypes/Interfase';
+import { ProductsInterfase } from '../appTypes/Interfase';
 
 class App extends AppModel {
   model: AppModel;
 
   products: ProductsInterfase[];
+
   constructor() {
     super(products);
     this.products = products;
@@ -22,7 +23,8 @@ class App extends AppModel {
     this.renderColor();
     this.renderPower();
     this.renderPopular();
-    this.renderCompany()
+    this.renderCompany();
+    this.renderSliderPrice();
   }
 
   renderSort(): void {
@@ -32,7 +34,7 @@ class App extends AppModel {
     };
   }
 
-  renderColor():void {
+  renderColor(): void {
     const select = <HTMLInputElement[]>[...document.querySelectorAll('.color input')];
     select.forEach((elem: HTMLInputElement): void => {
       elem.onchange = (): void => {
@@ -41,7 +43,7 @@ class App extends AppModel {
     });
   }
 
-  renderPower():void {
+  renderPower(): void {
     const select = <HTMLInputElement[]>[...document.querySelectorAll('.power input')];
     select.forEach((elem: HTMLInputElement): void => {
       elem.onchange = (): void => {
@@ -50,14 +52,14 @@ class App extends AppModel {
     });
   }
 
-  renderPopular():void {
+  renderPopular(): void {
     const select = <HTMLInputElement>document.querySelector('.popular input');
-      select.onchange = (): void => {
-        this.model.findPopular(select.checked);
-      };
+    select.onchange = (): void => {
+      this.model.findPopular(select.checked);
+    };
   }
 
-   renderCompany():void {
+  renderCompany(): void {
     const select = <HTMLInputElement[]>[...document.querySelectorAll('.company input')];
     select.forEach((elem: HTMLInputElement): void => {
       elem.onchange = (): void => {
@@ -66,6 +68,32 @@ class App extends AppModel {
     });
   }
 
+  renderSliderPrice() {
+    const sliders = <HTMLInputElement[]>[...document.querySelectorAll('.container input[type="range"]')];
+
+    const min = <HTMLElement>document.querySelector('.min');
+    const max = <HTMLElement>document.querySelector('.max');
+
+    sliders[0].oninput = () => {
+      if (+sliders[0].value > +sliders[1].value) {
+        sliders[1].value = sliders[0].value;
+      }
+    };
+
+    sliders[1].oninput = () => {
+      if (+sliders[1].value < +sliders[0].value) {
+        sliders[0].value = sliders[1].value;
+      }
+    };
+
+    sliders.forEach((slider) => {
+      slider.onmouseup = () => {
+        min.innerHTML = `${sliders[0].value}`;
+        max.innerHTML = `${sliders[1].value}`;
+        this.model.findPrice(sliders[0].value, sliders[1].value);
+      };
+    });
+  }
 }
 
 export default App;

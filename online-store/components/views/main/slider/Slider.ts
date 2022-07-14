@@ -12,7 +12,7 @@ class Slider {
 
   addSliderPrice(): void {
     const render = <HTMLDivElement>document.querySelector('.render');
-    this.price.className = 'sliedr-container'
+    this.price.className = 'sliedr-container';
     const content = `<p class="price-title">Price</p>
                      <div class="price-number">
                        <div class="min">120</div>
@@ -21,14 +21,12 @@ class Slider {
                      <div class="container">
                        <input type="range" min="120" step="20" max="520" value="120">
                        <input type="range" min="120" step="20" max="520" value="520">
-                     </div>`
+                     </div>`;
     this.price.innerHTML = content;
-    render.append(this.price)
+    render.append(this.price);
   }
 
-  addSliderQuantity(): void {
-   
-  }
+  addSliderQuantity(): void {}
 }
 
 export default Slider;
