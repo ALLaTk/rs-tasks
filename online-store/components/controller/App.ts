@@ -21,6 +21,7 @@ class App extends AppModel {
     this.renderSort();
     this.renderColor();
     this.renderPower();
+    this.renderPopular();
   }
 
   renderSort(): void {
@@ -46,6 +47,13 @@ class App extends AppModel {
         this.model.findPower(elem.name, elem.checked);
       };
     });
+  }
+
+  renderPopular():void {
+    const select = <HTMLInputElement>document.querySelector('.popular input');
+      select.onchange = (): void => {
+        this.model.findPopular(select.checked);
+      };
   }
 
 }

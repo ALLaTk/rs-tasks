@@ -92,7 +92,16 @@ class AppModel {
       } 
      this.view.drawCards(this.filterArray(this.products, this.filters));  
   }
-
+  
+  findPopular(check: boolean): void {
+    if (check) {
+      this.filters.popular.push("yes")
+    }
+    else {
+      this.filters.popular.splice(this.filters.popular.indexOf("yes"), 1)
+      } 
+     this.view.drawCards(this.filterArray(this.products, this.filters));
+  }
   
 }
 
