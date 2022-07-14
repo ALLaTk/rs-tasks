@@ -2,6 +2,7 @@
 import Cards from './main/cards/Cards';
 import Sort from './main/sort/Sort';
 import Filter from './main/filter/Filter';
+import Slider from './main/slider/Slider';
 import {ProductsInterfase} from '../appTypes/Interfase';
 import Header from './header/Header';
 
@@ -11,6 +12,7 @@ class AppView {
   sort: Sort;
 
   filter: Filter;
+  slider: Slider;
 
   cards: Cards;
 
@@ -18,6 +20,7 @@ class AppView {
     this.header = new Header();
     this.sort = new Sort();
     this.filter = new Filter();
+    this.slider = new Slider();
     this.cards = new Cards();
   }
 
@@ -35,6 +38,10 @@ class AppView {
     this.filter.addPower();
     this.filter.addColor();
     this.filter.addPopular();
+  }
+
+  showSlider(): void {
+    this.slider.addSliderPrice()
   }
 
   drawCards(data: ProductsInterfase[]): void {

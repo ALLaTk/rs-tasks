@@ -1,0 +1,42 @@
+.price-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #b0976d;
+  padding-bottom: 15px;
+}
+
+.container {
+  position: relative;
+  pointer-events: none;
+}
+
+.container input[type="range"] {
+  height: 2em;
+  display: block;
+  margin: 0;
+  cursor: pointer;
+  width: 150px;
+}
+
+.container input[type="range"]:last-child {
+  margin-top: -2em;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  pointer-events: all;
+}
+
+input[type="range"]::-moz-range-thumb {
+  pointer-events: all;
+}
+
+input[type="range"]::-ms-thumb {
+  pointer-events: all;
+}
+
+.price-number{
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  font-size: 14px;
+}

@@ -1,6 +1,6 @@
 import './filter.scss';
 class Filter {
-  buttonCompany: HTMLDivElement;
+  inputCompany: HTMLFormElement;
 
   inputPower: HTMLFormElement;
 
@@ -9,7 +9,7 @@ class Filter {
   inputPopular: HTMLFormElement;
 
   constructor() {
-    this.buttonCompany = document.createElement('div');
+    this.inputCompany = document.createElement('form');
     this.inputPower = document.createElement('form');
     this.inputColor = document.createElement('form');
     this.inputPopular = document.createElement('form');
@@ -17,20 +17,25 @@ class Filter {
 
   addCompany(): void {
     const render = <HTMLDivElement>document.querySelector('.render');
-    this.buttonCompany.className = 'company';
-    this.buttonCompany.innerHTML = `<p class="company-title">Company</p>`;
+    this.inputCompany.className = 'company';
+    this.inputCompany.innerHTML = `<p class="company-title">Company</p>`;
     const company: string[] = ['Arte Lamp', 'Arte Luce', 'Divinare', 'Maytoni'];
     company.forEach((elem: string): void => {
-      const button: HTMLButtonElement = document.createElement('button');
-      button.className = `company-button ${elem}`;
-      button.innerHTML = `${elem}`;
-      button.onclick = (): void => {
-        button.classList.toggle('active');
-      };
-      this.buttonCompany.append(button);
+      const companyBlock: HTMLDivElement = document.createElement('div');
+      companyBlock.className = 'company__content';
+      const text: HTMLElement = document.createElement('p');
+      text.className = 'company-name';
+      text.innerHTML = elem;
+      const input: HTMLInputElement = document.createElement('input');
+      input.className = `company-button ${elem}`;
+      input.type = 'checkbox';
+      input.name = elem;
+      companyBlock.append(input);
+      companyBlock.append(text);
+      this.inputCompany.append(companyBlock);
     });
 
-    render.append(this.buttonCompany);
+    render.append(this.inputCompany);
   }
 
   addPower(): void {

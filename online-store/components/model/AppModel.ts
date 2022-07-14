@@ -5,10 +5,6 @@ class AppModel {
 
   filterProducts: ProductsInterfase[];
 
-  filterColor: string[];
-
-  filterPower: string[];
-  filterPopular: string[];
   filters: FilterInterfase<string | number>
   view: AppView;
 
@@ -20,13 +16,12 @@ class AppModel {
       "power": [],
       "color": [],
       "quantity": [],
-      "price": [],
+      "price": [120, 140, 160, 180, 200, 220, 240,
+                260, 280, 300, 320, 340, 360, 380,
+                400, 420, 440, 460, 480, 500, 520],
       "popular": [],
     };
     this.filterProducts = [];
-    this.filterColor = [];
-    this.filterPower = [];
-    this.filterPopular = [];
     this.view = new AppView();
   }
   
@@ -57,7 +52,7 @@ class AppModel {
       this.view.drawCards(sortArr);
     }
     if (value === '3') {
-      sortArr.sort((a, b) => (a.name > b.name ? 1 : -1));
+      sortArr.sort((a, b): number => (a.name > b.name ? 1 : -1));
       this.view.drawCards(sortArr);
     }
     if (value === '4') {
@@ -98,15 +93,7 @@ class AppModel {
      this.view.drawCards(this.filterArray(this.products, this.filters));  
   }
 
-  findPopular(check: boolean) {
-    if (check) {
-      this.filters.popular.push("yes")
-    }
-    else {
-      this.filters.popular.splice(this.filters.popular.indexOf("yes"), 1)
-      } 
-     this.view.drawCards(this.filterArray(this.products, this.filters));
-  }
+  
 }
 
 export default AppModel;

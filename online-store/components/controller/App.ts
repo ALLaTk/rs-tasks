@@ -6,7 +6,6 @@ class App extends AppModel {
   model: AppModel;
 
   products: ProductsInterfase[];
-
   constructor() {
     super(products);
     this.products = products;
@@ -17,11 +16,11 @@ class App extends AppModel {
     this.model.addheader();
     this.view.showSort();
     this.view.showFilter();
+    this.view.showSlider();
     this.model.doSort('1');
     this.renderSort();
     this.renderColor();
     this.renderPower();
-    this. renderPopular();
   }
 
   renderSort(): void {
@@ -49,12 +48,6 @@ class App extends AppModel {
     });
   }
 
-  renderPopular():void {
-    const select = <HTMLInputElement>document.querySelector('.popular input');
-      select.onchange = (): void => {
-        this.model.findPopular(select.checked);
-      };
-  }
 }
 
 export default App;
