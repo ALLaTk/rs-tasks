@@ -16,7 +16,7 @@ class Header {
                   </nav>
                   <div class ="cart">${data}</div>
                 </div>  
-                <img class="header__img" src="./assets/jpg/light.jpg">
+        
                </div>`;
     header.innerHTML = html;
   }
