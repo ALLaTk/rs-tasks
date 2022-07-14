@@ -20,6 +20,7 @@ class App extends AppModel {
     this.model.doSort('1');
     this.renderSort();
     this.renderColor();
+    this.renderPower();
   }
 
   renderSort(): void {
@@ -28,14 +29,23 @@ class App extends AppModel {
       this.model.doSort(select.value);
     };
   }
-  
+
   renderColor() {
-    const select = <HTMLInputElement[]>[...document.querySelectorAll('.color .color__content input')];
-    select.forEach((elem) => {        
-      elem.onchange= () => {
-        this.model.findColor(elem.name, elem.checked)
-      }          
-    })   
+    const select = <HTMLInputElement[]>[...document.querySelectorAll('.color input')];
+    select.forEach((elem: HTMLInputElement): void => {
+      elem.onchange = (): void => {
+        this.model.findColor(elem.name, elem.checked);
+      };
+    });
+  }
+
+  renderPower() {
+    const select = <HTMLInputElement[]>[...document.querySelectorAll('.power input')];
+    select.forEach((elem: HTMLInputElement): void => {
+      elem.onchange = (): void => {
+        this.model.findPower(elem.name, elem.checked);
+      };
+    });
   }
 }
 

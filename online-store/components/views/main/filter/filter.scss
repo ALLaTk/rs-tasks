@@ -31,32 +31,32 @@
 }
 
 .power {
+  width: 170px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   margin-bottom: 40px;
 
-    .power-title{
-      font-size: 18px;
-      font-weight: 600;
-      border-bottom: 2px solid #ffffff;
-    }
+  .power-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #b0976d;
+    padding-bottom: 15px;
+  }
+
+  .power__content {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+    font-size: 16px;
 
     .power-button {
-      margin-left: 10px;
-      background-color: #000000;
-      color: #ffffff;
       cursor: pointer;
       font-size: 16px;
+      width: 18px;
+      height: 18px;
+      margin-right: 20px;
     }
-
-    .power-button:hover {
-      color: #b0976d;
-      transition: 0.8s;
-    }
-    
-    .power-button.active {
-      color: #b0976d;
-    }
+  }
 }
 
 .color {
@@ -83,7 +83,6 @@
         font-size: 16px;
         width: 18px;
         height: 18px;
-        border: 2px solid #000000;
         margin-right: 20px;
       }
   }
