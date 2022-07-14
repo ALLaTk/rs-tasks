@@ -102,6 +102,16 @@ class AppModel {
       } 
      this.view.drawCards(this.filterArray(this.products, this.filters));
   }
+
+  findCompany(value: string, check: boolean): void {
+    if (check) {
+      this.filters.company.push(value)
+    }
+    else {
+      this.filters.company.splice(this.filters.company.indexOf(value), 1)
+      } 
+     this.view.drawCards(this.filterArray(this.products, this.filters));
+  }
   
 }
 

@@ -22,6 +22,7 @@ class App extends AppModel {
     this.renderColor();
     this.renderPower();
     this.renderPopular();
+    this.renderCompany()
   }
 
   renderSort(): void {
@@ -54,6 +55,15 @@ class App extends AppModel {
       select.onchange = (): void => {
         this.model.findPopular(select.checked);
       };
+  }
+
+   renderCompany():void {
+    const select = <HTMLInputElement[]>[...document.querySelectorAll('.company input')];
+    select.forEach((elem: HTMLInputElement): void => {
+      elem.onchange = (): void => {
+        this.model.findCompany(elem.name, elem.checked);
+      };
+    });
   }
 
 }
