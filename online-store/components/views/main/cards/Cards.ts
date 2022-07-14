@@ -1,5 +1,5 @@
 import './cards.scss';
-import ProductsInterfase from '../../../appTypes/Interfase';
+import { ProductsInterfase } from '../../../appTypes/Interfase';
 
 class Cards {
   products: ProductsInterfase[];

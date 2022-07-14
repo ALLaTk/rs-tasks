@@ -1,4 +1,4 @@
-export default interface ProductsInterfase {
+export interface ProductsInterfase {
   id: string;
   name: string;
   image: string;
@@ -8,4 +8,8 @@ export default interface ProductsInterfase {
   quantity: number;
   price: number;
   popular: string;
+}
+
+export interface FilterInterfase<T> {
+  [key: string]: T[]
 }

@@ -6,13 +6,13 @@ class Filter {
 
   inputColor: HTMLFormElement;
 
-  buttonPopular: HTMLDivElement;
+  inputPopular: HTMLFormElement;
 
   constructor() {
     this.buttonCompany = document.createElement('div');
     this.inputPower = document.createElement('form');
     this.inputColor = document.createElement('form');
-    this.buttonPopular = document.createElement('div');
+    this.inputPopular = document.createElement('form');
   }
 
   addCompany(): void {
@@ -81,15 +81,13 @@ class Filter {
 
   addPopular(): void {
     const render = <HTMLDivElement>document.querySelector('.render');
-    this.buttonPopular.className = 'popular';
-    this.buttonPopular.innerHTML = `<p class="popular-title">Popular</p>`;
-    const button: HTMLButtonElement = document.createElement('button');
-    button.className = `popular-button`;
-    button.onclick = (): void => {
-      button.classList.toggle('active');
-    };
-    this.buttonPopular.append(button);
-    render.append(this.buttonPopular);
+    this.inputPopular.className = 'popular';
+    this.inputPopular.innerHTML = `<p class="popular-title">Popular</p>`;
+    const input: HTMLInputElement = document.createElement('input');
+    input.type = 'checkbox';
+    input.className = `popular-button`;
+    this.inputPopular.append(input);
+    render.append(this.inputPopular);
   }
 }
 

@@ -1,6 +1,6 @@
 import products from '../../server/products.json';
 import AppModel from '../model/AppModel';
-import ProductsInterfase from '../appTypes/Interfase';
+import {ProductsInterfase} from '../appTypes/Interfase';
 
 class App extends AppModel {
   model: AppModel;
@@ -21,6 +21,7 @@ class App extends AppModel {
     this.renderSort();
     this.renderColor();
     this.renderPower();
+    this. renderPopular();
   }
 
   renderSort(): void {
@@ -30,7 +31,7 @@ class App extends AppModel {
     };
   }
 
-  renderColor() {
+  renderColor():void {
     const select = <HTMLInputElement[]>[...document.querySelectorAll('.color input')];
     select.forEach((elem: HTMLInputElement): void => {
       elem.onchange = (): void => {
@@ -39,13 +40,20 @@ class App extends AppModel {
     });
   }
 
-  renderPower() {
+  renderPower():void {
     const select = <HTMLInputElement[]>[...document.querySelectorAll('.power input')];
     select.forEach((elem: HTMLInputElement): void => {
       elem.onchange = (): void => {
         this.model.findPower(elem.name, elem.checked);
       };
     });
+  }
+
+  renderPopular():void {
+    const select = <HTMLInputElement>document.querySelector('.popular input');
+      select.onchange = (): void => {
+        this.model.findPopular(select.checked);
+      };
   }
 }
 

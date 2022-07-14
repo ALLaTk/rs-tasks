@@ -2,7 +2,7 @@
 import Cards from './main/cards/Cards';
 import Sort from './main/sort/Sort';
 import Filter from './main/filter/Filter';
-import ProductsInterfase from '../appTypes/Interfase';
+import {ProductsInterfase} from '../appTypes/Interfase';
 import Header from './header/Header';
 
 class AppView {

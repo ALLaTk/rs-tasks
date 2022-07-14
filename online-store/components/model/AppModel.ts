@@ -1,6 +1,5 @@
-import ProductsInterfase from '../appTypes/Interfase';
+import { ProductsInterfase, FilterInterfase } from '../appTypes/Interfase';
 import AppView from '../views/AppView';
-
 class AppModel {
   products: ProductsInterfase[];
 
@@ -9,16 +8,28 @@ class AppModel {
   filterColor: string[];
 
   filterPower: string[];
-
+  filterPopular: string[];
+  filters: FilterInterfase<string | number>
   view: AppView;
 
   constructor(products: ProductsInterfase[]) {
     this.products = products;
+    this.filters = {
+      "id": [],
+      "company": [],
+      "power": [],
+      "color": [],
+      "quantity": [],
+      "price": [],
+      "popular": [],
+    };
     this.filterProducts = [];
     this.filterColor = [];
     this.filterPower = [];
+    this.filterPopular = [];
     this.view = new AppView();
   }
+  
 
   sortProducts(): ProductsInterfase[] {
     return this.filterProducts;
@@ -55,95 +66,46 @@ class AppModel {
     }
   }
 
-  findColor(value: string, check: boolean): void {
-    let valueArr: string[] = [];
-    valueArr = valueArr.concat(this.filterPower);
-    let filterArr: ProductsInterfase[] = [];
-    if (valueArr.length) {
-      this.products.filter((el) => {
-        valueArr.filter((elem) => {
-          if (Object.values(el).includes(elem)) {
-            filterArr.push(el);
-          }
-        });
-      });
-    } else filterArr = this.products;
-
-    this.filterProducts = [];
-    if (check) {
-      filterArr.filter((el) => {
-        if (el.color === value) {
-          if (!this.filterProducts.includes(el)) this.filterProducts.push(el);
-        }
-        this.filterColor.filter((elem) => {
-          if (Object.values(el).includes(elem)) {
-            this.filterProducts.push(el);
-          }
-        });
-      });
-
-      this.filterColor.push(value);
-      this.view.drawCards(this.filterProducts);
-    }
-    if (!check) {
-      this.filterColor.splice(this.filterColor.indexOf(value), 1);
-      if (this.filterColor.length) {
-        filterArr.filter((el) => {
-          this.filterColor.filter((elem) => {
-            if (Object.values(el).includes(elem)) {
-              this.filterProducts.push(el);
-            }
-          });
-        });
-        this.view.drawCards(this.filterProducts);
-      } else this.view.drawCards(filterArr);
-    }
+  filterArray(array: ProductsInterfase[], 
+             filters: FilterInterfase<string | number>)
+             :ProductsInterfase[] {
+    const filterKeys = Object.keys(filters);
+    return array.filter((item: ProductsInterfase) => {
+    return filterKeys.every(key => {
+      if (!filters[key].length) return true;
+      return filters[key].find(filter => filter === (<string & number>item)[key]);
+    });
+    });
   }
 
-  findPower(value: string, check: boolean): void {
-    let valueArr: string[] = [];
-    valueArr = valueArr.concat(this.filterColor);
-    let filterArr: ProductsInterfase[] = [];
-    if (valueArr.length) {
-      this.products.filter((el) => {
-        valueArr.filter((elem) => {
-          if (Object.values(el).includes(elem)) {
-            filterArr.push(el);
-          }
-        });
-      });
-    } else filterArr = this.products;
-
-    this.filterProducts = [];
+  findColor(value: string, check: boolean): void {
     if (check) {
-      filterArr.filter((el) => {
-        if (el.power === value) {
-          if (!this.filterProducts.includes(el)) this.filterProducts.push(el);
-        }
-        this.filterPower.filter((elem) => {
-          if (Object.values(el).includes(elem)) {
-            this.filterProducts.push(el);
-          }
-        });
-      });
+      this.filters.color.push(value)
+    }
+    else {
+      this.filters.color.splice(this.filters.color.indexOf(value), 1)
+      } 
+     this.view.drawCards(this.filterArray(this.products, this.filters));  
+  }
+  
+  findPower(value: string, check: boolean): void {
+     if (check) {
+      this.filters.power.push(value)
+    }
+    else {
+      this.filters.power.splice(this.filters.power.indexOf(value), 1)
+      } 
+     this.view.drawCards(this.filterArray(this.products, this.filters));  
+  }
 
-      this.filterPower.push(value);
-      this.view.drawCards(this.filterProducts);
-      console.log(this.filterProducts);
+  findPopular(check: boolean) {
+    if (check) {
+      this.filters.popular.push("yes")
     }
-    if (!check) {
-      this.filterPower.splice(this.filterPower.indexOf(value), 1);
-      if (this.filterPower.length) {
-        filterArr.filter((el) => {
-          this.filterPower.filter((elem) => {
-            if (Object.values(el).includes(elem)) {
-              this.filterProducts.push(el);
-            }
-          });
-        });
-        this.view.drawCards(this.filterProducts);
-      } else this.view.drawCards(filterArr);
-    }
+    else {
+      this.filters.popular.splice(this.filters.popular.indexOf("yes"), 1)
+      } 
+     this.view.drawCards(this.filterArray(this.products, this.filters));
   }
 }
 
