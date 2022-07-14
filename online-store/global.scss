@@ -9,12 +9,9 @@ body {
   min-height: 100vh;
   margin: 0 auto;
   overflow-x: hidden;
-  align-items: center;
+  align-items: start;
 
   .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: #000000;
     width: 100%;
     color: #b0976d;

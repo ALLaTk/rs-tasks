@@ -88,9 +88,13 @@ class App extends AppModel {
 
     sliders.forEach((slider) => {
       slider.onmouseup = () => {
+        this.model.findPrice(sliders[0].value, sliders[1].value);
+      };
+    });
+    sliders.forEach((slider) => {
+      slider.oninput = () => {
         min.innerHTML = `${sliders[0].value}`;
         max.innerHTML = `${sliders[1].value}`;
-        this.model.findPrice(sliders[0].value, sliders[1].value);
       };
     });
   }

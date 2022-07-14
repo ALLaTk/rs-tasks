@@ -12,7 +12,7 @@
   },
   {
     "id": "item-2",
-    "name": "Dio D`arte",
+    "name": "Diodarte",
     "image": "./assets/jpg/2.jpg",
     "company": "Divinare",
     "power": "225WT",
@@ -67,7 +67,7 @@
   },
   {
     "id": "item-7",
-    "name": "De Markt",
+    "name": "Demarkt",
     "image": "./assets/jpg/7.jpg",
     "company": "Arte Lamp",
     "color": "silver",
@@ -133,7 +133,7 @@
   },
   {
     "id": "item-13",
-    "name": "Deko Light",
+    "name": "Dekolight",
     "image": "./assets/jpg/13.jpg",
     "company": "Divinare",
     "power": "225WT",
@@ -221,7 +221,7 @@
   },
   {
     "id": "item-21",
-    "name": "Crystal Lux",
+    "name": "Crystal",
     "image": "./assets/jpg/21.jpg",
     "company": "Maytoni",
     "power": "225WT",
