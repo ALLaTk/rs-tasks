@@ -18,6 +18,7 @@ class App extends AppModel {
     this.view.showSort();
     this.view.showFilter();
     this.view.showSlider();
+    this.view.showResets();
     this.model.doSort('1');
     this.renderSort();
     this.renderSearch();
