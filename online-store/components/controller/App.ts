@@ -20,6 +20,7 @@ class App extends AppModel {
     this.view.showSlider();
     this.model.doSort('1');
     this.renderSort();
+    this.renderSearch();
     this.renderColor();
     this.renderPower();
     this.renderPopular();
@@ -31,6 +32,14 @@ class App extends AppModel {
     const select = <HTMLSelectElement>document.querySelector('.select');
     select.onchange = () => {
       this.model.doSort(select.value);
+    };
+  }
+
+  renderSearch() {
+    const text = <HTMLInputElement>document.querySelector('.search-input');
+    text.focus();
+    text.oninput = () => {
+      this.model.findText(text.value);
     };
   }
 

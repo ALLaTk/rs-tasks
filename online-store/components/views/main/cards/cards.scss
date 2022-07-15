@@ -8,6 +8,13 @@
   margin: 30px auto;
   animation-duration: 0.8s;
   animation-name: slidein;
+  .name-notfound{
+    font-size: 30px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    padding-left: 60px;
+    padding-top: 40px;
+  }
 
   .cards__inner {
     display: flex;

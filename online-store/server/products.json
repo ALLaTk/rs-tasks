@@ -1,7 +1,7 @@
 [
   {
     "id": "item-1",
-    "name": "Ambiente",
+    "name": "ambiente",
     "image": "./assets/jpg/1.jpg",
     "company": "Arte Lamp",
     "power": "150WT",
@@ -12,7 +12,7 @@
   },
   {
     "id": "item-2",
-    "name": "Diodarte",
+    "name": "diodarte",
     "image": "./assets/jpg/2.jpg",
     "company": "Divinare",
     "power": "225WT",
@@ -23,7 +23,7 @@
   },
    {
     "id": "item-3",
-    "name": "Seletti",
+    "name": "seletti",
     "image": "./assets/jpg/3.jpg",
     "company": "Maytoni",
     "power": "150WT",
@@ -34,7 +34,7 @@
   },
   {
     "id": "item-4",
-    "name": "Denkirs",
+    "name": "denkirs",
     "image": "./assets/jpg/4.jpg",
     "company": "Arte Lamp",
     "power": "150WT",
@@ -45,7 +45,7 @@
   },
    {
     "id": "item-5",
-    "name": "Artemide",
+    "name": "artemide",
     "image": "./assets/jpg/5.jpg",
     "company": "Arte Luce",
     "power": "85WT",
@@ -56,7 +56,7 @@
   },
   {
     "id": "item-6",
-    "name": "Velante",
+    "name": "velante",
     "image": "./assets/jpg/6.jpg",
     "company": "Divinare",
     "power": "85WT",
@@ -67,7 +67,7 @@
   },
   {
     "id": "item-7",
-    "name": "Demarkt",
+    "name": "demarkt",
     "image": "./assets/jpg/7.jpg",
     "company": "Arte Lamp",
     "color": "silver",
@@ -78,7 +78,7 @@
   },
   {
     "id": "item-8",
-    "name": "Fametto",
+    "name": "fametto",
     "image": "./assets/jpg/8.jpg",
     "company": "Arte Luce",
     "power": "85WT",
@@ -89,7 +89,7 @@
   },
    {
     "id": "item-9",
-    "name": "Artpole",
+    "name": "artpole",
     "image": "./assets/jpg/9.jpg",
     "company": "Divinare",
     "power": "85WT",
@@ -100,7 +100,7 @@
   },
   {
     "id": "item-10",
-    "name": "Bogates",
+    "name": "bogates",
     "image": "./assets/jpg/10.jpg",
     "company": "Arte Lamp",
     "power": "150WT",
@@ -111,7 +111,7 @@
   },
    {
     "id": "item-11",
-    "name": "Bejorama",
+    "name": "bejorama",
     "image": "./assets/jpg/11.jpg",
     "company": "Divinare",
     "power": "85WT",
@@ -122,7 +122,7 @@
   },
   {
     "id": "item-12",
-    "name": "Brilliant",
+    "name": "brilliant",
     "image": "./assets/jpg/12.jpg",
     "company": "Maytoni",
     "power": "225WT",
@@ -133,7 +133,7 @@
   },
   {
     "id": "item-13",
-    "name": "Dekolight",
+    "name": "dekolight",
     "image": "./assets/jpg/13.jpg",
     "company": "Divinare",
     "power": "225WT",
@@ -144,7 +144,7 @@
   },
   {
     "id": "item-14",
-    "name": "Bohemia",
+    "name": "bohemia",
     "image": "./assets/jpg/14.jpg",
     "company": "Arte Lamp",
     "power": "85WT",
@@ -155,7 +155,7 @@
   },
    {
     "id": "item-15",
-    "name": "Chiaro",
+    "name": "chiaro",
     "image": "./assets/jpg/15.jpg",
     "company": "Maytoni",
     "power": "85WT",
@@ -166,7 +166,7 @@
   },
   {
     "id": "item-16",
-    "name": "Fumagalli",
+    "name": "fumagalli",
     "image": "./assets/jpg/16.jpg",
     "company": "Arte Luce",
     "power": "225WT",
@@ -177,7 +177,7 @@
   },
    {
     "id": "item-17",
-    "name": "Italline",
+    "name": "italline",
     "image": "./assets/jpg/17.jpg",
     "company": "Maytoni",
     "power": "85WT",
@@ -188,7 +188,7 @@
   },
   {
     "id": "item-18",
-    "name": "Lightstar",
+    "name": "lightstar",
     "image": "./assets/jpg/18.jpg",
     "company": "Arte Luce",
     "power": "150WT",
@@ -199,7 +199,7 @@
   },
   {
     "id": "item-19",
-    "name": "Covali",
+    "name": "covali",
     "image": "./assets/jpg/19.jpg",
     "company": "Maytoni",
     "power": "150WT",
@@ -210,7 +210,7 @@
   },
    {
     "id": "item-20",
-    "name": "Luminex",
+    "name": "luminex",
     "image": "./assets/jpg/20.jpg",
     "company": "Arte Luce",
     "power": "85WT",
@@ -221,7 +221,7 @@
   },
   {
     "id": "item-21",
-    "name": "Crystal",
+    "name": "crystal",
     "image": "./assets/jpg/21.jpg",
     "company": "Maytoni",
     "power": "225WT",

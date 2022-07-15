@@ -17,7 +17,8 @@ class AppModel {
       power: [],
       color: [],
       quantity: [],
-      price: [120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380, 400, 420, 440, 460, 480, 500, 520],
+      price: [],
+      name: [],
       popular: [],
     };
     this.filterProducts = [];
@@ -130,12 +131,47 @@ class AppModel {
       520,
     ];
     let priceFilter: number[] = [];
-    // let priceFilter = { ...this.filters };
-    const range = priceArr.slice(priceArr.indexOf(+valueMin), priceArr.indexOf(+valueMax) + 1);
+    const range: number[] = priceArr.slice(priceArr.indexOf(+valueMin), priceArr.indexOf(+valueMax) + 1);
     priceFilter = range;
     this.filters.price = priceFilter;
     this.view.drawCards(this.filterArray(this.products, this.filters));
-    // priceFilter = { ...this.filters };
+  }
+
+  findText(value: string): void {
+    const nameArr: string[] = [
+      'ambiente',
+      'artemide',
+      'artpole',
+      'bejorama',
+      'bogates',
+      'bohemia',
+      'brilliant',
+      'chiaro',
+      'covali',
+      'crystal',
+      'dekolight',
+      'demarkt',
+      'denkirs',
+      'diodarte',
+      'fametto',
+      'fumagalli',
+      'italline',
+      'lightstar',
+      'luminex',
+      'seletti',
+      'velante',
+    ];
+    const searchName: string[] = nameArr.filter((el) => {
+      if (el.includes(value.toLowerCase())) {
+        return el;
+      }
+    });
+    this.filters.name = searchName;
+    if (searchName.length) {
+      this.view.drawCards(this.filterArray(this.products, this.filters));
+    } else {
+      this.view.drawCards(this.filterProducts);
+    }
   }
 }
 

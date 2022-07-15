@@ -15,10 +15,12 @@ class Cards {
     const main = <HTMLElement>document.querySelector('main');
     this.content.className = 'cards';
     this.products = data;
-
-    this.content.innerHTML = this.products
-      .map((el): string => {
-        return `<div class="cards__inner">
+    if (!data.length) {
+      this.content.innerHTML = `<p class="name-notfound">Sorry, no matches were found</p>`;
+    } else {
+      this.content.innerHTML = this.products
+        .map((el): string => {
+          return `<div class="cards__inner">
                   <p class="name-item">${el.name}</p>
                   <div class="cards__content-item">
                     <img class="cards-image" src=${el.image} alt="lamp">
@@ -32,9 +34,9 @@ class Cards {
                   </ul>
                 </div>
               </div>`;
-      })
-      .join('');
-
+        })
+        .join('');
+    }
     const childNode: HTMLCollection = this.content.children;
 
     for (const child of childNode) {
