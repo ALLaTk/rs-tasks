@@ -33,8 +33,8 @@ class AppView {
     this.footer = new Footer();
   }
 
-  drawHeader(): void {
-    this.header.render(8);
+  drawHeader(item: number): void {
+    this.header.renderHeader(item);
   }
 
   showSort(): void {
@@ -60,7 +60,7 @@ class AppView {
   }
 
   drawCards(data: ProductsInterfase[]): void {
-    this.cards.render(data);
+    this.cards.renderCards(data);
   }
 
   drawFooter(): void {

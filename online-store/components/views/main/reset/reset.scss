@@ -3,15 +3,17 @@
 }
 
 input[type="button"] {
-  background-color: #121212;
+  background-color: #000000;
   color: #ffffff;
   width: 148px;
   height: 35px;
   cursor: pointer;
-  border: 1px solid #b0976d;
+  border: 1px solid #ffffff;
   font-size: 14px;
 }
 
 input[type="button"]:hover {
-  color: #b0976d
+  color: #b0976d;
+  transition: 0.8s;
+  border: 1px solid #b0976d;
 }

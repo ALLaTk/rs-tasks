@@ -28,13 +28,24 @@
       font-weight: 600;
     }
 
-    .cart {
+    .inner-cart{
       display: flex;
-      align-items: center;
-      margin-right: 50px;
-      font-size: 25px;
-      font-weight: 200;
-      cursor: pointer;
+      justify-content: space-between;
+
+      .cart-title{
+        display: flex;
+        font-size: 20px;
+        padding-right: 10px;
+        align-items: center;
+      }
+ 
+      .cart {
+        display: flex;
+        align-items: center;
+        margin-right: 25px;
+        font-size: 30px;
+        cursor: pointer;
+      } 
     }
   }
 }

@@ -1,5 +1,6 @@
 import { ProductsInterfase, FilterInterfase } from '../appTypes/Interfase';
 import AppView from '../views/AppView';
+import localStore from '../localStorage/LocalStorage';
 class AppModel {
   products: ProductsInterfase[];
 
@@ -30,7 +31,7 @@ class AppModel {
   }
 
   addHeader(): void {
-    this.view.drawHeader();
+    this.view.drawHeader(localStore.getProducts().length);
   }
 
   startCards(): void {
