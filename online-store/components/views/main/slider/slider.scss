@@ -1,16 +1,23 @@
-.price-title {
+.title {
   font-size: 20px;
   font-weight: 600;
   color: #b0976d;
   padding-bottom: 15px;
 }
 
-.container {
+.container-price {
   position: relative;
   pointer-events: none;
+  padding-bottom: 40px;
 }
 
-.container input[type="range"] {
+.container-item {
+  position: relative;
+  pointer-events: none;
+  padding-bottom: 40px;
+}
+
+.container-price input[type="range"], .container-item input[type="range"] {
   height: 2em;
   display: block;
   margin: 0;
@@ -18,7 +25,7 @@
   width: 150px;
 }
 
-.container input[type="range"]:last-child {
+.container-price input[type="range"]:last-child, .container-item input[type="range"]:last-child {
   margin-top: -2em;
 }
 
@@ -34,7 +41,7 @@ input[type="range"]::-ms-thumb {
   pointer-events: all;
 }
 
-.price-number{
+.number{
   display: flex;
   justify-content: space-between;
   width: 150px;

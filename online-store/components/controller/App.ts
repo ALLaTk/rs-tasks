@@ -26,6 +26,7 @@ class App extends AppModel {
     this.renderPopular();
     this.renderCompany();
     this.renderSliderPrice();
+    this.renderSliderItem();
   }
 
   renderSort(): void {
@@ -78,10 +79,10 @@ class App extends AppModel {
   }
 
   renderSliderPrice() {
-    const sliders = <HTMLInputElement[]>[...document.querySelectorAll('.container input[type="range"]')];
+    const sliders = <HTMLInputElement[]>[...document.querySelectorAll('.container-price input[type="range"]')];
 
-    const min = <HTMLElement>document.querySelector('.min');
-    const max = <HTMLElement>document.querySelector('.max');
+    const min = <HTMLElement>document.querySelector('.min-price');
+    const max = <HTMLElement>document.querySelector('.max-price');
 
     sliders[0].oninput = () => {
       if (+sliders[0].value > +sliders[1].value) {
@@ -98,6 +99,37 @@ class App extends AppModel {
     sliders.forEach((slider) => {
       slider.onmouseup = () => {
         this.model.findPrice(sliders[0].value, sliders[1].value);
+      };
+    });
+    sliders.forEach((slider) => {
+      slider.oninput = () => {
+        min.innerHTML = `${sliders[0].value}`;
+        max.innerHTML = `${sliders[1].value}`;
+      };
+    });
+  }
+
+  renderSliderItem() {
+    const sliders = <HTMLInputElement[]>[...document.querySelectorAll('.container-item input[type="range"]')];
+
+    const min = <HTMLElement>document.querySelector('.min-item');
+    const max = <HTMLElement>document.querySelector('.max-item');
+
+    sliders[0].oninput = () => {
+      if (+sliders[0].value > +sliders[1].value) {
+        sliders[1].value = sliders[0].value;
+      }
+    };
+
+    sliders[1].oninput = () => {
+      if (+sliders[1].value < +sliders[0].value) {
+        sliders[0].value = sliders[1].value;
+      }
+    };
+
+    sliders.forEach((slider) => {
+      slider.onmouseup = () => {
+        this.model.findTotalItem(sliders[0].value, sliders[1].value);
       };
     });
     sliders.forEach((slider) => {

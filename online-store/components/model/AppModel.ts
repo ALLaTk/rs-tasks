@@ -38,26 +38,19 @@ class AppModel {
   }
 
   doSort(value: string): void {
-    let sortArr: ProductsInterfase[] = [];
-    if (this.filterProducts.length) {
-      sortArr = this.filterProducts;
-    } else sortArr = this.products;
     if (value === '1') {
-      sortArr.sort((a, b): number => (a.price > b.price ? 1 : -1));
-      this.view.drawCards(sortArr);
+      this.products.sort((a, b): number => (a.price > b.price ? 1 : -1));
     }
     if (value === '2') {
-      sortArr.sort((a, b): number => (a.price < b.price ? 1 : -1));
-      this.view.drawCards(sortArr);
+      this.products.sort((a, b): number => (a.price < b.price ? 1 : -1));
     }
     if (value === '3') {
-      sortArr.sort((a, b): number => (a.name > b.name ? 1 : -1));
-      this.view.drawCards(sortArr);
+      this.products.sort((a, b): number => (a.name > b.name ? 1 : -1));
     }
     if (value === '4') {
-      sortArr.sort((a, b): number => (a.name < b.name ? 1 : -1));
-      this.view.drawCards(sortArr);
+      this.products.sort((a, b): number => (a.name < b.name ? 1 : -1));
     }
+    this.view.drawCards(this.filterArray(this.products, this.filters));
   }
 
   filterArray(array: ProductsInterfase[], filters: FilterInterfase<string | number>): ProductsInterfase[] {
@@ -137,6 +130,15 @@ class AppModel {
     this.view.drawCards(this.filterArray(this.products, this.filters));
   }
 
+  findTotalItem(valueMin: string, valueMax: string): void {
+    const itemArr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+    let itemFilter: number[] = [];
+    const range: number[] = itemArr.slice(itemArr.indexOf(+valueMin), itemArr.indexOf(+valueMax) + 1);
+    itemFilter = range;
+    this.filters.quantity = itemFilter;
+    this.view.drawCards(this.filterArray(this.products, this.filters));
+  }
+
   findText(value: string): void {
     const nameArr: string[] = [
       'ambiente',
@@ -170,7 +172,8 @@ class AppModel {
     if (searchName.length) {
       this.view.drawCards(this.filterArray(this.products, this.filters));
     } else {
-      this.view.drawCards(this.filterProducts);
+      this.view.drawCards(this.filterArray(this.filterProducts, this.filters));
+      this.filters.name.push(value);
     }
   }
 }

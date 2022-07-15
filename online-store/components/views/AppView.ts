@@ -43,6 +43,7 @@ class AppView {
 
   showSlider(): void {
     this.slider.addSliderPrice();
+    this.slider.addSliderQuantity();
   }
 
   drawCards(data: ProductsInterfase[]): void {
