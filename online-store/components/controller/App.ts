@@ -14,11 +14,12 @@ class App extends AppModel {
   }
 
   start(): void {
-    this.model.addheader();
+    this.model.addHeader();
     this.view.showSort();
     this.view.showFilter();
     this.view.showSlider();
     this.view.showResets();
+    this.addFooter();
     this.model.doSort('1');
     this.renderSort();
     this.renderSearch();

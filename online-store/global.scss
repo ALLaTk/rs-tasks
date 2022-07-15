@@ -17,7 +17,7 @@ body {
     color: #b0976d;
   }
 
-  main {
+  .main {
     display: flex;
     justify-content: space-between;
     padding: 60px;
@@ -31,15 +31,8 @@ body {
       padding-top: 60px;
     }
   }
+  .footer {
+    width: 100%;
+    color: #b0976d;
+  }
 }
-
-
-
-
-// footer {
-//     height: 100px;
-//     width: 100%;
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-around;
-// }

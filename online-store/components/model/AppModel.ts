@@ -29,12 +29,16 @@ class AppModel {
     return this.filterProducts;
   }
 
-  addheader(): void {
+  addHeader(): void {
     this.view.drawHeader();
   }
 
   startCards(): void {
     this.view.drawCards(this.products);
+  }
+
+  addFooter(): void {
+    this.view.drawFooter();
   }
 
   doSort(value: string): void {

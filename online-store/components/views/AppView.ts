@@ -6,6 +6,7 @@ import Slider from './main/slider/Slider';
 import Reset from './main/reset/Reset';
 import { ProductsInterfase } from '../appTypes/Interfase';
 import Header from './header/Header';
+import Footer from './footer/Footer';
 
 class AppView {
   header: Header;
@@ -20,6 +21,8 @@ class AppView {
 
   cards: Cards;
 
+  footer: Footer;
+
   constructor() {
     this.header = new Header();
     this.sort = new Sort();
@@ -27,6 +30,7 @@ class AppView {
     this.slider = new Slider();
     this.reset = new Reset();
     this.cards = new Cards();
+    this.footer = new Footer();
   }
 
   drawHeader(): void {
@@ -57,6 +61,10 @@ class AppView {
 
   drawCards(data: ProductsInterfase[]): void {
     this.cards.render(data);
+  }
+
+  drawFooter(): void {
+    this.footer.render();
   }
 }
 export default AppView;
