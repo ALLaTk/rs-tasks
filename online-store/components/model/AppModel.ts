@@ -106,15 +106,34 @@ class AppModel {
   }
 
   findPrice(valueMin: string, valueMax: string): void {
-    const priceArr: number[] = [120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380, 400, 420, 440, 460, 480, 500, 520]
-    let priceFilter: number[] = []
+    const priceArr: number[] = [
+      120,
+      140,
+      160,
+      180,
+      200,
+      220,
+      240,
+      260,
+      280,
+      300,
+      320,
+      340,
+      360,
+      380,
+      400,
+      420,
+      440,
+      460,
+      480,
+      500,
+      520,
+    ];
+    let priceFilter: number[] = [];
     // let priceFilter = { ...this.filters };
-    const range = priceArr.slice(
-      priceArr.indexOf(+valueMin),
-      priceArr.indexOf(+valueMax) + 1
-    );
+    const range = priceArr.slice(priceArr.indexOf(+valueMin), priceArr.indexOf(+valueMax) + 1);
     priceFilter = range;
-    this.filters.price = priceFilter
+    this.filters.price = priceFilter;
     this.view.drawCards(this.filterArray(this.products, this.filters));
     // priceFilter = { ...this.filters };
   }
