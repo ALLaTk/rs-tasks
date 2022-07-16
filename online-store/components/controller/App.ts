@@ -117,6 +117,7 @@ class App extends AppModel {
   }
 
   renderSliderPrice() {
+    const sliderPriceStore: string[] = localStore.getSliderPrice();
     const sliders = <HTMLInputElement[]>[...document.querySelectorAll('.container-price input[type="range"]')];
 
     const min = <HTMLElement>document.querySelector('.min-price');
@@ -136,18 +137,27 @@ class App extends AppModel {
 
     sliders.forEach((slider) => {
       slider.onmouseup = () => {
+        localStore.putSliderPrice(sliders[0].value, sliders[1].value);
         this.model.findPrice(sliders[0].value, sliders[1].value);
       };
     });
+   
+    if (sliderPriceStore.length) {
+      sliders[0].value = sliderPriceStore[0];
+      sliders[1].value = sliderPriceStore[1];
+      min.innerHTML = sliders[0].value;
+      max.innerHTML = sliders[1].value
+    }
     sliders.forEach((slider) => {
       slider.oninput = () => {
         min.innerHTML = `${sliders[0].value}`;
         max.innerHTML = `${sliders[1].value}`;
       };
-    });
+   });
   }
 
   renderSliderItem() {
+    const sliderItemsStore: string[] = localStore.getSliderItems();
     const sliders = <HTMLInputElement[]>[...document.querySelectorAll('.container-item input[type="range"]')];
 
     const min = <HTMLElement>document.querySelector('.min-item');
@@ -167,16 +177,24 @@ class App extends AppModel {
 
     sliders.forEach((slider) => {
       slider.onmouseup = () => {
+        localStore.putSliderItems(sliders[0].value, sliders[1].value);
         this.model.findTotalItem(sliders[0].value, sliders[1].value);
       };
     });
+    if (sliderItemsStore.length) {
+      sliders[0].value = sliderItemsStore[0];
+      sliders[1].value = sliderItemsStore[1];
+      min.innerHTML = sliders[0].value;
+      max.innerHTML = sliders[1].value
+    }
     sliders.forEach((slider) => {
       slider.oninput = () => {
         min.innerHTML = `${sliders[0].value}`;
         max.innerHTML = `${sliders[1].value}`;
       };
-    });
+   });
   }
+
 }
 
 export default App;

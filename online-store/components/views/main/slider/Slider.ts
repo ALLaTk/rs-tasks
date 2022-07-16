@@ -15,8 +15,8 @@ class Slider {
     this.price.className = 'slieder-container';
     const content = `<p class="title">Price</p>
                      <div class="number">
-                       <div class="min-price">120</div>
-                       <div class="max-price">520</div>
+                       <div class="min-price"></div>
+                       <div class="max-price"></div>
                      </div>
                      <div class="container-price">
                        <input type="range" min="120" step="20" max="520" value="120">
