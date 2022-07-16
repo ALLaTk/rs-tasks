@@ -16,9 +16,9 @@ class LocalStorage {
     this.keyItems = 'items';
     this.keyProducts = 'products';
     this.keyFilter = 'filter';
-    this.keyText = 'text'
-    this.keySliderPrice = 'sliderPrice'
-    this.keySliderItems = 'sliderItems'
+    this.keyText = 'text';
+    this.keySliderPrice = 'sliderPrice';
+    this.keySliderItems = 'sliderItems';
   }
 
   getItems(): string[] {
@@ -84,7 +84,7 @@ class LocalStorage {
     return '';
   }
 
-  putText(value: string): string  {
+  putText(value: string): string {
     let text: string = this.getText();
     text = value;
     localStorage.setItem(this.keyText, JSON.stringify(text));
@@ -99,8 +99,8 @@ class LocalStorage {
     return [];
   }
 
-  putSliderPrice(value0: string, value1: string): string[]  {
-    let text: string[] = this.getSliderPrice();
+  putSliderPrice(value0: string, value1: string): string[] {
+    const text: string[] = this.getSliderPrice();
     text.splice(0, 2);
     text.push(value0);
     text.push(value1);
@@ -116,8 +116,8 @@ class LocalStorage {
     return [];
   }
 
-  putSliderItems(value0: string, value1: string): string[]  {
-    let text: string[] = this.getSliderItems();
+  putSliderItems(value0: string, value1: string): string[] {
+    const text: string[] = this.getSliderItems();
     text.splice(0, 2);
     text.push(value0);
     text.push(value1);

@@ -28,6 +28,7 @@ class App extends AppModel {
     this.renderCompany();
     this.renderSliderPrice();
     this.renderSliderItem();
+    this.resetFiltersAndSettings();
   }
 
   renderSort(): void {
@@ -39,13 +40,13 @@ class App extends AppModel {
 
   renderSearch() {
     const text = <HTMLInputElement>document.querySelector('.search-input');
-    const textStore: string  = localStore.getText();
+    const textStore: string = localStore.getText();
     text.focus();
     text.oninput = () => {
       localStore.putText(text.value);
       this.model.findText(text.value);
     };
-    text.value = textStore
+    text.value = textStore;
   }
 
   renderColor(): void {
@@ -141,19 +142,19 @@ class App extends AppModel {
         this.model.findPrice(sliders[0].value, sliders[1].value);
       };
     });
-   
+
     if (sliderPriceStore.length) {
       sliders[0].value = sliderPriceStore[0];
       sliders[1].value = sliderPriceStore[1];
       min.innerHTML = sliders[0].value;
-      max.innerHTML = sliders[1].value
+      max.innerHTML = sliders[1].value;
     }
     sliders.forEach((slider) => {
       slider.oninput = () => {
         min.innerHTML = `${sliders[0].value}`;
         max.innerHTML = `${sliders[1].value}`;
       };
-   });
+    });
   }
 
   renderSliderItem() {
@@ -185,16 +186,65 @@ class App extends AppModel {
       sliders[0].value = sliderItemsStore[0];
       sliders[1].value = sliderItemsStore[1];
       min.innerHTML = sliders[0].value;
-      max.innerHTML = sliders[1].value
+      max.innerHTML = sliders[1].value;
     }
     sliders.forEach((slider) => {
       slider.oninput = () => {
         min.innerHTML = `${sliders[0].value}`;
         max.innerHTML = `${sliders[1].value}`;
       };
-   });
+    });
   }
 
+  resetFiltersAndSettings() {
+    const reset = <HTMLInputElement>document.querySelector('.reset-filters input');
+    const text = <HTMLInputElement>document.querySelector('.search-input');
+    const popular = <HTMLInputElement>document.querySelector('.popular input');
+    const company = <HTMLInputElement[]>[...document.querySelectorAll('.company input')];
+    const power = <HTMLInputElement[]>[...document.querySelectorAll('.power input')];
+    const color = <HTMLInputElement[]>[...document.querySelectorAll('.color input')];
+    const sliderItem = <HTMLInputElement[]>[...document.querySelectorAll('.container-item input[type="range"]')];
+    const minItem = <HTMLElement>document.querySelector('.min-item');
+    const maxItem = <HTMLElement>document.querySelector('.max-item');
+    const sliderPrice = <HTMLInputElement[]>[...document.querySelectorAll('.container-price input[type="range"]')];
+    const minPrice = <HTMLElement>document.querySelector('.min-price');
+    const maxPrice = <HTMLElement>document.querySelector('.max-price');
+    reset.onclick = () => {
+      popular.checked = false;
+      this.model.findPopular(popular.checked);
+      localStore.putFilter(popular.name, popular.checked);
+      text.value = '';
+      this.model.findText(text.value);
+      localStore.putText(text.value);
+      company.forEach((elem: HTMLInputElement): void => {
+        localStore.putFilter(elem.name, false);
+        this.model.findCompany(elem.name, false);
+        elem.checked = false;
+      });
+      power.forEach((elem: HTMLInputElement): void => {
+        localStore.putFilter(elem.name, false);
+        this.model.findPower(elem.name, false);
+        elem.checked = false;
+      });
+      color.forEach((elem: HTMLInputElement): void => {
+        localStore.putFilter(elem.name, false);
+        this.model.findColor(elem.name, false);
+        elem.checked = false;
+      });
+      localStore.putSliderPrice('120', '520');
+      this.model.findPrice('120', '520');
+      sliderPrice[0].value = '120';
+      sliderPrice[1].value = '520';
+      minPrice.innerHTML = sliderPrice[0].value;
+      maxPrice.innerHTML = sliderPrice[1].value;
+      localStore.putSliderItems('1', '15');
+      this.model.findTotalItem('1', '15');
+      sliderItem[0].value = '1';
+      sliderItem[1].value = '15';
+      minItem.innerHTML = sliderItem[0].value;
+      maxItem.innerHTML = sliderItem[1].value;
+    };
+  }
 }
 
 export default App;
