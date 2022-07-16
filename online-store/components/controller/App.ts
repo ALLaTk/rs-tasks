@@ -39,10 +39,13 @@ class App extends AppModel {
 
   renderSearch() {
     const text = <HTMLInputElement>document.querySelector('.search-input');
+    const textStore: string  = localStore.getText();
     text.focus();
     text.oninput = () => {
+      localStore.putText(text.value);
       this.model.findText(text.value);
     };
+    text.value = textStore
   }
 
   renderColor(): void {

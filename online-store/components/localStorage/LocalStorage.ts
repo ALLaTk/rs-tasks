@@ -6,10 +6,13 @@ class LocalStorage {
 
   keyFilter: string;
 
+  keyText: string;
+
   constructor() {
     this.keyItems = 'items';
     this.keyProducts = 'products';
     this.keyFilter = 'filter';
+    this.keyText = 'text'
   }
 
   getItems(): string[] {
@@ -65,6 +68,21 @@ class LocalStorage {
     company[key] = value;
     localStorage.setItem(this.keyFilter, JSON.stringify(company));
     return company;
+  }
+
+  getText(): string {
+    const itemLocalStorage: string | null = localStorage.getItem(this.keyText);
+    if (itemLocalStorage) {
+      return JSON.parse(itemLocalStorage);
+    }
+    return '';
+  }
+
+  putText(value: string): string  {
+    let text: string = this.getText();
+    text = value;
+    localStorage.setItem(this.keyText, JSON.stringify(text));
+    return text;
   }
 }
 
