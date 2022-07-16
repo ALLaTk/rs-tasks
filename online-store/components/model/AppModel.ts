@@ -1,6 +1,7 @@
 import { ProductsInterfase, FilterInterfase } from '../appTypes/Interfase';
 import AppView from '../views/AppView';
 import localStore from '../localStorage/LocalStorage';
+import products from '../../server/products.json';
 class AppModel {
   products: ProductsInterfase[];
 
@@ -10,7 +11,7 @@ class AppModel {
 
   view: AppView;
 
-  constructor(products: ProductsInterfase[]) {
+  constructor() {
     this.products = products;
     this.filters = {
       id: [],
@@ -26,16 +27,18 @@ class AppModel {
     this.view = new AppView();
   }
 
-  sortProducts(): ProductsInterfase[] {
-    return this.filterProducts;
+  startCards(): void {
+    const filter: FilterInterfase<string | number>[] = localStore.getProducts();
+    if (filter.length) {
+      this.view.drawCards(this.filterArray(this.products, filter[0]));
+      this.filters = filter[0];
+    } else {
+      this.view.drawCards(this.filterArray(this.products, this.filters));
+    }
   }
 
   addHeader(): void {
-    this.view.drawHeader(localStore.getProducts().length);
-  }
-
-  startCards(): void {
-    this.view.drawCards(this.products);
+    this.view.drawHeader(localStore.getItems().length);
   }
 
   addFooter(): void {
@@ -55,6 +58,7 @@ class AppModel {
     if (value === '4') {
       this.products.sort((a, b): number => (a.name < b.name ? 1 : -1));
     }
+    localStore.putProducts(this.filters);
     this.view.drawCards(this.filterArray(this.products, this.filters));
   }
 
@@ -74,6 +78,7 @@ class AppModel {
     } else {
       this.filters.color.splice(this.filters.color.indexOf(value), 1);
     }
+    localStore.putProducts(this.filters);
     this.view.drawCards(this.filterArray(this.products, this.filters));
   }
 
@@ -83,6 +88,7 @@ class AppModel {
     } else {
       this.filters.power.splice(this.filters.power.indexOf(value), 1);
     }
+    localStore.putProducts(this.filters);
     this.view.drawCards(this.filterArray(this.products, this.filters));
   }
 
@@ -92,6 +98,7 @@ class AppModel {
     } else {
       this.filters.popular.splice(this.filters.popular.indexOf('yes'), 1);
     }
+    localStore.putProducts(this.filters);
     this.view.drawCards(this.filterArray(this.products, this.filters));
   }
 
@@ -101,6 +108,7 @@ class AppModel {
     } else {
       this.filters.company.splice(this.filters.company.indexOf(value), 1);
     }
+    localStore.putProducts(this.filters);
     this.view.drawCards(this.filterArray(this.products, this.filters));
   }
 
@@ -132,6 +140,7 @@ class AppModel {
     const range: number[] = priceArr.slice(priceArr.indexOf(+valueMin), priceArr.indexOf(+valueMax) + 1);
     priceFilter = range;
     this.filters.price = priceFilter;
+    localStore.putProducts(this.filters);
     this.view.drawCards(this.filterArray(this.products, this.filters));
   }
 
@@ -141,6 +150,7 @@ class AppModel {
     const range: number[] = itemArr.slice(itemArr.indexOf(+valueMin), itemArr.indexOf(+valueMax) + 1);
     itemFilter = range;
     this.filters.quantity = itemFilter;
+    localStore.putProducts(this.filters);
     this.view.drawCards(this.filterArray(this.products, this.filters));
   }
 
@@ -180,6 +190,7 @@ class AppModel {
       this.view.drawCards(this.filterArray(this.filterProducts, this.filters));
       this.filters.name.push(value);
     }
+    localStore.putProducts(this.filters);
   }
 }
 

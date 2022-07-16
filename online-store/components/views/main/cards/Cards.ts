@@ -14,13 +14,13 @@ class Cards {
     this.classNameActive = 'active';
   }
 
-  handlerSetLocatStorage(element: HTMLButtonElement | null, id: string) {
+  handlerLocalStorage(element: HTMLButtonElement, id: string) {
     const cart = <HTMLDivElement>document.querySelector('.cart');
-    const { pushProduct, products } = localStore.putProducts(id);
+    const { pushProduct, products } = localStore.putItems(id);
     if (pushProduct) {
-      element?.classList.add(this.classNameActive);
+      element.classList.add(this.classNameActive);
     } else {
-      element?.classList.remove(this.classNameActive);
+      element.classList.remove(this.classNameActive);
     }
     cart.innerHTML = `${products.length}`;
   }
@@ -52,7 +52,7 @@ class Cards {
         .join('');
     }
     const childNode: HTMLCollection = this.content.children;
-    const itemStore: string[] = localStore.getProducts();
+    const itemStore: string[] = localStore.getItems();
 
     for (const child of childNode) {
       const button: HTMLButtonElement = document.createElement('button');
@@ -66,7 +66,7 @@ class Cards {
       button.innerHTML = 'PICK A LAMP';
       button.onclick = (): void => {
         button.classList.toggle('active');
-        this.handlerSetLocatStorage(button, child.id);
+        this.handlerLocalStorage(button, child.id);
       };
       child.lastElementChild?.append(button);
     }

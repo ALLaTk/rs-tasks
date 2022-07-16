@@ -90,6 +90,7 @@ class Filter {
     this.inputPopular.innerHTML = `<p class="popular-title">Popular</p>`;
     const input: HTMLInputElement = document.createElement('input');
     input.type = 'checkbox';
+    input.name = 'popular';
     input.className = `popular-button`;
     this.inputPopular.append(input);
     render.append(this.inputPopular);

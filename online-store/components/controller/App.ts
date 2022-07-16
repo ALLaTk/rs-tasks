@@ -1,16 +1,15 @@
 import products from '../../server/products.json';
 import AppModel from '../model/AppModel';
-import { ProductsInterfase } from '../appTypes/Interfase';
+import localStore from '../localStorage/LocalStorage';
 
 class App extends AppModel {
   model: AppModel;
 
-  products: ProductsInterfase[];
+  // products: ProductsInterfase[];
 
   constructor() {
-    super(products);
-    this.products = products;
-    this.model = new AppModel(products);
+    super();
+    this.model = new AppModel();
   }
 
   start(): void {
@@ -20,7 +19,7 @@ class App extends AppModel {
     this.view.showSlider();
     this.view.showResets();
     this.addFooter();
-    this.model.doSort('1');
+    this.model.startCards();
     this.renderSort();
     this.renderSearch();
     this.renderColor();
@@ -47,36 +46,70 @@ class App extends AppModel {
   }
 
   renderColor(): void {
+    const filterStore: { [key: string]: boolean } = localStore.getFilter();
     const select = <HTMLInputElement[]>[...document.querySelectorAll('.color input')];
     select.forEach((elem: HTMLInputElement): void => {
       elem.onchange = (): void => {
+        localStore.putFilter(elem.name, elem.checked);
         this.model.findColor(elem.name, elem.checked);
       };
+    });
+    select.forEach((elem: HTMLInputElement): void => {
+      for (const item in filterStore) {
+        if (elem.name === item) {
+          elem.checked = filterStore[item];
+        }
+      }
     });
   }
 
   renderPower(): void {
+    const filterStore: { [key: string]: boolean } = localStore.getFilter();
     const select = <HTMLInputElement[]>[...document.querySelectorAll('.power input')];
     select.forEach((elem: HTMLInputElement): void => {
       elem.onchange = (): void => {
+        localStore.putFilter(elem.name, elem.checked);
         this.model.findPower(elem.name, elem.checked);
       };
+    });
+    select.forEach((elem: HTMLInputElement): void => {
+      for (const item in filterStore) {
+        if (elem.name === item) {
+          elem.checked = filterStore[item];
+        }
+      }
     });
   }
 
   renderPopular(): void {
+    const filterStore: { [key: string]: boolean } = localStore.getFilter();
     const select = <HTMLInputElement>document.querySelector('.popular input');
     select.onchange = (): void => {
+      localStore.putFilter(select.name, select.checked);
       this.model.findPopular(select.checked);
     };
+    for (const item in filterStore) {
+      if (select.name === item) {
+        select.checked = filterStore[item];
+      }
+    }
   }
 
   renderCompany(): void {
+    const filterStore: { [key: string]: boolean } = localStore.getFilter();
     const select = <HTMLInputElement[]>[...document.querySelectorAll('.company input')];
     select.forEach((elem: HTMLInputElement): void => {
       elem.onchange = (): void => {
+        localStore.putFilter(elem.name, elem.checked);
         this.model.findCompany(elem.name, elem.checked);
       };
+    });
+    select.forEach((elem: HTMLInputElement): void => {
+      for (const item in filterStore) {
+        if (elem.name === item) {
+          elem.checked = filterStore[item];
+        }
+      }
     });
   }
 
