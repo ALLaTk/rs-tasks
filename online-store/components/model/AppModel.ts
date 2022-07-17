@@ -39,7 +39,11 @@ class AppModel {
   }
 
   addHeader(): void {
-    this.view.drawHeader(localStore.getItems().length);
+    if (localStore.getItems().length > 20) {
+      this.view.drawHeader(localStore.getItems().length - 1);
+    } else {
+      this.view.drawHeader(localStore.getItems().length);
+    }
   }
 
   addModalWindow(): void {

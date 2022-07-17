@@ -17,24 +17,23 @@ class Cards {
   private handlerLocalStorage(element: HTMLButtonElement, id: string) {
     const cart = <HTMLDivElement>document.querySelector('.cart');
     const modal = <HTMLDivElement>document.querySelector('.modal__window');
-    const div:HTMLDivElement = document.createElement('div');
-    document.body.append(div);
     const { pushProduct, products } = localStore.putItems(id);
     if (pushProduct) {
       element.classList.add(this.classNameActive);
     } else {
       element.classList.remove(this.classNameActive);
     }
-    cart.innerHTML = `${products.length}`;
+
+    if (products.length <= 20) {
+      cart.innerHTML = `${products.length}`;
+    }
     if (products.length > 20) {
       modal.style.display = 'flex';
-      div.classList.add('overlay');
     } else if (products.length <= 20) {
       modal.style.display = 'none';
     }
-    div.onclick = () => {
+    modal.onclick = () => {
       modal.style.display = 'none';
-      div.classList.remove('overlay');
     };
   }
 
@@ -66,7 +65,6 @@ class Cards {
     }
     const childNode: HTMLCollection = this.content.children;
     const itemStore: string[] = localStore.getItems();
-
     for (const child of childNode) {
       const button: HTMLButtonElement = document.createElement('button');
       let activeClass = '';
@@ -78,6 +76,9 @@ class Cards {
       button.className = `button-card ${activeClass}`;
       button.innerHTML = 'PICK A LAMP';
       button.onclick = (): void => {
+        if (localStore.getItems().length === 21) {
+          button.classList.remove('active');
+        }
         button.classList.toggle('active');
         this.handlerLocalStorage(button, child.id);
       };
