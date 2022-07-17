@@ -11,6 +11,7 @@ class App extends AppModel {
 
   start(): void {
     this.model.addHeader();
+    this.model.addModalWindow();
     this.view.showSort();
     this.view.showFilter();
     this.view.showSlider();

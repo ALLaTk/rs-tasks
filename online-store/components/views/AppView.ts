@@ -6,6 +6,7 @@ import Reset from './main/reset/Reset';
 import { ProductsInterfase } from '../appTypes/Interfase';
 import Header from './header/Header';
 import Footer from './footer/Footer';
+import ModalWindow from './main/modalWindow/ModalWindow';
 
 class AppView {
   header: Header;
@@ -22,6 +23,8 @@ class AppView {
 
   footer: Footer;
 
+  modalWindow: ModalWindow;
+
   constructor() {
     this.header = new Header();
     this.sort = new Sort();
@@ -30,10 +33,15 @@ class AppView {
     this.reset = new Reset();
     this.cards = new Cards();
     this.footer = new Footer();
+    this.modalWindow = new ModalWindow();
   }
 
   drawHeader(item: number): void {
     this.header.renderHeader(item);
+  }
+
+  drawModalWindow(): void {
+    this.modalWindow.renderModalWindow();
   }
 
   showSort(): void {

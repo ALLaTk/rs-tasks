@@ -42,6 +42,10 @@ class AppModel {
     this.view.drawHeader(localStore.getItems().length);
   }
 
+  addModalWindow(): void {
+    this.view.drawModalWindow();
+  }
+
   addFooter(): void {
     this.view.drawFooter();
   }

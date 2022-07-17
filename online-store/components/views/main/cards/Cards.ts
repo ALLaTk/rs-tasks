@@ -14,8 +14,11 @@ class Cards {
     this.classNameActive = 'active';
   }
 
-  handlerLocalStorage(element: HTMLButtonElement, id: string) {
+  private handlerLocalStorage(element: HTMLButtonElement, id: string) {
     const cart = <HTMLDivElement>document.querySelector('.cart');
+    const modal = <HTMLDivElement>document.querySelector('.modal__window');
+    const div:HTMLDivElement = document.createElement('div');
+    document.body.append(div);
     const { pushProduct, products } = localStore.putItems(id);
     if (pushProduct) {
       element.classList.add(this.classNameActive);
@@ -23,6 +26,16 @@ class Cards {
       element.classList.remove(this.classNameActive);
     }
     cart.innerHTML = `${products.length}`;
+    if (products.length > 20) {
+      modal.style.display = 'flex';
+      div.classList.add('overlay');
+    } else if (products.length <= 20) {
+      modal.style.display = 'none';
+    }
+    div.onclick = () => {
+      modal.style.display = 'none';
+      div.classList.remove('overlay');
+    };
   }
 
   renderCards(data: ProductsInterfase[]): void {

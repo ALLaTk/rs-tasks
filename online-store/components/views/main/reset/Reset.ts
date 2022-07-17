@@ -1,5 +1,4 @@
 import './reset.scss';
-
 class Reset {
   resetFilters: HTMLDivElement;
 
