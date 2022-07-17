@@ -1,4 +1,3 @@
-// import Header from './header/Header';
 import Cards from './main/cards/Cards';
 import Sort from './main/sort/Sort';
 import Filter from './main/filter/Filter';

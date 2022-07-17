@@ -21,7 +21,6 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 60px;
-    max-width: 1440px;
     margin-top: 50px;
 
     .render {
@@ -35,4 +34,13 @@ body {
     width: 100%;
     color: #b0976d;
   }
+  @media (max-width: 860px) {
+    .main {
+      padding: 35px;
+      .render {
+        padding-right: 10px;
+        }
+    }
+  }
 }
+ 

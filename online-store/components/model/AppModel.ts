@@ -14,7 +14,6 @@ class AppModel {
   constructor() {
     this.products = products;
     this.filters = {
-      id: [],
       company: [],
       power: [],
       color: [],
@@ -29,8 +28,10 @@ class AppModel {
 
   startCards(): void {
     const filter: FilterInterfase<string | number>[] = localStore.getProducts();
-    if (filter.length) {
-      this.view.drawCards(this.filterArray(this.products, filter[0]));
+    const sortProducts: ProductsInterfase[] = localStore.getSortProducts();
+    if (filter.length && sortProducts.length) {
+      this.view.drawCards(this.filterArray(sortProducts, filter[0]));
+      this.products = sortProducts;
       this.filters = filter[0];
     } else {
       this.view.drawCards(this.filterArray(this.products, this.filters));
@@ -59,10 +60,11 @@ class AppModel {
       this.products.sort((a, b): number => (a.name < b.name ? 1 : -1));
     }
     localStore.putProducts(this.filters);
+    localStore.putSortProducts(this.products);
     this.view.drawCards(this.filterArray(this.products, this.filters));
   }
 
-  filterArray(array: ProductsInterfase[], filters: FilterInterfase<string | number>): ProductsInterfase[] {
+  private filterArray(array: ProductsInterfase[], filters: FilterInterfase<string | number>): ProductsInterfase[] {
     const filterKeys = Object.keys(filters);
     return array.filter((item: ProductsInterfase) => {
       return filterKeys.every((key) => {

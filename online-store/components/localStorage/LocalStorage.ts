@@ -12,10 +12,16 @@ class LocalStorage {
 
   keySliderItems: string;
 
+  keySortProducts: string;
+
+  keyFilterSort: string;
+
   constructor() {
     this.keyItems = 'items';
     this.keyProducts = 'products';
+    this.keySortProducts = 'sortProducts';
     this.keyFilter = 'filter';
+    this.keyFilterSort = 'filterSort';
     this.keyText = 'text';
     this.keySliderPrice = 'sliderPrice';
     this.keySliderItems = 'sliderItems';
@@ -30,11 +36,14 @@ class LocalStorage {
   }
 
   putItems(id: string) {
-    const products: string[] = this.getItems();
+    let products: string[] = this.getItems();
     let pushProduct = false;
     const index: number = products.indexOf(id);
-
-    if (index === -1) {
+    if (id === 'none') {
+      pushProduct = false;
+      products = [];
+    }
+    if (index === -1 && id !== 'none') {
       products.push(id);
       pushProduct = true;
     } else {
@@ -43,6 +52,24 @@ class LocalStorage {
 
     localStorage.setItem(this.keyItems, JSON.stringify(products));
     return { pushProduct, products };
+  }
+
+  getSortProducts(): ProductsInterfase[] {
+    const itemLocalStorage: string | null = localStorage.getItem(this.keySortProducts);
+    if (itemLocalStorage) {
+      return JSON.parse(itemLocalStorage);
+    }
+    return [];
+  }
+
+  putSortProducts(value: ProductsInterfase[]): ProductsInterfase[] {
+    const sortProducts: ProductsInterfase[] = this.getSortProducts();
+    sortProducts.splice(0, 21);
+    value.forEach((el) => {
+      sortProducts.push(el);
+    });
+    localStorage.setItem(this.keySortProducts, JSON.stringify(sortProducts));
+    return sortProducts;
   }
 
   getProducts(): FilterInterfase<string | number>[] {
@@ -74,6 +101,21 @@ class LocalStorage {
     company[key] = value;
     localStorage.setItem(this.keyFilter, JSON.stringify(company));
     return company;
+  }
+
+  getFilterSort(): string {
+    const itemLocalStorage: string | null = localStorage.getItem(this.keyFilterSort);
+    if (itemLocalStorage) {
+      return JSON.parse(itemLocalStorage);
+    }
+    return '';
+  }
+
+  putFilterSort(value: string): string {
+    let filterSort: string = this.getFilterSort();
+    filterSort = value;
+    localStorage.setItem(this.keyFilterSort, JSON.stringify(filterSort));
+    return filterSort;
   }
 
   getText(): string {

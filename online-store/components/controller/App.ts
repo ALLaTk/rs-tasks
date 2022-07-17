@@ -1,11 +1,8 @@
-import products from '../../server/products.json';
 import AppModel from '../model/AppModel';
 import localStore from '../localStorage/LocalStorage';
 
 class App extends AppModel {
   model: AppModel;
-
-  // products: ProductsInterfase[];
 
   constructor() {
     super();
@@ -28,14 +25,20 @@ class App extends AppModel {
     this.renderCompany();
     this.renderSliderPrice();
     this.renderSliderItem();
-    this.resetFiltersAndSettings();
+    this.resetFilters();
+    this.resetSettings();
   }
 
   renderSort(): void {
     const select = <HTMLSelectElement>document.querySelector('.select');
+    const sortStore: string = localStore.getFilterSort();
     select.onchange = () => {
+      localStore.putFilterSort(select.value);
       this.model.doSort(select.value);
     };
+    if (sortStore) {
+      select.value = sortStore;
+    } else select.value = '1';
   }
 
   renderSearch() {
@@ -196,8 +199,7 @@ class App extends AppModel {
     });
   }
 
-  resetFiltersAndSettings() {
-    const reset = <HTMLInputElement>document.querySelector('.reset-filters input');
+  private resetFiltersAndSettings() {
     const text = <HTMLInputElement>document.querySelector('.search-input');
     const popular = <HTMLInputElement>document.querySelector('.popular input');
     const company = <HTMLInputElement[]>[...document.querySelectorAll('.company input')];
@@ -209,40 +211,63 @@ class App extends AppModel {
     const sliderPrice = <HTMLInputElement[]>[...document.querySelectorAll('.container-price input[type="range"]')];
     const minPrice = <HTMLElement>document.querySelector('.min-price');
     const maxPrice = <HTMLElement>document.querySelector('.max-price');
-    reset.onclick = () => {
-      popular.checked = false;
-      this.model.findPopular(popular.checked);
-      localStore.putFilter(popular.name, popular.checked);
-      text.value = '';
-      this.model.findText(text.value);
-      localStore.putText(text.value);
-      company.forEach((elem: HTMLInputElement): void => {
-        localStore.putFilter(elem.name, false);
-        this.model.findCompany(elem.name, false);
-        elem.checked = false;
+    popular.checked = false;
+    this.model.findPopular(popular.checked);
+    localStore.putFilter(popular.name, popular.checked);
+    text.value = '';
+    this.model.findText(text.value);
+    localStore.putText(text.value);
+    company.forEach((elem: HTMLInputElement): void => {
+      localStore.putFilter(elem.name, false);
+      this.model.findCompany(elem.name, false);
+      elem.checked = false;
+    });
+    power.forEach((elem: HTMLInputElement): void => {
+      localStore.putFilter(elem.name, false);
+      this.model.findPower(elem.name, false);
+      elem.checked = false;
+    });
+    color.forEach((elem: HTMLInputElement): void => {
+      localStore.putFilter(elem.name, false);
+      this.model.findColor(elem.name, false);
+      elem.checked = false;
+    });
+    localStore.putSliderPrice('120', '520');
+    this.model.findPrice('120', '520');
+    sliderPrice[0].value = '120';
+    sliderPrice[1].value = '520';
+    minPrice.innerHTML = sliderPrice[0].value;
+    maxPrice.innerHTML = sliderPrice[1].value;
+    localStore.putSliderItems('1', '15');
+    this.model.findTotalItem('1', '15');
+    sliderItem[0].value = '1';
+    sliderItem[1].value = '15';
+    minItem.innerHTML = sliderItem[0].value;
+    maxItem.innerHTML = sliderItem[1].value;
+  }
+
+  resetFilters(): void {
+    const resetFilters = <HTMLInputElement>document.querySelector('.reset-filters input');
+    resetFilters.onclick = () => {
+      this.resetFiltersAndSettings();
+    };
+  }
+
+  resetSettings(): void {
+    const resetSettings = <HTMLInputElement>document.querySelector('.reset-setting input');
+    const buttons = <HTMLButtonElement[]>[...document.querySelectorAll('.button-card')];
+    const select = <HTMLSelectElement>document.querySelector('.select');
+    resetSettings.onclick = () => {
+      this.resetFiltersAndSettings();
+      this.view.drawHeader(0);
+      localStore.putItems('none');
+      select.value = '1';
+      localStore.putFilterSort(select.value);
+      this.model.doSort(select.value);
+      buttons.forEach((el) => {
+        el.classList.remove('active');
       });
-      power.forEach((elem: HTMLInputElement): void => {
-        localStore.putFilter(elem.name, false);
-        this.model.findPower(elem.name, false);
-        elem.checked = false;
-      });
-      color.forEach((elem: HTMLInputElement): void => {
-        localStore.putFilter(elem.name, false);
-        this.model.findColor(elem.name, false);
-        elem.checked = false;
-      });
-      localStore.putSliderPrice('120', '520');
-      this.model.findPrice('120', '520');
-      sliderPrice[0].value = '120';
-      sliderPrice[1].value = '520';
-      minPrice.innerHTML = sliderPrice[0].value;
-      maxPrice.innerHTML = sliderPrice[1].value;
-      localStore.putSliderItems('1', '15');
-      this.model.findTotalItem('1', '15');
-      sliderItem[0].value = '1';
-      sliderItem[1].value = '15';
-      minItem.innerHTML = sliderItem[0].value;
-      maxItem.innerHTML = sliderItem[1].value;
+      location.reload();
     };
   }
 }
