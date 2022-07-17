@@ -60,6 +60,8 @@ class AppModel {
       this.products.sort((a, b): number => (a.name < b.name ? 1 : -1));
     }
     localStore.putProducts(this.filters);
+    console.log(localStore.putProducts(this.filters));
+
     localStore.putSortProducts(this.products);
     this.view.drawCards(this.filterArray(this.products, this.filters));
   }

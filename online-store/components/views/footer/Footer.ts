@@ -1,5 +1,4 @@
 import './footer.scss';
-
 class Footer {
   render(): void {
     const footer = <HTMLElement>document.querySelector('footer');

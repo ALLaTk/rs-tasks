@@ -1,9 +1,5 @@
+/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 module.exports = {
-  roots: [
-    '<rootDir>/online-store',
-  ],
-  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.ts$',
-  moduleFileExtensions: [
-    'ts',
-  ],
+  preset: 'ts-jest',
+  testEnvironment: 'jsdom',
 };

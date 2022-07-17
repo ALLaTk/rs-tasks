@@ -35,7 +35,7 @@ class LocalStorage {
     return [];
   }
 
-  putItems(id: string) {
+  putItems(id: string): { pushProduct: boolean; products: string[] } {
     let products: string[] = this.getItems();
     let pushProduct = false;
     const index: number = products.indexOf(id);
@@ -80,7 +80,11 @@ class LocalStorage {
     return [];
   }
 
-  putProducts(value: FilterInterfase<string | number>) {
+  putProducts(
+    value: FilterInterfase<string | number>
+  ): {
+    [key: string]: FilterInterfase<string | number>[];
+  } {
     const products: FilterInterfase<string | number>[] = this.getProducts();
     products.splice(0, 1);
     products.push(value);
