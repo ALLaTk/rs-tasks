@@ -31,8 +31,14 @@ class AppModel {
     const sortProducts: ProductsInterfase[] = localStore.getSortProducts();
     if (filter.length && sortProducts.length) {
       this.view.drawCards(this.filterArray(sortProducts, filter[0]));
-      this.products = sortProducts;
       this.filters = filter[0];
+      this.products = sortProducts;
+    } else if (filter.length && !sortProducts.length) {
+      this.view.drawCards(this.filterArray(this.products, filter[0]));
+      this.filters = filter[0];
+    } else if (!filter.length && sortProducts.length) { 
+      this.view.drawCards(this.filterArray(sortProducts, this.filters));
+      this.products = sortProducts;
     } else {
       this.view.drawCards(this.filterArray(this.products, this.filters));
     }
