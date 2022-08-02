@@ -1,0 +1,132 @@
+.garage__inner {
+  padding-bottom: 80px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  .racing__line {
+    position: relative;
+    width: 100%;
+    height: 95px;
+    padding-bottom: 2px;
+    padding-right: 80px;
+    border-bottom: 2px dashed #c9a0a0;
+
+    .upgrate__btns {
+      padding-top: 5px;
+
+      .select-btn,
+      .remove-btn {
+        width: 70px;
+        height: 20px;
+        margin-right: 10px;
+        background-color: transparent;
+        color: #c9a0a0;
+        border: 1.5px solid #c9a0a0;
+        border-radius: 3px;
+        font-size: 14px;
+      }
+
+      button:hover {
+        background-color: #000000;
+        color: #db8282;
+        border-color: #db8282;
+      }
+
+      .model__car {
+        display: inline;
+        color: #c9a0a0;
+        font-weight: 700;
+        font-size: 16px;
+        padding-left: 40px;
+      }
+    }
+
+    .move__buttons {
+      padding-top: 5px;
+
+      .start__btn,
+      .stop__btn {
+        width: 35px;
+        height: 20px;
+        margin-right: 10px;
+        background-color: transparent;
+        color: #c9a0a0;
+        border: 1.5px solid #c9a0a0;
+        border-radius: 3px;
+      }
+
+      button:hover {
+        background-color: #000000;
+        color: #db8282;
+        border-color: #db8282;
+      }
+    }
+
+    .racing__car {
+      position: relative;
+      display: block;
+      width: 100px;
+      height: 40px;
+      -webkit-mask-image: url(../../assets/car1.svg);
+      mask-image: url(../../assets/car1.svg);
+      // background-color: #9ba9c7;
+
+      &:before {
+        display: block;
+        width: 100px;
+        height: 40px;
+        background-image: url(../../assets/car.svg);
+      }
+    }
+
+
+    .racing__flag {
+      position: absolute;
+      right: 100px;
+      bottom: 3px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.pages__btns {
+  display: flex;
+  justify-content: end;
+  margin-right: 80px;
+
+  .button__page {
+    color: #c9a0a0;
+    background-color: transparent;
+    width: 100px;
+    height: 30px;
+    margin-left: 30px;
+    margin-top: 10px;
+    border: 2px solid #c9a0a0;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  button:hover {
+    background-color: #000000;
+    color: #db8282;
+    border-color: #db8282;
+  }
+}
+
+.count__container {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #f54f4f;
+  font-size: 30px;
+  display: flex;
+  padding-bottom: 10px;
+
+  .count__car {
+    width: 184px;
+  }
+}
+
+path {
+  stroke: black;
+}
