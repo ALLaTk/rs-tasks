@@ -15,25 +15,15 @@ export const getCreateCar = async (name: string, color: string): Promise<void> =
 };
 
 export const getUpdateCar = async (name: string, color: string, id: number): Promise<void> => {
-  await getApiQueryMethod(
-    methods.update,
-    `${path.garage}/${id}`,
-    {
-      name: name,
-      color: color,
-    },
-    id
-  );
+  await getApiQueryMethod(methods.update, `${path.garage}/${id}`, {
+    name: name,
+    color: color,
+  });
 };
 
 export const deleteCar = async (name: string, color: string, id: number): Promise<void> => {
-  await getApiQueryMethod(
-    methods.delete,
-    `${path.garage}/${id}`,
-    {
-      name: name,
-      color: color,
-    },
-    id
-  );
+  await getApiQueryMethod(methods.delete, `${path.garage}/${id}`, {
+    name: name,
+    color: color,
+  });
 };

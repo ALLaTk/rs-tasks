@@ -23,15 +23,10 @@ export const updateWinner = async (id: number, time: number): Promise<void> => {
   const data: ObjectValue<number>[] = await response.json();
   const dataId = data.map((el: ObjectValue<number>) => el.id);
   if (dataId.indexOf(id) >= 0) {
-    getApiQueryMethod(
-      methods.update,
-      `${path.winners}/${id}`,
-      {
-        wins: data[dataId.indexOf(id)].wins + 1,
-        time: time < data[dataId.indexOf(id)].time ? time : data[dataId.indexOf(id)].time,
-      },
-      id
-    );
+    getApiQueryMethod(methods.update, `${path.winners}/${id}`, {
+      wins: data[dataId.indexOf(id)].wins + 1,
+      time: time < data[dataId.indexOf(id)].time ? time : data[dataId.indexOf(id)].time,
+    });
   } else {
     createWinner(id, time);
   }

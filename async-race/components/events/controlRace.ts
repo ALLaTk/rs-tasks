@@ -49,7 +49,7 @@ const createRace = () => {
                 renderMessageWiner((<ObjectCar>value).name, time);
                 updateWinner((<ObjectCar>value).id, +time);
               }
-              setTimeout(() => renderWinnersPanel(), 1000);
+              setTimeout(() => renderWinnersPanel(), 5000);
               break;
             }
           }

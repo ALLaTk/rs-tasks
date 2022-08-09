@@ -21,12 +21,7 @@ export const methods: ObjectValue<string> = {
   engineStatus: 'PATCH',
 };
 
-export const getApiQueryMethod = async (
-  methodName: string,
-  pathParam: string,
-  body: ValueType,
-  id?: number
-): Promise<ValueType> => {
+export const getApiQueryMethod = async (methodName: string, pathParam: string, body: ValueType): Promise<ValueType> => {
   const fullPath = `${url}${pathParam}`;
   const response: Response = await fetch(fullPath, {
     method: methodName,

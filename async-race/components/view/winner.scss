@@ -117,14 +117,18 @@
 
 @media (max-width: 600px) {
   .winners__content {
-    width: 415px;
+    width: 403px;
+    margin-left: 0px;
     
   }
- .winners__content .list-content .list-winner {
+  .winners__content .count__container {
+    font-size: 22px;
+  }
+  .winners__content .list-content .list-winner {
    width: 380px;
- }
- .winners__content .list-content .list-winner .racing__car.winner{
-  width: 63px;
-  height: 23px;
- }
+  }
+  .winners__content .list-content .list-winner .racing__car.winner{
+    width: 63px;
+    height: 23px;
+  }
 }

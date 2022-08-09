@@ -4,7 +4,7 @@ import { modalWindowWinner } from './messageWinner';
 import togglePanel from './togglePanel';
 import { renderheaderWinner, renderHeaderWinnersPanel, renderWinnersPanel, winnerPanel } from './winner';
 
-export const mainBlock = createDivElement('main__block')
+export const mainBlock = createDivElement('main__block');
 
 export const renderAllContent = () => {
   renderRacingLine();

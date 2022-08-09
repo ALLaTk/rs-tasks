@@ -43,7 +43,7 @@ export const renderHeaderWinnersPanel = () => {
   blockPanelWinner.append(titleTime);
 };
 
-export const renderWinnersPanel = (): void => {
+export const renderWinnersPanel = async () => {
   blockPanelList.innerHTML = '';
   let numberList = 0;
   const winners: Promise<ValueType[]> = getAllWinners(valueSort, paramSort);

@@ -133,3 +133,10 @@
 path {
   stroke: black;
 }
+
+@media (max-width: 600px) {
+  .garage__inner .racing__line .upgrate__btns .model__car{
+    font-size: 14px;
+    padding-left: 10px;
+  }
+}
