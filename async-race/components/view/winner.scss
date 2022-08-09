@@ -1,0 +1,116 @@
+.winners__content {
+  display: none;
+  width: 500px;
+  height: 200px;
+  margin-left: 10px;
+  margin-top: 25px;
+    .count__container {
+      margin-left: 10px;
+      margin-right: 10px;
+      color: #f54f4f;
+      font-size: 25px;
+      font-weight: 700;
+      display: flex;
+      padding-bottom: 10px;
+    
+    .count__winner {
+      width: 35%;
+    }
+  }
+
+  .winner__panel.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: #db8282;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-left: 15px;
+    .title.car {
+      width: 100px;
+    }
+    .title.model {
+      width: 160px;
+      padding-left: 20px;
+    }
+    .title.wins {
+      width: 100px;
+      cursor: pointer;
+    }
+    .title.time {
+      cursor: pointer;
+      width: 100px;
+    }
+  }
+
+  .list-content {
+    .list {
+      width: 100px;
+    }
+    .list-winner {
+      display: flex;
+      text-align: center;
+      align-items: center;
+      color: #e2dede;
+      font-size: 16px;
+      margin-top: 10px;
+      margin-left: 15px;
+      column-gap: 20px;
+      font-weight: 700;
+      width: 465px;
+      .number {
+        width: 55px;
+      }
+    .racing__car.winner {
+      position: relative;
+      display: flex;
+      width: 65px;
+      height: 35px;
+      margin: 0 5px;
+      -webkit-mask-size: contain;
+       mask-size: contain;
+      -webkit-mask-image: url(../../assets/car.svg);
+       mask-image: url(../../assets/car.svg);
+    }
+    .model {
+      width: 150px;
+    }
+    .wins {
+      width: 50px;
+      padding-right: 15px;
+    }
+    .time {
+      width: 70px;
+      padding-left: 8px;
+    }
+  }
+}
+  .pages__btns {
+    margin-right: 0px;
+    margin-bottom: 20px;
+    .button__page-winners {
+      color: #c9a0a0;
+      background-color: transparent;
+      width: 100px;
+      height: 30px;
+      margin-left: 30px;
+      margin-top: 10px;
+      border: 2px solid #c9a0a0;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background-color: #000000;
+      color: #db8282;
+      border-color: #db8282;
+    }
+
+    button.active {
+      background-color: #000000;
+      color: #db8282;
+      border-color: #db8282;
+    }
+  }
+}
