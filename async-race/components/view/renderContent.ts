@@ -1,7 +1,10 @@
+import { createDivElement } from '../utilities/createHTMLElements';
 import { garageContent, renderRacingLine } from './garage';
 import { modalWindowWinner } from './messageWinner';
 import togglePanel from './togglePanel';
 import { renderheaderWinner, renderHeaderWinnersPanel, renderWinnersPanel, winnerPanel } from './winner';
+
+export const mainBlock = createDivElement('main__block')
 
 export const renderAllContent = () => {
   renderRacingLine();
@@ -9,7 +12,9 @@ export const renderAllContent = () => {
   renderHeaderWinnersPanel();
   renderWinnersPanel();
 };
-document.body.append(modalWindowWinner);
-document.body.append(togglePanel);
-document.body.append(winnerPanel);
-document.body.append(garageContent);
+
+mainBlock.append(modalWindowWinner);
+mainBlock.append(togglePanel);
+mainBlock.append(winnerPanel);
+mainBlock.append(garageContent);
+document.body.append(mainBlock);

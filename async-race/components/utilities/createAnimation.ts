@@ -1,3 +1,4 @@
+import { mainBlock } from '../view/renderContent';
 import { ObjectValue } from './interface';
 
 export const idAnimation: ObjectValue<number> = {};
@@ -10,7 +11,7 @@ export const createAnimation = (
   const requestID: ObjectValue<number> = {};
   let startValue: number | null = null;
   const timeAnimation: number = distance / velocity;
-  const gap: number = Math.floor(document.body.getBoundingClientRect().width) - 200;
+  const gap: number = Math.floor(mainBlock.getBoundingClientRect().width) - 140;
 
   const step = (timeStep: number): void => {
     if (!startValue) startValue = timeStep;

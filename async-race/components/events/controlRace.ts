@@ -7,6 +7,7 @@ import { updateWinner } from '../API/queryApiForWinners';
 import { renderWinnersPanel } from '../view/winner';
 import { disableButton, enableButton, getAllBtns } from '../utilities/enableOrDisableButton';
 import { isFilled } from '../utilities/interface';
+import { mainBlock } from '../view/renderContent';
 
 export const raceBtn: HTMLButtonElement = createButton('control-line__race', 'RACE');
 export const resetBtn: HTMLButtonElement = createButton('control-line__reset active', 'RESET');
@@ -33,7 +34,7 @@ const createRace = () => {
           <number>res.distance
         );
         const time: string = (<number>res.distance / <number>res.velocity / 1000).toFixed(3);
-        const gap: number = Math.floor(document.body.getBoundingClientRect().width) - 200;
+        const gap: number = Math.floor(mainBlock.getBoundingClientRect().width) - 140;
         getStatusDrive((<ObjectCar>value).id).then((status) => {
           if (status === StatusError.brokeDown) {
             window.cancelAnimationFrame(requestID.id);
