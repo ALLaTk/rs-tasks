@@ -11,7 +11,6 @@ import { isFilled } from '../utilities/interface';
 export const raceBtn: HTMLButtonElement = createButton('control-line__race', 'RACE');
 export const resetBtn: HTMLButtonElement = createButton('control-line__reset active', 'RESET');
 let resultRace: Array<number[]> = [];
-const gap: number = Math.floor(document.body.getBoundingClientRect().width) - 200;
 
 export const pushCarArrays = (carsDiv: HTMLDivElement, carsObj: ObjectCar): void => {
   objArrsCar.arrCarsElements.push(carsDiv);
@@ -34,6 +33,7 @@ const createRace = () => {
           <number>res.distance
         );
         const time: string = (<number>res.distance / <number>res.velocity / 1000).toFixed(3);
+        const gap: number = Math.floor(document.body.getBoundingClientRect().width) - 200;
         getStatusDrive((<ObjectCar>value).id).then((status) => {
           if (status === StatusError.brokeDown) {
             window.cancelAnimationFrame(requestID.id);
@@ -48,9 +48,7 @@ const createRace = () => {
                 renderMessageWiner((<ObjectCar>value).name, time);
                 updateWinner((<ObjectCar>value).id, +time);
               }
-              setTimeout(() => {
-                renderWinnersPanel();
-              }, 1000);
+              setTimeout(() => renderWinnersPanel(), 1000);
               break;
             }
           }
