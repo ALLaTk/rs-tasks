@@ -1,9 +1,9 @@
 import './racingControlPanel.scss';
 import { createDivElement } from '../utilities/createHTMLElements';
-import { inputCreateModel, inputCreateColor, createBtnCreateCar } from '../events/controlCreateCar';
+import { inputCreateModel, inputCreateColor, createBtnForCreateCar } from '../events/controlCreateCar';
 import { inputUpdateModel, inputUpdateColor, createBtnUpdateCar } from '../events/controlUpdateCar';
 import createGenerate100CarsBtn from '../events/generate100Cars';
-import { createRaceBtn, createResetBtn } from '../events/controlRace';
+import { raceBtn, resetBtn } from '../events/controlRace';
 
 const carUpdateLine: HTMLDivElement = createDivElement('racing-desk update');
 const carCreateLine: HTMLDivElement = createDivElement('racing-desk create');
@@ -16,10 +16,10 @@ carUpdateLine.append(createBtnUpdateCar());
 
 carCreateLine.append(inputCreateModel);
 carCreateLine.append(inputCreateColor);
-carCreateLine.append(createBtnCreateCar());
+carCreateLine.append(createBtnForCreateCar());
 
-racingControlLine.append(createRaceBtn());
-racingControlLine.append(createResetBtn());
+racingControlLine.append(resetBtn);
+racingControlLine.append(raceBtn);
 racingControlLine.append(createGenerate100CarsBtn());
 
 racingPanel.append(carCreateLine);

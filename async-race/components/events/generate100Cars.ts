@@ -1,22 +1,21 @@
+import { getCreateCar } from '../API/queryAPIForGarage';
 import { createButton } from '../utilities/createHTMLElements';
+import { disableButton, enableButton } from '../utilities/enableOrDisableButton';
 import getRandomColorlCar from '../utilities/getRandomColorCar';
 import getRandomFullNameCar from '../utilities/getRandomModelCar';
-import { getCreateCar } from '../API/queryAPIForGarage';
+import { ValueCounts } from '../utilities/interface';
 import { renderRacingLine } from '../view/garage';
-import { valueCounts, activeClass } from '../utilities/variables';
 
 const createGenerate100CarsBtn = (): HTMLButtonElement => {
   const createGenerateCarsBtn: HTMLButtonElement = createButton('control-line__generate', 'GENERATE CARS');
   createGenerateCarsBtn.onclick = () => {
-    createGenerateCarsBtn.disabled = true;
-    createGenerateCarsBtn.classList.add(activeClass);
-    for (let i = 0; i < valueCounts.maxGenerateCars; i += 1) {
+    disableButton([createGenerateCarsBtn]);
+    for (let i = 0; i < ValueCounts.numberGenerateCars; i += 1) {
       getCreateCar(getRandomFullNameCar(), getRandomColorlCar());
     }
     setTimeout(() => {
       renderRacingLine();
-      createGenerateCarsBtn.disabled = false;
-      createGenerateCarsBtn.classList.remove(activeClass);
+      enableButton([createGenerateCarsBtn]);
     }, 1500);
   };
   return createGenerateCarsBtn;

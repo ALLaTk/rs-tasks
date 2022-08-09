@@ -36,6 +36,7 @@
     color: #db8282;
     border-color: #db8282;
   } 
+
 } 
 
 .update {
@@ -77,6 +78,11 @@
     color: #db8282;
     border-color: #db8282;
   } 
+    button.active {
+    background-color: #000000;
+    color: #db8282;
+    border-color: #db8282;
+  }
 }
 
 .create {
@@ -119,6 +125,11 @@
   }
 
   button:hover {
+    background-color: #000000;
+    color: #db8282;
+    border-color: #db8282;
+  }
+    button.active {
     background-color: #000000;
     color: #db8282;
     border-color: #db8282;

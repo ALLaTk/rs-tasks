@@ -1,7 +1,14 @@
-import { getApiQueryMethod, path, method } from './queryAPIMethod';
+import { ValueType } from '../utilities/interface';
+import { getApiQueryMethod, path, methods, url } from './queryAPIMethod';
+
+export const getCar = async (id: number): Promise<ValueType> => {
+  const response: Response = await fetch(`${url}${path.garage}/${id}`);
+  const data: ValueType = await response.json();
+  return data;
+};
 
 export const getCreateCar = async (name: string, color: string): Promise<void> => {
-  await getApiQueryMethod(method.create, path.garage, {
+  await getApiQueryMethod(methods.create, path.garage, {
     name: name,
     color: color,
   });
@@ -9,8 +16,8 @@ export const getCreateCar = async (name: string, color: string): Promise<void> =
 
 export const getUpdateCar = async (name: string, color: string, id: number): Promise<void> => {
   await getApiQueryMethod(
-    method.update,
-    path.garage,
+    methods.update,
+    `${path.garage}/${id}`,
     {
       name: name,
       color: color,
@@ -19,10 +26,10 @@ export const getUpdateCar = async (name: string, color: string, id: number): Pro
   );
 };
 
-export const getDeleteCar = async (name: string, color: string, id: number): Promise<void> => {
+export const deleteCar = async (name: string, color: string, id: number): Promise<void> => {
   await getApiQueryMethod(
-    method.delete,
-    path.garage,
+    methods.delete,
+    `${path.garage}/${id}`,
     {
       name: name,
       color: color,

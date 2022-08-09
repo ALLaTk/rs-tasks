@@ -2,7 +2,6 @@
   padding-bottom: 80px;
   padding-left: 10px;
   padding-right: 10px;
-
   .racing__line {
     position: relative;
     width: 100%;
@@ -10,10 +9,8 @@
     padding-bottom: 2px;
     padding-right: 80px;
     border-bottom: 2px dashed #c9a0a0;
-
     .upgrate__btns {
       padding-top: 5px;
-
       .select-btn,
       .remove-btn {
         width: 70px;
@@ -25,13 +22,16 @@
         border-radius: 3px;
         font-size: 14px;
       }
-
       button:hover {
         background-color: #000000;
         color: #db8282;
         border-color: #db8282;
       }
-
+       button.active {
+        background-color: #000000;
+        color: #db8282;
+        border-color: #db8282;
+      }
       .model__car {
         display: inline;
         color: #c9a0a0;
@@ -60,6 +60,11 @@
         color: #db8282;
         border-color: #db8282;
       }
+      button.active {
+        background-color: #000000;
+        color: #db8282;
+        border-color: #db8282;
+      }
     }
 
     .racing__car {
@@ -67,16 +72,8 @@
       display: block;
       width: 100px;
       height: 40px;
-      -webkit-mask-image: url(../../assets/car1.svg);
-      mask-image: url(../../assets/car1.svg);
-      // background-color: #9ba9c7;
-
-      &:before {
-        display: block;
-        width: 100px;
-        height: 40px;
-        background-image: url(../../assets/car.svg);
-      }
+      -webkit-mask-image: url(../../assets/car.svg);
+      mask-image: url(../../assets/car.svg);
     }
 
 
@@ -94,6 +91,7 @@
   display: flex;
   justify-content: end;
   margin-right: 80px;
+  margin-bottom: 10px;
 
   .button__page {
     color: #c9a0a0;
@@ -108,6 +106,11 @@
   }
 
   button:hover {
+    background-color: #000000;
+    color: #db8282;
+    border-color: #db8282;
+  }
+    button.active {
     background-color: #000000;
     color: #db8282;
     border-color: #db8282;
@@ -130,3 +133,4 @@
 path {
   stroke: black;
 }
+

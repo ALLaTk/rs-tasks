@@ -1,10 +1,11 @@
 import { createButton, createInput } from '../utilities/createHTMLElements';
 import { getCreateCar } from '../API/queryAPIForGarage';
 import { renderRacingLine } from '../view/garage';
-import { initalValuesForInput } from '../utilities/variables';
+import { InitalValuesForInput } from '../utilities/interface';
+import { inputUpdateModel, inputUpdateColor } from './controlUpdateCar';
 
-let modelCreateCar: string = initalValuesForInput.modelCar;
-let colorCreateCar: string = initalValuesForInput.colorCar;
+let modelCreateCar: string = InitalValuesForInput.modelCar;
+let colorCreateCar: string = InitalValuesForInput.colorCar;
 
 export const inputCreateModel: HTMLInputElement = createInput(
   modelCreateCar,
@@ -12,6 +13,7 @@ export const inputCreateModel: HTMLInputElement = createInput(
   'text',
   'text'
 );
+
 inputCreateModel.oninput = () => {
   modelCreateCar = inputCreateModel.value;
 };
@@ -22,21 +24,24 @@ export const inputCreateColor: HTMLInputElement = createInput(
   'color',
   'color'
 );
+
 inputCreateColor.oninput = () => {
   colorCreateCar = inputCreateColor.value;
 };
 
-export const createBtnCreateCar = (): HTMLButtonElement => {
+export const createBtnForCreateCar = (): HTMLButtonElement => {
   const createCarBtn: HTMLButtonElement = createButton('create__btn', 'CREATE');
   createCarBtn.onclick = async () => {
-    inputCreateColor.value = initalValuesForInput.colorCar;
-    inputCreateModel.value = initalValuesForInput.modelCar;
+    inputCreateColor.value = InitalValuesForInput.colorCar;
+    inputUpdateModel.value = InitalValuesForInput.modelCar;
+    inputCreateModel.value = InitalValuesForInput.modelCar;
+    inputUpdateColor.value = InitalValuesForInput.colorCar;
     await getCreateCar(modelCreateCar, colorCreateCar);
     (async () => {
       renderRacingLine();
     })();
-    modelCreateCar = initalValuesForInput.modelCar;
-    colorCreateCar = initalValuesForInput.colorCar;
+    modelCreateCar = InitalValuesForInput.modelCar;
+    colorCreateCar = InitalValuesForInput.colorCar;
   };
   return createCarBtn;
 };

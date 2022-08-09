@@ -1,37 +1,32 @@
 import './garage.scss';
-import { createDivElement, createButton } from '../utilities/createHTMLElements';
-import { ObjectCar } from '../utilities/interface';
+import { createDivElement } from '../utilities/createHTMLElements';
+import { objArrsCar, ObjectCar } from '../utilities/interface';
 import { url, path } from '../API/queryAPIMethod';
 import { createSelectCarButton, createRemoveCarButton } from '../events/controlChangeCar';
+import { createMoveButton } from '../events/controlMoveCar';
+import racingPanel from './racingControlPanel';
+import togglePanel from './togglePanel';
+import { pushCarArrays } from '../events/controlRace';
+import { countPageGarge, nextPageBtnGarage, prevPageBtnGarage } from '../events/controlPage';
 
-export const pagesContentBtn = createDivElement('pages__btns');
-export const nextPageButton = createButton('button__page', 'NEXT');
-export const prevPageButton = createButton('button__page', 'PREV');
-
-export const countContainer = createDivElement('count__container');
-export const garageInner = createDivElement('garage__inner');
-
-const renderCars = (color: string): HTMLDivElement => {
-  const car: HTMLDivElement = createDivElement('racing__car');
+export const pagesContentBtn: HTMLDivElement = createDivElement('pages__btns');
+export const countContainer: HTMLDivElement = createDivElement('count__container');
+export const garageInner: HTMLDivElement = createDivElement('garage__inner');
+export const garageContent: HTMLDivElement = createDivElement('garage__content');
+export const renderCars = (color: string): HTMLDivElement => {
+  const car: HTMLDivElement = createDivElement('racing__car winner');
   car.style.background = color;
   return car;
 };
 
-const createStartButton = () => {
-  const startBtn = createButton('start__btn', 'A');
-  return startBtn;
-};
-
-const createStopButton = () => {
-  const stopBtn = createButton('stop__btn', 'B');
-  return stopBtn;
-};
-
-const renderMoveCarBtnsAndModelCar = (): HTMLDivElement => {
-  const moveButtos: HTMLDivElement = createDivElement('move__buttons');
-  moveButtos.append(createStartButton());
-  moveButtos.append(createStopButton());
-  return moveButtos;
+const renderMoveCarBtns = (carObj: ObjectCar, carDiv: HTMLDivElement): HTMLDivElement => {
+  const moveButtosBlock: HTMLDivElement = createDivElement('move__buttons');
+  const moveBtns: {
+    [key: string]: HTMLButtonElement;
+  } = createMoveButton(carObj, carDiv);
+  moveButtosBlock.append(moveBtns.stopBtn);
+  moveButtosBlock.append(moveBtns.startBtn);
+  return moveButtosBlock;
 };
 
 const renderSelectAndRemoveBtn = (car: ObjectCar, model: string): HTMLDivElement => {
@@ -56,23 +51,26 @@ const renderPageCount = (pageNumber: number): HTMLDivElement => {
   return countPage;
 };
 
-let countPag = 1;
-
 export const renderRacingLine = async () => {
+  objArrsCar.arrCarsElements = [];
+  objArrsCar.arrCarsObjects = [];
+  objArrsCar.arrAllCars = [];
   garageInner.innerHTML = '';
   countContainer.innerHTML = '';
-  const response2 = await fetch(`${url}${path.garage}`);
-  const data2 = await response2.json();
-  const response: Response = await fetch(`http://localhost:3000/garage?_limit=7&_page=${countPag}`);
-  const data = await response.json();
-  const countCar = renderCountTotalCars(data2.length);
-  const countPage = renderPageCount(countPag);
-  for (let i = 0; i < data.length; i++) {
-    const car = renderCars(data[i].color);
-    const moveCarBtns = renderMoveCarBtnsAndModelCar();
-    const upgrateCar = renderSelectAndRemoveBtn(data[i], data[i].name);
-    const racingLine = createDivElement('racing__line');
-    const flag = document.createElement('img');
+  const responseGarage: Response = await fetch(`${url}${path.garage}`);
+  const garage: ObjectCar[] = await responseGarage.json();
+  const responseGarageLimit: Response = await fetch(
+    `${url}${path.garage}${path.limitCarsOnPageGarage}${countPageGarge}`
+  );
+  const garageLimit: ObjectCar[] = await responseGarageLimit.json();
+  const countCar: HTMLDivElement = renderCountTotalCars(garage.length);
+  const countCarsOnCarage: HTMLDivElement = renderPageCount(countPageGarge);
+  for (let i = 0; i < garageLimit.length; i++) {
+    const car: HTMLDivElement = renderCars(garageLimit[i].color);
+    const moveCarBtns: HTMLDivElement = renderMoveCarBtns(garageLimit[i], car);
+    const upgrateCar: HTMLDivElement = renderSelectAndRemoveBtn(garageLimit[i], garageLimit[i].name);
+    const racingLine: HTMLDivElement = createDivElement('racing__line');
+    const flag: HTMLImageElement = document.createElement('img');
     flag.className = 'racing__flag';
     flag.src = './assets/flag.svg';
     racingLine.append(upgrateCar);
@@ -80,21 +78,16 @@ export const renderRacingLine = async () => {
     racingLine.append(car);
     racingLine.append(flag);
     garageInner.append(racingLine);
+    pushCarArrays(car, garageLimit[i]);
   }
   countContainer.append(countCar);
-  countContainer.append(countPage);
-  document.body.append(countContainer);
-  document.body.append(garageInner);
+  countContainer.append(countCarsOnCarage);
+  garageContent.append(countContainer);
+  garageContent.append(garageInner);
 };
 
-prevPageButton.onclick = () => {
-  if (countPag > 1) {
-    countPag -= 1;
-    renderRacingLine();
-  }
-};
-
-nextPageButton.onclick = () => {
-  countPag += 1;
-  renderRacingLine();
-};
+garageContent.append(togglePanel);
+garageContent.append(racingPanel);
+pagesContentBtn.append(prevPageBtnGarage);
+pagesContentBtn.append(nextPageBtnGarage);
+garageContent.append(pagesContentBtn);
