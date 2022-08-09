@@ -114,3 +114,17 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .winners__content {
+    width: 415px;
+    
+  }
+ .winners__content .list-content .list-winner {
+   width: 380px;
+ }
+ .winners__content .list-content .list-winner .racing__car.winner{
+  width: 63px;
+  height: 23px;
+ }
+}
