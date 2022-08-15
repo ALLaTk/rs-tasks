@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Presentation</title>
+		<link rel="stylesheet" href="./reset.css">
+		<link rel="stylesheet" href="./reveal.css">
+		<link rel="stylesheet" href="./black.css">
+		<link rel="stylesheet" href="./monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section> 
+         JavaScript is a single-threaded programming language
+        </section>
+        <section>
+          <pre><code data-trim data-noescape>
+            function getValue(value) {
+              console.log(value);
+            }
+            
+            getValue('Start');
+            getValue('Getting something');
+            getValue('Finish');
+            
+            // Start
+            // Getting something
+            // Finish           
+          </code></pre>
+        </section>
+        <section>
+          <pre><code data-trim data-noescape>
+            function getValue(value) {
+              const timeout = Math.floor(Math.random() * 100);
+              setTimeout(() => console.log(value), timeout);
+            }
+            
+            getValue('Start');
+            getValue('Getting something');
+            getValue('Finish');
+            
+            // Start
+            // Finish
+            // Getting something           
+          </code></pre>
+        </section>
+        <section>
+          <ul>
+            <h4>Style types of asynchronous code:</h4>
+            <li>Callbacks</li>
+            <li>Promises</li>
+            <li>Async/await</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+          <h4>Сallback</h4>
+          <div></div>
+           A callback function (or callback) is a function passed to another function as an argument, which is then called upon completion of an action.
+          </section>
+          <section><pre><code data-trim data-noescape>
+            function getValue(value, callback) {
+              const timeout = Math.floor(Math.random() * 100);
+              setTimeout(() => {
+                console.log(value);
+                callback();
+              }, timeout);
+            }
+            
+            getValue('Start', () => {
+              getValue('Getting something', () => {
+                getValue('Finish', () => {})
+              })
+            });
+           
+            // Start
+            // Getting something
+            // Finish   
+          </code></pre>
+          </section>
+          <section><img src="./hell.png" alt="code"></section>
+        </section>
+        <section>
+          <section>
+            <h4>Promise</h4>
+            <div></div>
+            A Promise is an object representing the eventual completion or failure of an asynchronous operation. 
+          </section>
+          <section><img src="./state.png" alt="code"></section>
+          <section><pre><code data-trim data-noescape><script type="text/template">
+            function getValue(value) {
+              return new Promise((resolve, reject) => {
+                const timeout = Math.floor(Math.random() * 100);
+                setTimeout(() => {
+                  if (timeout < 90) {
+                    console.log(value);
+                    resolve();
+                  }
+                  reject();
+                }, timeout);
+              })
+            }
+            
+            getValue('Start')
+                .then(() => getValue('Getting something'))
+                .then(() => getValue('Finish'))
+                .catch(() => console.log('Too long. Try again!'))
+                .finally(() => console.log('Done!'));
+
+            // Successful completion:      Ending with an error:
+            // Start                       Start
+            // Getting something           Too long. Try again!
+            // Finish                      Done!
+            // Done!
+          </script></code></pre></section>
+        </section>
+        <section>
+          <section>
+            <h4>Async / await</h4>
+            <div></div>
+            Async/await is special syntax for working with promis
+          </section>
+          <section><pre><code data-trim data-noescape><script type="text/template">
+            function getValue(value) {
+              return new Promise((resolve, reject) => {
+                const timeout = Math.floor(Math.random() * 100);
+                setTimeout(() => {
+                  if (timeout < 90) {
+                    console.log(value);
+                    resolve();
+                  }
+                  reject();
+                }, timeout);
+              })
+            }
+            
+           async function getValueAll() {
+              try {
+                await getValue('Start');
+                await getValue('Getting something');
+                await getValue('Finish');
+              } catch(err) {
+                console.log('Too long. Try again');
+              }
+            }
+            
+            getValueAll();
+          </script></code></pre></section>
+        </section>
+      </div>
+		</div>
+
+		<script src="./reveal.js"></script>
+		<script src="./notes.js"></script>
+		<script src="./markdown.js"></script>
+		<script src="./highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
