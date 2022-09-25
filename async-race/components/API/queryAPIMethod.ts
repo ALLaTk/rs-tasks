@@ -1,6 +1,6 @@
 import { ObjectValue, ValueType } from '../utilities/interface';
 
-export const url = 'http://127.0.0.1:3000';
+export const url = 'https://api-race.onrender.com';
 
 export const path: ObjectValue<string> = {
   garage: '/garage',
